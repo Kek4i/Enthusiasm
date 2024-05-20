@@ -21,17 +21,22 @@
           <router-link class="container__navigation__item__list__links" to="/">Форум</router-link>
         </li>
       </ul>
-      <button>Личный кабинет</button>
+      <button class="container__navigation__item__button">Личный кабинет</button>
     </nav>
   </header>
 </template>
 
 <style scoped>
 
+a{
+  color: inherit;
+  text-decoration: none;
+}
+
 .container__navigation{
   padding: 24px 10px;
   max-width: 1316px;
-  width: 100px;
+  width: 100%;
   margin-inline: auto;
   display: flex;
   flex-direction: row;
@@ -88,6 +93,10 @@ button{
   line-height: normal;
   text-transform: uppercase;
   cursor: pointer;
+}
+
+.container__navigation__item__button{
+  max-width: 222px;
 }
 
 </style>
