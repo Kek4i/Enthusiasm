@@ -3,36 +3,46 @@
     <section class="page">
       <div class="page__container">
         <div class="page__container__slider">
-          <div class="page__container__slider__slideContainer">
+          <div class="slideContainer">
             <div
                 v-for="(slide, index) in slides"
                 :key="index"
                 :class="['slide', { active: index === currentSlide }]"
             >
-              <div class="page__container__slider__slideContainer__info">
-                <div class="page__container__slider__slideContainer__title">{{ slide.title }}</div>
-                <div class="page__container__slider__slideContainer__description">{{ slide.description }}</div>
-                <div class="page__container__slider__slideContainer__buttons">
-                  <router-link to="/play" class="custom-button">
-                    Играть
-                  </router-link>
-                  <router-link to="/servers" class="custom-button">
-                    Подробнее
-                  </router-link>
+              <div class="info">
+                <div class="title">{{ slide.title }}</div>
+                <div class="description">{{ slide.description }}</div>
+                <div class="buttons">
+                  <router-link to="/play" class="custom-button">Начать играть</router-link>
+                  <router-link :to="serverLinks[currentSlide]" class="custom-button more-button">Подробнее</router-link>
                 </div>
               </div>
-              <div class="page__container__slider__slideContainer__image">
+              <div class="image">
                 <img :src="slide.image" :alt="slide.title" />
               </div>
             </div>
           </div>
-          <div class="page__container__slider__slideNav">
+          <div class="slideNav">
             <button
                 v-for="(slide, index) in slides"
                 :key="index"
                 @click="setSlide(index)"
                 :class="{ active: index === currentSlide }"
             ></button>
+          </div>
+        </div>
+        <div class="monitoring">
+          <div class="monitoring-container">
+            <div class="page-container-title">
+              <h2 class="page-title">Мониторинг</h2>
+              <div class="page-line"></div>
+            </div>
+            <div class="monitoring-online">
+
+            </div>
+          </div>
+          <div class="serversContainer">
+
           </div>
         </div>
       </div>
@@ -47,6 +57,7 @@
   margin-inline: auto;
   display: flex;
   width: 100%;
+  padding: 0 16px;
 }
 
 .page {
@@ -67,7 +78,7 @@
   width: 100%;
 }
 
-.page__container__slider__slideContainer {
+.slideContainer {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -75,6 +86,8 @@
   overflow: hidden;
   width: 100%;
   position: relative;
+  padding: 16px;
+  box-sizing: border-box;
 }
 
 .slide {
@@ -86,7 +99,7 @@
   display: flex;
 }
 
-.page__container__slider__slideContainer__info {
+.info {
   display: flex;
   flex-direction: column;
   gap: 24px;
@@ -95,46 +108,46 @@
   align-items: flex-start;
 }
 
-.page__container__slider__slideContainer__image {
+.image {
   display: flex;
   justify-content: center;
   align-items: center;
   max-width: 50%;
-  margin-left: 50px;
+  margin-left: 40px;
 }
 
-.page__container__slider__slideContainer__image img {
+.image img {
   width: 660px;
   height: 373px;
   object-fit: cover;
   border-radius: 6px;
 }
 
-.page__container__slider__slideContainer__title {
+.title {
   color: #fff;
   font-size: 64px;
   font-weight: 800;
   text-transform: uppercase;
 }
 
-.page__container__slider__slideContainer__description {
+.description {
   color: #fff;
   font-size: 24px;
 }
 
-.page__container__slider__slideContainer__buttons {
+.buttons {
   display: flex;
   gap: 24px;
 }
 
-.page__container__slider__slideNav {
+.slideNav {
   display: flex;
-  padding: 32px 10px;
+  padding: 32px 16px;
   align-items: flex-start;
   gap: 24px;
 }
 
-.page__container__slider__slideNav button {
+.slideNav button {
   width: 70px;
   height: 16px;
   border-radius: 8px;
@@ -143,7 +156,7 @@
   border: initial;
 }
 
-.page__container__slider__slideNav button.active {
+.slideNav button.active {
   background: linear-gradient(132deg, rgb(255, 95, 109) 0%, rgb(255, 195, 113) 100%);
 }
 
@@ -154,22 +167,68 @@
   align-items: center;
   width: 100%;
   border-radius: 8px;
-  background: #ff9370;
+  background: linear-gradient(132deg, rgb(255, 95, 109) 0%, rgb(255, 195, 113) 100%);
   color: #fff;
   font-size: 16px;
-  font-style: normal;
   font-weight: 700;
-  line-height: normal;
   text-transform: uppercase;
   text-decoration: none;
+  white-space: nowrap;
+  transition: transform 0.3s ease;
 }
 
 .custom-button:hover {
-  background: #ff8261; /* Optionally add hover effects */
+  box-shadow: rgb(255, 147, 112) 0px 10px 15px -5px;
+  transform: scale(1.05);
 }
 
-.custom-button:active {
-  background: #ff7152; /* Optionally add active effects */
+.more-button {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.more-button:hover {
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: none;
+  transform: scale(1.05);
+}
+
+.monitoring{
+  width: 100%;
+  padding: 64px 96px;
+  flex-direction: column;
+  gap: 32px;
+  border-radius: 10px;
+  background: hsla(0, 0%, 100%, .05);
+}
+
+.monitoring-container{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.page-container-title{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.page-title{
+  color: #fff;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin: 0;
+}
+
+.page-line{
+  width: 64px;
+  height: 8px;
+  border-radius: 4px;
+  background: linear-gradient(132deg, #ff5f6d, #ffc371);
 }
 </style>
 
@@ -201,6 +260,13 @@ const slides = ref([
         'Сервер ставший классикой технологического Майнкрафта со всеми любимыми HiTech модами.',
     image: 'src/components/icons/hitech.webp',
   },
+]);
+
+const serverLinks = ref([
+  '/servers/hardtech',
+  '/servers/mif',
+  '/servers/indupgrade',
+  '/servers/hitech',
 ]);
 
 const currentSlide = ref(0);
