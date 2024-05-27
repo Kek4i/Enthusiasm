@@ -2,8 +2,8 @@
   <main class="main_content">
     <section class="page">
       <div class="page__container">
-        <div class="page__container__slider">
-          <div class="slideContainer">
+        <div class="page__slider">
+          <div class="slide-container">
             <div
                 v-for="(slide, index) in slides"
                 :key="index"
@@ -22,7 +22,7 @@
               </div>
             </div>
           </div>
-          <div class="slideNav">
+          <div class="slide-nav">
             <button
                 v-for="(slide, index) in slides"
                 :key="index"
@@ -38,11 +38,29 @@
               <div class="page-line"></div>
             </div>
             <div class="monitoring-online">
-
+              <span class="monitoring-online-text">Общий онлайн:</span>
+              <span class="monitoring-online-number">{{ totalOnline }}</span>
             </div>
           </div>
-          <div class="serversContainer">
-
+          <div class="servers-container">
+            <div class="servers-list">
+              <div
+                  v-for="server in servers"
+                  :key="server.id"
+                  class="servers-card"
+              >
+                <router-link :to="server.link" class="servers-image">
+                  <img :src="server.image" :alt="server.title" />
+                  <div class="server-header">
+                    <div class="servers-card-tag">{{ server.status }}</div>
+                    <div class="servers-card-online">
+                      <span>{{ server.online }}</span><img alt="onlineIcon" src="./icons/status_online.svg" />
+                    </div>
+                  </div>
+                  <div class="server-title">{{ server.title }}</div>
+                </router-link>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -72,13 +90,13 @@
   align-items: center;
 }
 
-.page__container__slider {
+.page__slider {
   display: flex;
   flex-direction: column;
   width: 100%;
 }
 
-.slideContainer {
+.slide-container {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -140,14 +158,14 @@
   gap: 24px;
 }
 
-.slideNav {
+.slide-nav {
   display: flex;
   padding: 32px 16px;
   align-items: flex-start;
   gap: 24px;
 }
 
-.slideNav button {
+.slide-nav button {
   width: 70px;
   height: 16px;
   border-radius: 8px;
@@ -156,7 +174,7 @@
   border: initial;
 }
 
-.slideNav button.active {
+.slide-nav button.active {
   background: linear-gradient(132deg, rgb(255, 95, 109) 0%, rgb(255, 195, 113) 100%);
 }
 
@@ -192,7 +210,7 @@
   transform: scale(1.05);
 }
 
-.monitoring{
+.monitoring {
   width: 100%;
   padding: 64px 96px;
   flex-direction: column;
@@ -201,13 +219,13 @@
   background: hsla(0, 0%, 100%, .05);
 }
 
-.monitoring-container{
+.monitoring-container {
   display: flex;
   justify-content: space-between;
   width: 100%;
 }
 
-.page-container-title{
+.page-container-title {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -215,7 +233,7 @@
   gap: 8px;
 }
 
-.page-title{
+.page-title {
   color: #fff;
   font-size: 36px;
   font-style: normal;
@@ -224,16 +242,131 @@
   margin: 0;
 }
 
-.page-line{
+.page-line {
   width: 64px;
   height: 8px;
   border-radius: 4px;
   background: linear-gradient(132deg, #ff5f6d, #ffc371);
 }
+
+.monitoring-online {
+  display: flex;
+  gap: 8px;
+}
+
+.monitoring-online-text {
+  color: #fff;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.monitoring-online-number {
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  background: linear-gradient(90deg, #ff626d, #ffc171);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.servers-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+  padding-top: 20px;
+}
+
+.servers-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 23px;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.servers-card {
+  width: 100%;
+  max-width: 360px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  background: transparent;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.servers-card:hover {
+  box-shadow: rgb(255, 147, 112) 0px 20px 50px -10px;
+  transform: scale(1.05) translateZ(0px);
+}
+
+.servers-card-online {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+}
+
+.servers-card-online img {
+  width: 18px;
+  height: 18px;
+  margin-left: 8px;
+}
+
+.servers-image {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 33px;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 360px;
+  background-color: #222;
+}
+
+.servers-image img {
+  width: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.server-header {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 18px;
+  font-weight: 700;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 324px;
+}
+
+.server-title {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 32px;
+  font-weight: 700;
+  font-style: normal;
+  line-height: normal;
+}
 </style>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue';
+import { ref, computed, onMounted, onUnmounted } from 'vue';
 
 const slides = ref([
   {
@@ -259,6 +392,41 @@ const slides = ref([
     description:
         'Сервер ставший классикой технологического Майнкрафта со всеми любимыми HiTech модами.',
     image: 'src/components/icons/hitech.webp',
+  },
+]);
+
+const servers = ref([
+  {
+    id: 1,
+    title: 'HardTech',
+    status: 'NEW',
+    online: 120,
+    image: 'src/components/icons/hardtech.png',
+    link: '/servers/hardtech',
+  },
+  {
+    id: 2,
+    title: 'MI:Foundation',
+    status: 'WIPE',
+    online: 75,
+    image: 'src/components/icons/mif.png',
+    link: '/servers/mif',
+  },
+  {
+    id: 3,
+    title: 'Ind:Upgrade',
+    status: 'NEW',
+    online: 90,
+    image: 'src/components/icons/apgrade.png',
+    link: '/servers/indupgrade',
+  },
+  {
+    id: 4,
+    title: 'Hitech',
+    status: 'NEW',
+    online: 110,
+    image: 'src/components/icons/hitech.png',
+    link: '/servers/hitech',
   },
 ]);
 
@@ -292,5 +460,9 @@ onMounted(() => {
 
 onUnmounted(() => {
   clearInterval(intervalId);
+});
+
+const totalOnline = computed(() => {
+  return servers.value.reduce((sum, server) => sum + server.online, 0);
 });
 </script>
