@@ -52,15 +52,29 @@
                 <router-link :to="server.link" class="servers-image">
                   <img :src="server.image" :alt="server.title" />
                   <div class="server-header">
-                    <div class="servers-card-tag">{{ server.status }}</div>
+                    <div class="servers-card-tag" :class="server.tag === 'NEW' ? 'new-tag' : 'wipe-tag'">{{ server.tag }}</div>
                     <div class="servers-card-online">
-                      <span>{{ server.online }}</span><img alt="onlineIcon" src="./icons/status_online.svg" />
+                      <template v-if="server.status === 'online'">
+                        <span>{{ server.online }}</span><img alt="onlineIcon" src="./icons/status_online.svg" />
+                      </template>
+                      <template v-else-if="server.status === 'offline'">
+                        <span class="servers-offline">Оффлайн</span><img alt="offlineIcon" src="./icons/status_offline.svg" />
+                      </template>
+                      <template v-else-if="server.status === 'maintenance'">
+                        <span class="servers-maintenance">Тех.работы</span><img alt="maintenanceIcon" src="./icons/status_maintrance.svg" />
+                      </template>
                     </div>
                   </div>
                   <div class="server-title">{{ server.title }}</div>
                 </router-link>
               </div>
             </div>
+          </div>
+        </div>
+        <div class="news-list">
+          <div class="news-post">
+            <div class="news-post-right-side"></div>
+            <div class="news-post-left-side"></div>
           </div>
         </div>
       </div>
@@ -308,7 +322,7 @@
 .servers-card-online {
   display: flex;
   align-items: center;
-  font-size: 18px;
+  font-size: 20px;
 }
 
 .servers-card-online img {
@@ -351,6 +365,39 @@
   max-width: 324px;
 }
 
+.servers-card-tag {
+  text-transform: uppercase;
+  text-align: right;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.new-tag {
+  background: linear-gradient(132deg, #1effc9, #71ddff);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 6.5px rgba(30, 255, 201, 0.7);
+}
+
+.wipe-tag {
+  background: linear-gradient(132deg, #ff5f6d, #ffc371);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 6.5px rgba(255,195,113,.7);
+}
+
+.servers-offline{
+  color: #ff0000;
+}
+
+.servers-maintenance{
+  color: #ffc371;
+}
+
 .server-title {
   position: absolute;
   bottom: 10px;
@@ -362,6 +409,20 @@
   font-weight: 700;
   font-style: normal;
   line-height: normal;
+}
+
+.news-list{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 16px;
+}
+
+.news-post{
+  position: relative;
+  display: flex;
+  gap: 32px;
+  width: 100%;
 }
 </style>
 
@@ -399,34 +460,38 @@ const servers = ref([
   {
     id: 1,
     title: 'HardTech',
-    status: 'NEW',
     online: 120,
     image: 'src/components/icons/hardtech.png',
     link: '/servers/hardtech',
+    status: 'online',
+    tag: 'NEW',
   },
   {
     id: 2,
     title: 'MI:Foundation',
-    status: 'WIPE',
-    online: 75,
+    online: 0,
     image: 'src/components/icons/mif.png',
     link: '/servers/mif',
+    status: 'offline',
+    tag: 'WIPE',
   },
   {
     id: 3,
     title: 'Ind:Upgrade',
-    status: 'NEW',
-    online: 90,
+    online: 0,
     image: 'src/components/icons/apgrade.png',
     link: '/servers/indupgrade',
+    status: 'maintenance',
+    tag: 'NEW',
   },
   {
     id: 4,
     title: 'Hitech',
-    status: 'NEW',
     online: 110,
     image: 'src/components/icons/hitech.png',
     link: '/servers/hitech',
+    status: 'online',
+    tag: 'WIPE',
   },
 ]);
 
