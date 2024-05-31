@@ -3,7 +3,7 @@
 
     <div class="container__footer__logo">
       <router-link class="container__footer__logo__link" to="/">
-        <img alt="logo" src="../icons/logo.svg">
+        <img alt="logo" src="../../assets/icons/logo.svg">
       </router-link>
       <span class="container__footer__logo__link__subText">Copyright © 2021 - 2024</span>
     </div>
@@ -40,13 +40,13 @@
     <div class="container__footer__logoWrapper">
       <div class="container__footer__logoWrapper__link">
         <a href="https://discord.com/invite/gg982TxU84" target="_blank">
-          <img alt="discord-logo" src="../icons/discord.svg">
+          <img alt="discord-logo" src="../../assets/icons/discord.svg">
         </a>
         <a href="https://t.me/enthusiasmworld" target="_blank">
-          <img alt="telegram-logo" src="../icons/telegram.svg">
+          <img alt="telegram-logo" src="../../assets/icons/telegram.svg">
         </a>
         <a href="https://www.youtube.com/RivaVivaOff" target="_blank">
-          <img alt="youtube-logo" src="../icons/youtube.svg">
+          <img alt="youtube-logo" src="../../assets/icons/youtube.svg">
         </a>
       </div>
     </div>

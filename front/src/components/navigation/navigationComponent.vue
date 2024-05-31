@@ -2,7 +2,7 @@
   <header>
     <nav class="container__navigation">
       <router-link class="container__navigation__logo" to="/">
-        <img alt="logo" src="../icons/logo.svg">
+        <img alt="logo" src="../../assets/icons/logo.svg">
       </router-link>
       <ul class="container__navigation__item">
         <li class="container__navigation__item__list">
