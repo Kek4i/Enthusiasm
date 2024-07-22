@@ -1,34 +1,34 @@
 <template>
-  <div class="PlayHomeBlock">
-    <div class="PageTitle_container">
-      <h2 class="PageTitle_title">Информация</h2>
-      <div class="PageTitle_line"></div>
+  <div class="info-section">
+    <div class="section-header">
+      <h2 class="header-title">Информация</h2>
+      <div class="header-underline"></div>
     </div>
-    <div class="PlayHomeBlock_cardsContainer">
-      <div class="PlayHomeBlock_card play-card">
-        <span class="PlayHomeBlock_title">3 простых шага, чтобы начать играть</span>
-        <router-link to="/play" class="custom-button more-button" style="width: 120px; height: 20px;">НАЧАТЬ ИГРАТЬ</router-link>
+    <div class="card-container">
+      <div class="info-card play-card">
+        <span class="card-title">3 простых шага, чтобы начать играть</span>
+        <router-link to="/play" class="action-button start-button" style="width: 120px; height: 20px;">НАЧАТЬ ИГРАТЬ</router-link>
       </div>
-      <div class="PlayHomeBlock_card download-card">
-        <span class="PlayHomeBlock_title">Скачай лаунчер</span>
-        <router-link to="/play" class="custom-button more-button" style="width: 120px; height: 20px;">СКАЧАТЬ</router-link>
+      <div class="info-card download-card">
+        <span class="card-title">Скачай лаунчер</span>
+        <router-link to="/play" class="action-button download-button" style="width: 120px; height: 20px;">СКАЧАТЬ</router-link>
       </div>
     </div>
   </div>
 </template>
 
 <style scoped>
-
-.PlayHomeBlock {
+.info-section {
   width: 100%;
   padding: 64px 96px;
+  display: flex;
   flex-direction: column;
   gap: 32px;
   border-radius: 10px;
   background: hsla(0, 0%, 100%, .05);
 }
 
-.PageTitle_container {
+.section-header {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -36,34 +36,30 @@
   gap: 8px;
 }
 
-.PageTitle_title {
+.header-title {
   color: #fff;
   font-size: 36px;
-  font-style: normal;
   font-weight: 700;
-  line-height: normal;
   margin: 0;
 }
 
-.PageTitle_line {
+.header-underline {
   width: 64px;
   height: 8px;
   border-radius: 4px;
   background: linear-gradient(132deg, #ff5f6d, #ffc371);
 }
 
-.PlayHomeBlock_cardsContainer {
+.card-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 20px;
   gap: 20px;
   width: 100%;
   padding-top: 20px;
 }
 
-.PlayHomeBlock_card {
+.info-card {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -79,14 +75,12 @@
   max-width: 442px;
 }
 
-.PlayHomeBlock_title {
+.card-title {
   max-width: 208px;
   color: #fff;
   text-align: center;
   font-size: 20px;
-  font-style: normal;
   font-weight: 600;
-  line-height: normal;
 }
 
 .play-card {
@@ -99,7 +93,7 @@
   background-repeat: no-repeat;
 }
 
-.custom-button {
+.action-button {
   display: flex;
   padding: 16px 20px;
   justify-content: center;
@@ -116,18 +110,20 @@
   transition: transform 0.3s ease;
 }
 
-.custom-button:hover {
+.action-button:hover {
   background: rgba(255, 255, 255, 0.1);
   box-shadow: none;
   transform: scale(1.05) translateZ(0px);
 }
 
-.more-button {
+.start-button {
   background: rgba(255, 255, 255, 0.05);
 }
 
+.download-button {
+  background: rgba(255, 255, 255, 0.05);
+}
 </style>
 
 <script setup>
-
 </script>

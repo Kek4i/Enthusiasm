@@ -1,44 +1,44 @@
 <template>
-  <div class="page__slider">
-    <div class="slide-container">
+  <div class="slider-page">
+    <div class="slider-container">
       <div
           v-for="(slide, index) in slides"
           :key="index"
-          :class="['slide', { active: index === currentSlide }]"
+          :class="['slider-slide', { 'slider-slide--active': index === currentSlide }]"
       >
-        <div class="info">
-          <div class="title">{{ slide.title }}</div>
-          <div class="description">{{ slide.description }}</div>
-          <div class="buttons">
-            <router-link to="/play" class="custom-button">Начать играть</router-link>
-            <router-link :to="serverLinks[currentSlide]" class="custom-button more-button">Подробнее</router-link>
+        <div class="slide-info">
+          <div class="slide-title">{{ slide.title }}</div>
+          <div class="slide-description">{{ slide.description }}</div>
+          <div class="slide-buttons">
+            <router-link to="/play" class="button button--primary">Начать играть</router-link>
+            <router-link :to="serverLinks[currentSlide]" class="button button--secondary">Подробнее</router-link>
           </div>
         </div>
-        <div class="image">
+        <div class="slide-image">
           <img :src="slide.image" :alt="slide.title" />
         </div>
       </div>
     </div>
-    <div class="slide-nav">
+    <div class="slider-navigation">
       <button
           v-for="(slide, index) in slides"
           :key="index"
           @click="setSlide(index)"
-          :class="{ active: index === currentSlide }"
+          :class="{ 'slider-navigation__button--active': index === currentSlide }"
+          class="slider-navigation__button"
       ></button>
     </div>
   </div>
 </template>
 
 <style scoped>
-
-.page__slider {
+.slider-page {
   display: flex;
   flex-direction: column;
   width: 100%;
 }
 
-.slide-container {
+.slider-container {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -50,16 +50,16 @@
   box-sizing: border-box;
 }
 
-.slide {
+.slider-slide {
   display: none;
   align-items: center;
 }
 
-.slide.active {
+.slider-slide--active {
   display: flex;
 }
 
-.info {
+.slide-info {
   display: flex;
   flex-direction: column;
   gap: 24px;
@@ -68,7 +68,7 @@
   align-items: flex-start;
 }
 
-.image {
+.slide-image {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -76,38 +76,38 @@
   margin-left: 40px;
 }
 
-.image img {
+.slide-image img {
   width: 660px;
   height: 373px;
   object-fit: cover;
   border-radius: 6px;
 }
 
-.title {
+.slide-title {
   color: #fff;
   font-size: 64px;
   font-weight: 800;
   text-transform: uppercase;
 }
 
-.description {
+.slide-description {
   color: #fff;
   font-size: 24px;
 }
 
-.buttons {
+.slide-buttons {
   display: flex;
   gap: 24px;
 }
 
-.slide-nav {
+.slider-navigation {
   display: flex;
   padding: 32px 16px;
   align-items: flex-start;
   gap: 24px;
 }
 
-.slide-nav button {
+.slider-navigation__button {
   width: 70px;
   height: 16px;
   border-radius: 8px;
@@ -116,18 +116,17 @@
   border: initial;
 }
 
-.slide-nav button.active {
+.slider-navigation__button--active {
   background: linear-gradient(132deg, rgb(255, 95, 109) 0%, rgb(255, 195, 113) 100%);
 }
 
-.custom-button {
+.button {
   display: flex;
   padding: 16px 20px;
   justify-content: center;
   align-items: center;
   width: 100%;
   border-radius: 8px;
-  background: linear-gradient(132deg, rgb(255, 95, 109) 0%, rgb(255, 195, 113) 100%);
   color: #fff;
   font-size: 16px;
   font-weight: 700;
@@ -137,16 +136,20 @@
   transition: transform 0.3s ease;
 }
 
-.custom-button:hover {
+.button--primary {
+  background: linear-gradient(132deg, rgb(255, 95, 109) 0%, rgb(255, 195, 113) 100%);
+}
+
+.button--primary:hover {
   box-shadow: rgb(255, 147, 112) 0px 10px 15px -5px;
   transform: scale(1.05);
 }
 
-.more-button {
+.button--secondary {
   background: rgba(255, 255, 255, 0.05);
 }
 
-.more-button:hover {
+.button--secondary:hover {
   background: rgba(255, 255, 255, 0.1);
   box-shadow: none;
   transform: scale(1.05);

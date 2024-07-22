@@ -1,44 +1,44 @@
 <template>
-  <footer class="container__footer">
+  <footer class="footer">
 
-    <div class="container__footer__logo">
-      <router-link class="container__footer__logo__link" to="/">
+    <div class="footer__logo-section">
+      <router-link class="footer__logo-link" to="/">
         <img alt="logo" src="../../assets/icons/logo.svg">
       </router-link>
-      <span class="container__footer__logo__link__subText">Copyright © 2021 - 2024</span>
+      <span class="footer__subtext">Copyright © 2021 - 2024</span>
     </div>
 
-    <div class="container__footer__info">
-      <span class="container__footer__info__title">Полезная информация</span>
+    <div class="footer__info-section">
+      <span class="footer__info-title">Полезная информация</span>
       <router-link to="/play">
-        <span class="container__footer__info__link">Начать играть</span>
+        <span class="footer__info-link">Начать играть</span>
       </router-link>
       <router-link to="/play">
-        <span class="container__footer__info__link">Скачать лаунчер</span>
+        <span class="footer__info-link">Скачать лаунчер</span>
       </router-link>
       <router-link to="/auth">
-        <span class="container__footer__info__link">Регистрация</span>
+        <span class="footer__info-link">Регистрация</span>
       </router-link>
       <router-link to="/rules">
-        <span class="container__footer__info__link">Правила проекта</span>
+        <span class="footer__info-link">Правила проекта</span>
       </router-link>
       <a href="https://enthusiasm.world/forum/" target="_blank">
-        <span class="container__footer__info__link">Форум</span>
+        <span class="footer__info-link">Форум</span>
       </a>
     </div>
 
-    <div class="container__footer__info">
-      <span class="container__footer__info__title">Для пользователей</span>
+    <div class="footer__info-section">
+      <span class="footer__info-title">Для пользователей</span>
       <router-link to="/">
-        <span class="container__footer__info__link">Лицензионное соглашение</span>
+        <span class="footer__info-link">Лицензионное соглашение</span>
       </router-link>
       <router-link to="/">
-        <span class="container__footer__info__link">Политика обработки персональных данных</span>
+        <span class="footer__info-link">Политика обработки персональных данных</span>
       </router-link>
     </div>
 
-    <div class="container__footer__logoWrapper">
-      <div class="container__footer__logoWrapper__link">
+    <div class="footer__social-section">
+      <div class="footer__social-links">
         <a href="https://discord.com/invite/gg982TxU84" target="_blank">
           <img alt="discord-logo" src="../../assets/icons/discord.svg">
         </a>
@@ -56,76 +56,73 @@
 
 <style scoped>
 
-a{
+a {
   cursor: pointer;
   text-decoration: none;
-  color: hsla(0, 0%, 100%, .5);
+  color: hsla(0, 0%, 100%, 0.5);
 }
 
-.container__footer{
+.footer {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  grid-gap: 20px;
   gap: 20px;
   justify-content: space-between;
-  padding: 48px 94px 48px 96px;
+  padding: 48px 94px;
   margin: 128px auto 32px;
   max-width: 1316px;
   border-radius: 16px;
-  background: hsla(0, 0%, 100%, .05);
+  background: hsla(0, 0%, 100%, 0.05);
   backdrop-filter: blur(2px);
   font-family: 'Montserrat', sans-serif;
 }
 
-.container__footer__logo{
+.footer__logo-section {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
   gap: 8px;
 }
 
-.container__footer__logo__link{
+.footer__logo-link {
   font-style: italic;
   font-weight: 800;
   z-index: 10;
 }
 
-.container__footer__logo__link__subText{
+.footer__subtext {
   font-weight: 400;
   font-size: 16px;
   line-height: 19px;
-  color: hsla(0, 0%, 100%, .5);
+  color: hsla(0, 0%, 100%, 0.5);
 }
 
-.container__footer__info{
+.footer__info-section {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
   gap: 8px;
 }
 
-.container__footer__info__title{
+.footer__info-title {
   font-weight: 600;
   font-size: 16px;
   line-height: 19px;
   color: #fff;
 }
 
-.container__footer__info__link {
+.footer__info-link {
   transition: color 0.4s ease;
 }
 
-.container__footer__info__link:hover {
+.footer__info-link:hover {
   color: rgb(255, 183, 85);
 }
 
-.container__footer__logoWrapper{
+.footer__social-section {
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
 
-.container__footer__logoWrapper__link{
+.footer__social-links {
   display: flex;
   gap: 8px;
 }
@@ -133,5 +130,4 @@ a{
 </style>
 
 <script setup>
-
 </script>

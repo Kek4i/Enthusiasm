@@ -1,68 +1,78 @@
 <template>
-  <header>
-    <nav class="container__navigation">
-      <router-link class="container__navigation__logo" to="/">
+  <header class="header">
+
+    <nav class="nav">
+      <router-link class="nav__logo" to="/">
         <img alt="logo" src="../../assets/icons/logo.svg">
       </router-link>
-      <ul class="container__navigation__item">
-        <li class="container__navigation__item__list">
-          <router-link class="container__navigation__item__list__links" to="/">Главная</router-link>
+      <ul class="nav__menu">
+        <li class="nav__menu-item">
+          <router-link class="nav__menu-link" to="/">Главная</router-link>
         </li>
-        <li class="container__navigation__item__list">
-          <router-link class="container__navigation__item__list__links" to="/servers">Сервера</router-link>
+        <li class="nav__menu-item">
+          <router-link class="nav__menu-link" to="/servers">Сервера</router-link>
         </li>
-        <li class="container__navigation__item__list">
-          <router-link class="container__navigation__item__list__links" to="/rules">Правила</router-link>
+        <li class="nav__menu-item">
+          <router-link class="nav__menu-link" to="/rules">Правила</router-link>
         </li>
-        <li class="container__navigation__item__list">
-          <router-link class="container__navigation__item__list__links" to="/store">Магазин</router-link>
+        <li class="nav__menu-item">
+          <router-link class="nav__menu-link" to="/store">Магазин</router-link>
         </li>
-        <li class="container__navigation__item__list">
-          <a class="container__navigation__item__list__links" href="https://enthusiasm.world/forum/" target="_blank">Форум</a>
+        <li class="nav__menu-item">
+          <a class="nav__menu-link" href="https://enthusiasm.world/forum/" target="_blank">Форум</a>
+        </li>
+        <li class="nav__menu-item">
+          <router-link class="nav__menu-link" to="/other">Прочее</router-link>
         </li>
       </ul>
-      <button class="container__navigation__item__button">Личный кабинет</button>
+      <button class="nav__button">Личный кабинет</button>
     </nav>
+
   </header>
 </template>
 
 <style scoped>
+
 a {
   color: inherit;
   text-decoration: none;
 }
 
-.container__navigation {
-  padding: 24px 10px;
+.header {
+  padding: 15px 15px 0;
+}
+
+.nav {
   max-width: 1316px;
-  width: 100%;
-  margin-inline: auto;
+  margin: 0 auto;
+  padding: 15px 30px;
+  position: relative;
+  z-index: 1;
   display: flex;
-  flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  margin-top: 16px;
   background: hsla(0, 0%, 100%, .05);
+  -webkit-backdrop-filter: blur(2px);
   backdrop-filter: blur(2px);
-  border-radius: 16px;
+  border-radius: 10px;
   font-family: 'Montserrat', sans-serif;
 }
 
-.container__navigation__logo {
+.nav__logo {
   font-style: italic;
   font-weight: 800;
   z-index: 10;
 }
 
-.container__navigation__item {
+.nav__menu {
   display: flex;
-  flex-direction: row;
   gap: 32px;
-  margin-left: 36px;
+  margin: 0 0 0 36px;
+  padding: 0px;
   list-style-type: none;
 }
 
-.container__navigation__item__list {
+.nav__menu-item {
   position: relative;
   display: flex;
   align-items: center;
@@ -70,7 +80,7 @@ a {
   padding: 10px 0;
 }
 
-.container__navigation__item__list__links {
+.nav__menu-link {
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
@@ -80,12 +90,12 @@ a {
   position: relative;
 }
 
-.container__navigation__item__list__links::after {
+.nav__menu-link::after {
   content: '';
   position: absolute;
   left: 0;
   right: 0;
-  bottom: -50px;
+  bottom: -35px;
   height: 4px;
   border-radius: 6px;
   width: 0;
@@ -93,7 +103,7 @@ a {
   transition: width .3s ease;
 }
 
-.container__navigation__item__list__links:hover::after {
+.nav__menu-link:hover::after {
   width: 100%;
 }
 
@@ -123,7 +133,7 @@ button:hover {
   transform: scale(1.05) translateZ(0px);
 }
 
-.container__navigation__item__button {
+.nav__button {
   max-width: 222px;
 }
 </style>
