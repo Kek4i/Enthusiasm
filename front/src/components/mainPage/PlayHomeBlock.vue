@@ -19,7 +19,6 @@
 
 <style scoped>
 .info-section {
-  width: 100%;
   padding: 64px 96px;
   display: flex;
   flex-direction: column;

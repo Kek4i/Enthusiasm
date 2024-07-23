@@ -1,5 +1,43 @@
 <template>
   <div class="news-list">
+    <div class="news-header">
+      <h2 class="section-title">Новости</h2>
+      <div class="title-underline"></div>
+    </div>
+    <div class="news-post">
+      <div class="news-post-right-side">
+        <img alt="HARDTECH 1.20.1_image" src="@/assets/icons/HITECH%201.19.2_image.webp">
+      </div>
+      <div class="news-post-left-side">
+        <router-link class="news-post-title" to="/servers/hitech" target="_blank">HITECH 1.19.2</router-link>
+        <div class="news-post-description">
+          <p>
+            Дорогие игроки!
+            <br>
+            <br>
+            Сервер
+            <strong>
+              <router-link to="/servers/hitech" target="_blank">
+                <span style="color: rgb(45, 194, 107);">HiTech 1.19.2</span>
+              </router-link>
+            </strong>
+            открыт и доступен для игры!
+            <br>
+            В честь открытия вы можете
+            <strong>
+              <router-link to="/store/servers" target="_blank">
+                <span style="color: rgb(230, 126, 35);">купить привилегию</span>
+              </router-link>
+            </strong>
+            со скидкой до
+            <span style="color: rgb(230, 126, 35);">20%</span>
+            <br><br>
+            В полной новости вы сможете ознакомиться с сервером подробней!
+          </p>
+        </div>
+        <router-link to="/servers/hitech" class="custom-button full-width-button">ЧИТАТЬ ПОЛНОСТЬЮ</router-link>
+      </div>
+    </div>
     <div class="news-post">
       <div class="news-post-right-side">
         <img alt="HARDTECH 1.20.1_image" src="@/assets/icons/HARDTECH%201.20.1_image.webp">
@@ -7,29 +45,29 @@
       <div class="news-post-left-side">
         <router-link class="news-post-title" to="/servers/hardtech" target="_blank">HARDTECH 1.20.1</router-link>
         <div class="news-post-description">
-          <h3>
-            <strong>Дорогие игроки!
+          <p>
+            Дорогие игроки!
               <br>
               <br>
-            </strong>
-            <strong>Сервер
+            Сервер
+            <strong>
               <router-link to="/servers/hardtech" target="_blank">
                 <span style="color: rgb(53, 152, 219);">HardTech</span>
               </router-link>
+            </strong>
               открыт и доступен для игры!
               <br>
-            </strong>
-            <strong>В честь открытия вы можете
+            В честь открытия вы можете
+            <strong>
               <router-link to="/store/servers" target="_blank">
                 <span style="color: rgb(230, 126, 35);">купить привилегию</span>
               </router-link>
+            </strong>
               со скидкой до
               <span style="color: rgb(230, 126, 35);">20%</span>
-              <br>
-              <br>
-            </strong>
-            <strong>В полной новости вы сможете ознакомиться с сервером подробней!</strong>
-          </h3>
+              <br><br>
+            В полной новости вы сможете ознакомиться с сервером подробней!
+          </p>
         </div>
         <router-link to="/servers/hardtech" class="custom-button full-width-button">ЧИТАТЬ ПОЛНОСТЬЮ</router-link>
       </div>
@@ -41,190 +79,125 @@
       <div class="news-post-left-side">
         <router-link class="news-post-title" to="/news/posts/mi-foundation-1-19-2-11" target="_blank">MI:FOUNDATION 1.19.2</router-link>
         <div class="news-post-description">
-          <h3>
-            <strong>Дорогие игроки!
-              <br>
-              <br>
-            </strong>
-            <strong>Сервер
+          <p>
+            Дорогие игроки!
+              <br><br>
+            Сервер
+            <strong>
               <router-link to="/servers/mifoundation" target="_blank">
                 <span style="color: rgb(132, 63, 161);">MI:Foundation</span>
               </router-link>
+            </strong>
               открыт и доступен для игры!
               <br>
-            </strong>
-            <strong>В честь открытия вы можете
+            В честь открытия вы можете
+            <strong>
               <router-link to="/store/servers" target="_blank">
                 <span style="color: rgb(230, 126, 35);">купить привилегию</span>
               </router-link>
+            </strong>
               со скидкой до
               <span style="color: rgb(230, 126, 35);">20%</span>
-              <br>
-              <br>
-            </strong>
-            <strong>В полной новости вы сможете ознакомиться с обновлением подробней!</strong>
-          </h3>
+              <br><br>
+            В полной новости вы сможете ознакомиться с обновлением подробней!
+          </p>
         </div>
         <router-link to="/news/posts/mi-foundation-1-19-2-11" class="custom-button full-width-button">ЧИТАТЬ ПОЛНОСТЬЮ</router-link>
       </div>
     </div>
     <div class="news-post">
       <div class="news-post-right-side">
-        <img class="" alt="TERRA 2.0_image" src="@/assets/icons/ТЕRRА%202.0_image.webp">
-      </div>
-      <div class="news-post-left-side">
-        <router-link class="news-post-title" to="/news/posts/terra-2-0-10" target="_blank">ТЕRRА 2.0</router-link>
-        <div class="news-post-description">
-          <h3>
-            <strong>Дорогие игроки!
-              <br>
-            </strong>
-            <strong>Сервер
-              <router-link to="/servers/terra" target="_blank">
-                <span style="color: rgb(230, 126, 35);">Тerra</span>
-              </router-link>
-              1.19.2 открыт и доступен для игры!
-              <br>
-            </strong>
-            <strong>При наличии предыдущей проходки, новую можно
-              <router-link to="/shop/servers/4/privileges" target="_blank">
-                <span style="color: rgb(224, 62, 45);">приобрести</span>
-              </router-link>
-              со скидкой до
-              <span style="color: rgb(224, 62, 45);">70%</span>
-              <br>
-              <br>
-            </strong>
-            <strong>В полной новости вы сможете ознакомиться с обновлением подробней!</strong>
-          </h3>
-        </div>
-        <router-link to="/news/posts/terra-2-0-10" class="custom-button full-width-button">ЧИТАТЬ ПОЛНОСТЬЮ</router-link>
-      </div>
-    </div>
-    <div class="news-post">
-      <div class="news-post-right-side">
-        <img class="" alt="Голосование_image" src="@/assets/icons/Голосование_image.webp">
+        <img alt="Голосование_image" src="@/assets/icons/Голосование_image.webp">
       </div>
       <div class="news-post-left-side">
         <router-link class="news-post-title" to="/news/posts/golosovanie-8" target="_blank">Голосование</router-link>
         <div class="news-post-description">
-          <h3>
-            <strong>Уважаемые игроки Энтузиазма!
-              <br>
-              <br>
-            </strong>
-            <strong>Спешим вам сообщить, что на проекте запущено
+          <p>
+            Уважаемые игроки Энтузиазма!
+              <br><br>
+            Спешим вам сообщить, что на проекте запущено
+            <strong>
               <router-link to="/account" target="_blank">
                 <span style="color: rgb(230, 126, 35);">голосование</span>
-              </router-link>,
+              </router-link>
+            </strong>,
               с помощью которого вы сможете получать валюту -
-              "<router-link to="/account" target="_blank">
+              "<strong><router-link to="/account" target="_blank">
                 <span style="color: rgb(230, 126, 35);">Коины</span>
-              </router-link>"
+              </router-link></strong>"
               и тратить их на кейсы или другие внутриигровые ценности.
               <br>
-            </strong>
-          </h3>
+          </p>
         </div>
         <router-link to="/news/posts/golosovanie-8" class="custom-button full-width-button">ЧИТАТЬ ПОЛНОСТЬЮ</router-link>
-      </div>
-    </div>
-    <div class="news-post">
-      <div class="news-post-right-side">
-        <img alt="TERRA 1.19.2_image" src="@/assets/icons/TERRA%201.19.2_image.webp">
-      </div>
-      <div class="news-post-left-side">
-        <router-link class="news-post-title" to="/news/posts/terra-1-19-2-5" target="_blank">TERRA 1.19.2</router-link>
-        <div class="news-post-description">
-          <h3>
-            <strong>Дорогие игроки!
-              <br>
-            </strong>
-            <strong>Приватный сезонный сервер
-              <router-link to="/servers/4" target="_blank">
-                <span style="color: rgb(230, 126, 35);">Terra 1.19.2</span>
-              </router-link>
-              официально ОТКРЫТ!
-              <br>
-            </strong>
-            <strong>Для игры на сервере не забудьте приобрести
-              <router-link to="/shop/servers/4/privileges" target="_blank">
-                <span style="color: rgb(230, 126, 35);">проходку</span>
-              </router-link>
-              <br>
-            </strong>
-            <strong>Начало сезона будет проходить на
-              <a href="https://www.twitch.tv/rivaviva">
-                <span style="color: rgb(230, 126, 35);">стриме</span>
-              </a>
-              <br>
-              А свежие новости вы сможете найти в
-              <a style="color: rgb(230, 126, 35);" href="https://discord.su/enthusiasm" target="_blank">дискорде</a>
-            </strong>
-          </h3>
-        </div>
-        <router-link to="/news/posts/terra-1-19-2-5" class="custom-button full-width-button">ЧИТАТЬ ПОЛНОСТЬЮ</router-link>
-      </div>
-    </div>
-    <div class="news-post">
-      <div class="news-post-right-side">
-        <img class="" alt="ЛАУНЧЕР ДОСТУПЕН К СКАЧИВАНИЮ!_image" src="@/assets/icons/ЛАУНЧЕР%20ДОСТУПЕН%20К%20СКАЧИВАНИЮ!_image.webp">
-      </div>
-      <div class="news-post-left-side">
-        <router-link class="news-post-title" to="/news/posts/launcher-dostupen-k-skachivaniyu-4" target="_blank">ЛАУНЧЕР ДОСТУПЕН К СКАЧИВАНИЮ!</router-link>
-        <div class="news-post-description">
-          <h3>
-            <strong>Дорогие игроки, поздравляем с официальным открытием проекта!
-              <br>
-            </strong>
-            <strong>Прямо сейчас вас ожидают три сервера и скидки до
-              <span style="color: rgb(230, 126, 35);">35%</span>
-              <br>
-            </strong>
-            <strong>Так же в полной новости вас ожидает
-              <span style="color: rgb(230, 126, 35);">промокод</span>
-              для быстрого старта!
-              <br>
-            </strong>
-            <strong>
-              <router-link to="/servers/2" target="_blank" style="color: rgb(230, 126, 35);">Industrial Upgrade</router-link><br>
-              <router-link to="/servers/3" target="_blank" style="color: rgb(230, 126, 35);">Mi:Foundation</router-link><br>
-              <router-link to="/servers/1" target="_blank" style="color: rgb(230, 126, 35);">HiTech</router-link><br>
-            </strong>
-          </h3>
-        </div>
-        <router-link to="/news/posts/launcher-dostupen-k-skachivaniyu-4" class="custom-button full-width-button">ЧИТАТЬ ПОЛНОСТЬЮ</router-link>
       </div>
     </div>
   </div>
 </template>
 
 <style scoped>
-
 a {
   text-decoration: none;
 }
 
 .news-list {
   display: flex;
+  padding: 64px 96px;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+  border-radius: 10px;
+  background: hsla(0, 0%, 100%, .05);
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+  font-family: 'Inter', sans-serif;
+}
+
+.news-header {
+  display: flex;
   width: 100%;
-  gap: 16px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.section-title {
+  color: #fff;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin: 0;
+}
+
+.title-underline {
+  width: 64px;
+  height: 8px;
+  border-radius: 4px;
+  background: linear-gradient(132deg, #ff5f6d, #ffc371);
 }
 
 .news-post {
   position: relative;
+  flex-direction: row;
   display: flex;
   gap: 32px;
   width: 100%;
 }
 
 .news-post-left-side {
-  width: 100%;
+  flex-basis: 60%;
+  flex-grow: 1;
+  flex-shrink: 1;
   max-width: 815px;
 }
 
 .news-post-right-side {
+  flex-basis: 40%;
+  flex-grow: 1;
+  flex-shrink: 1;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -233,14 +206,14 @@ a {
 }
 
 .news-post-right-side img {
-  width: 480px;
-  height: 310px;
+  width: 100%;
+  height: auto;
   object-fit: cover;
   border-radius: 6px;
 }
 
 .news-post-title {
-  font-size: 32px;
+  font-size: 24px;
   color: #fff;
   font-style: normal;
   font-weight: 700;
@@ -248,12 +221,7 @@ a {
 }
 
 .news-post-description {
-  max-height: 216px;
   color: #fff;
-  font-size: 19px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
 }
 
 .custom-button {
@@ -263,7 +231,7 @@ a {
   align-items: center;
   width: 100%;
   border-radius: 8px;
-  background: linear-gradient(132deg, rgb(255, 95, 109) 0%, rgb(255, 195, 113) 100%);
+  background: rgba(255, 255, 255, 0.05);
   color: #fff;
   font-size: 16px;
   font-weight: 700;
@@ -274,7 +242,7 @@ a {
 }
 
 .custom-button:hover {
-  box-shadow: rgb(255, 147, 112) 0px 10px 15px -5px;
+  background: rgba(255, 255, 255, 0.1);
   transform: scale(1.05);
 }
 
@@ -286,9 +254,7 @@ a {
   align-items: center;
   padding: 0;
 }
-
 </style>
 
 <script setup>
-
 </script>

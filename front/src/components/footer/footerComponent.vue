@@ -1,6 +1,5 @@
 <template>
   <footer class="footer">
-
     <div class="footer__logo-section">
       <router-link class="footer__logo-link" to="/">
         <img alt="logo" src="../../assets/icons/logo.svg">
@@ -55,7 +54,6 @@
 </template>
 
 <style scoped>
-
 a {
   cursor: pointer;
   text-decoration: none;
@@ -73,7 +71,9 @@ a {
   border-radius: 16px;
   background: hsla(0, 0%, 100%, 0.05);
   backdrop-filter: blur(2px);
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Inter', sans-serif;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .footer__logo-section {
@@ -126,7 +126,6 @@ a {
   display: flex;
   gap: 8px;
 }
-
 </style>
 
 <script setup>

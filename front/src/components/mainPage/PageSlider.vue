@@ -36,6 +36,7 @@
   display: flex;
   flex-direction: column;
   width: 100%;
+  font-family: 'Inter', sans-serif;
 }
 
 .slider-container {
@@ -169,11 +170,6 @@ const slides = ref([
     title: 'HITECH',
     description: 'Сервер новейших технологий и возможностей. Оригинальные разработки, новые моды, крафты, квесты и уникальная генерация мира ждёт тебя!',
     image: 'src/assets/icons/hitech.webp',
-  },
-  {
-    title: 'MI:Foundation',
-    description: 'Технически сложный и захватывающий модпак с элементами магии, ориентированный на автоматизацию и масштабирование вашего производства!',
-    image: 'src/assets/icons/mif.webp',
   },
   {
     title: 'IND:UPGRADE',

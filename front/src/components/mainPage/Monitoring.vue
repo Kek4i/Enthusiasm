@@ -1,39 +1,42 @@
 <template>
-  <div class="monitoring">
-    <div class="monitoring-container">
-      <div class="page-container-title">
-        <h2 class="page-title">Мониторинг</h2>
-        <div class="page-line"></div>
+  <div class="monitoring-section">
+    <div class="monitoring-header">
+      <div class="title-container">
+        <h2 class="section-title">Мониторинг</h2>
+        <div class="title-underline"></div>
       </div>
-      <div class="monitoring-online">
-        <span class="monitoring-online-text">Общий онлайн:</span>
-        <span class="monitoring-online-number">{{ totalOnline }}</span>
+      <div class="online-status">
+        <span class="online-status-label">Общий онлайн:</span>
+        <span class="online-status-number">{{ totalOnline }}</span>
       </div>
     </div>
-    <div class="servers-container">
-      <div class="servers-list">
+    <div class="server-list-container">
+      <div class="server-cards">
         <div
             v-for="server in servers"
             :key="server.id"
-            class="servers-card"
+            class="server-card"
         >
-          <router-link :to="server.link" class="servers-image">
-            <img :src="server.image" :alt="server.title" class="servers-card-img"/>
-            <div class="server-header">
-              <div class="servers-card-tag" :class="server.tag === 'NEW' ? 'new-tag' : 'wipe-tag'">{{ server.tag }}</div>
-              <div class="servers-card-online">
+          <router-link :to="server.link" class="server-image-wrapper">
+            <img :src="server.image" :alt="server.title" class="server-image"/>
+            <div class="server-info">
+              <div class="server-tag" :class="server.tag === 'NEW' ? 'tag-new' : 'tag-wipe'">{{ server.tag }}</div>
+              <div class="server-status">
                 <template v-if="server.status === 'online'">
                   <span>{{ server.online }}</span><img alt="onlineIcon" src="@/assets/icons/status_online.svg"/>
                 </template>
                 <template v-else-if="server.status === 'offline'">
-                  <span class="servers-offline">Оффлайн</span><img alt="offlineIcon" src="@/assets/icons/status_offline.svg"/>
+                  <span class="status-offline">Оффлайн</span><img alt="offlineIcon" src="@/assets/icons/status_offline.svg"/>
                 </template>
                 <template v-else-if="server.status === 'maintenance'">
-                  <span class="servers-maintenance">Тех.работы</span><img alt="maintenanceIcon" src="@/assets/icons/status_maintrance.svg"/>
+                  <span class="status-maintenance">Тех.работы</span><img alt="maintenanceIcon" src="@/assets/icons/status_maintrance.svg"/>
                 </template>
               </div>
             </div>
-            <div class="server-title">{{ server.title }}</div>
+            <div class="server-title">
+              <div class="server-name">{{ server.name }}</div>
+                <div class="server-version">{{ server.version }}</div>
+            </div>
           </router-link>
         </div>
       </div>
@@ -42,22 +45,22 @@
 </template>
 
 <style scoped>
-.monitoring {
-  width: 100%;
+.monitoring-section {
   padding: 64px 96px;
   flex-direction: column;
-  gap: 32px;
+  gap: 24px;
   border-radius: 10px;
   background: hsla(0, 0%, 100%, .05);
+  font-family: 'Inter', sans-serif;
 }
 
-.monitoring-container {
+.monitoring-header {
   display: flex;
   justify-content: space-between;
   width: 100%;
 }
 
-.page-container-title {
+.title-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -65,7 +68,7 @@
   gap: 8px;
 }
 
-.page-title {
+.section-title {
   color: #fff;
   font-size: 36px;
   font-style: normal;
@@ -74,19 +77,19 @@
   margin: 0;
 }
 
-.page-line {
+.title-underline {
   width: 64px;
   height: 8px;
   border-radius: 4px;
   background: linear-gradient(132deg, #ff5f6d, #ffc371);
 }
 
-.monitoring-online {
+.online-status {
   display: flex;
   gap: 8px;
 }
 
-.monitoring-online-text {
+.online-status-label {
   color: #fff;
   font-size: 32px;
   font-style: normal;
@@ -94,7 +97,7 @@
   line-height: normal;
 }
 
-.monitoring-online-number {
+.online-status-number {
   font-size: 32px;
   font-style: normal;
   font-weight: 700;
@@ -104,7 +107,7 @@
   -webkit-text-fill-color: transparent;
 }
 
-.servers-container {
+.server-list-container {
   display: flex;
   flex-direction: column;
   gap: 24px;
@@ -112,7 +115,7 @@
   padding-top: 20px;
 }
 
-.servers-list {
+.server-cards {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -121,7 +124,7 @@
   flex-wrap: wrap;
 }
 
-.servers-card {
+.server-card {
   width: 100%;
   max-width: 360px;
   display: flex;
@@ -133,18 +136,18 @@
   position: relative;
 }
 
-.servers-card:hover {
+.server-card:hover {
   box-shadow: rgb(255, 147, 112) 0px 20px 50px -10px;
   transform: scale(1.05) translateZ(0px);
 }
 
-.servers-card-online {
+.server-status {
   display: flex;
   align-items: center;
   font-size: 20px;
 }
 
-.servers-image {
+.server-image-wrapper {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -157,26 +160,26 @@
   overflow: hidden;
 }
 
-.servers-image img {
+.server-image-wrapper img {
   width: 198px;
   height: 198px;
   object-fit: cover;
 }
 
-.servers-card-img {
+.server-image {
   position: absolute;
   left: -32px;
   bottom: -58px;
   transform: rotate(13deg);
 }
 
-.servers-card-online img {
+.server-status img {
   width: 18px;
   height: 18px;
   margin-left: 8px;
 }
 
-.server-header {
+.server-info {
   position: absolute;
   top: 10px;
   left: 10px;
@@ -189,22 +192,22 @@
   justify-content: space-between;
   width: 100%;
   max-width: 324px;
+  gap: 20px;
 }
 
-.servers-card-tag {
+.server-tag {
   text-transform: uppercase;
   text-align: right;
   font-size: 20px;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
-  margin-right: 10px;
   flex-grow: 1;
   display: flex;
   justify-content: flex-end;
 }
 
-.new-tag {
+.tag-new {
   background: linear-gradient(132deg, #1effc9, #71ddff);
   background-clip: text;
   -webkit-background-clip: text;
@@ -212,7 +215,7 @@
   text-shadow: 0 0 6.5px rgba(30, 255, 201, 0.7);
 }
 
-.wipe-tag {
+.tag-wipe {
   background: linear-gradient(132deg, #ff5f6d, #ffc371);
   background-clip: text;
   -webkit-background-clip: text;
@@ -220,11 +223,11 @@
   text-shadow: 0 0 6.5px rgba(255,195,113,.7);
 }
 
-.servers-offline{
+.status-offline {
   color: #ff0000;
 }
 
-.servers-maintenance{
+.status-maintenance {
   color: #ffc371;
 }
 
@@ -240,6 +243,13 @@
   font-style: normal;
   line-height: normal;
 }
+
+.server-version {
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  text-align: right;
+}
 </style>
 
 <script setup>
@@ -248,7 +258,8 @@ import { ref, computed } from 'vue';
 const servers = ref([
   {
     id: 1,
-    title: 'HardTech',
+    name: 'HardTech',
+    version: '1.20.1',
     online: 120,
     image: 'src/assets/icons/hardtech.png',
     link: '/servers/hardtech',
@@ -257,7 +268,8 @@ const servers = ref([
   },
   {
     id: 2,
-    title: 'Hitech',
+    name: 'HiTech',
+    version: '1.19.2',
     online: 110,
     image: 'src/assets/icons/hitech.png',
     link: '/servers/hitech',
@@ -266,16 +278,8 @@ const servers = ref([
   },
   {
     id: 3,
-    title: 'MI:Foundation',
-    online: 0,
-    image: 'src/assets/icons/mif.png',
-    link: '/servers/mif',
-    status: 'offline',
-    tag: 'WIPE',
-  },
-  {
-    id: 4,
-    title: 'Ind:Upgrade',
+    name: 'Ind:Upgrade',
+    version: '1.12.2',
     online: 0,
     image: 'src/assets/icons/apgrade.png',
     link: '/servers/indupgrade',
@@ -283,12 +287,13 @@ const servers = ref([
     tag: 'NEW',
   },
   {
-    id: 5,
-    title: 'Hitech',
-    online: 110,
+    id: 4,
+    name: 'HiTech',
+    version: '1.7.10',
+    online: 0,
     image: 'src/assets/icons/hitech2.png',
     link: '/servers/hitech',
-    status: 'online',
+    status: 'offline',
     tag: 'WIPE',
   },
 ]);
