@@ -16,17 +16,14 @@
         </div>
         <div class="slide-image">
           <img :src="slide.image" :alt="slide.title" />
+          <button class="slider-navigation__button slider-navigation__button--prev" @click="prevSlide">
+            <img src="@/assets/icons/arrow.svg" alt="Предыдущий слайд" />
+          </button>
+          <button class="slider-navigation__button slider-navigation__button--next" @click="nextSlide">
+            <img src="@/assets/icons/arrow.svg" alt="Следующий слайд" />
+          </button>
         </div>
       </div>
-    </div>
-    <div class="slider-navigation">
-      <button
-          v-for="(slide, index) in slides"
-          :key="index"
-          @click="setSlide(index)"
-          :class="{ 'slider-navigation__button--active': index === currentSlide }"
-          class="slider-navigation__button"
-      ></button>
     </div>
   </div>
 </template>
@@ -75,6 +72,7 @@
   align-items: center;
   max-width: 50%;
   margin-left: 40px;
+  position: relative;
 }
 
 .slide-image img {
@@ -101,24 +99,41 @@
   gap: 24px;
 }
 
-.slider-navigation {
-  display: flex;
-  padding: 32px 16px;
-  align-items: flex-start;
-  gap: 24px;
-}
-
 .slider-navigation__button {
-  width: 70px;
-  height: 16px;
-  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: hsla(0, 0%, 100%, .1);
+  padding: 10px;
+  border-radius: 50%;
   cursor: pointer;
-  background: rgba(255, 255, 255, 0.05);
-  border: initial;
+  border: none;
+  transition: opacity 0.3s ease;
 }
 
-.slider-navigation__button--active {
-  background: linear-gradient(132deg, rgb(255, 95, 109) 0%, rgb(255, 195, 113) 100%);
+.slider-navigation__button--prev {
+  left: 0px;
+}
+
+.slider-navigation__button--next {
+  right: 0px;
+  transform: translateY(-50%) rotate(180deg);
+}
+
+.slider-navigation__button img {
+  width: 20px;
+  height: 20px;
+}
+
+.slider-navigation__button:hover {
+  opacity: 0.95;
+}
+
+.slider-navigation__button:not(:hover) {
+  opacity: 0.5;
 }
 
 .button {
@@ -195,6 +210,10 @@ function setSlide(index) {
 
 function nextSlide() {
   currentSlide.value = (currentSlide.value + 1) % slides.value.length;
+}
+
+function prevSlide() {
+  currentSlide.value = (currentSlide.value - 1 + slides.value.length) % slides.value.length;
 }
 
 function resetTimer() {
