@@ -6,6 +6,38 @@
     </div>
     <div class="news-post">
       <div class="news-post-right-side">
+        <img alt="HARDTECH 1.20.1_image" src="@/assets/icons/MIFOUNDATION%20NEW%201.19.2.png">
+      </div>
+      <div class="news-post-left-side">
+        <router-link class="news-post-title" to="/servers/mif" target="_blank">MI:FOUNDATION NEW 1.19.2</router-link>
+        <div class="news-post-description">
+          <p>
+            Дорогие игроки!
+            <br>
+            <br>
+            Приватный сервер
+            <strong>
+              <router-link to="/servers/mif" target="_blank">
+                <span style="color: rgb(230, 126, 35);">MI:FoundationNEW</span>
+              </router-link>
+            </strong>
+            открыт и доступен для игры!
+            <br>
+            Приобрести проход на сервер можно в разделе
+            <strong>
+              <router-link to="/store/servers" target="_blank">
+                <span style="color: rgb(230, 126, 35);">привилегий</span>
+              </router-link>
+            </strong>
+            <br><br>
+            В полной новости вы сможете ознакомиться с сервером подробней!
+          </p>
+        </div>
+        <router-link to="/servers/mif" class="custom-button full-width-button">ЧИТАТЬ ПОЛНОСТЬЮ</router-link>
+      </div>
+    </div>
+    <div class="news-post">
+      <div class="news-post-right-side">
         <img alt="HARDTECH 1.20.1_image" src="@/assets/icons/HITECH%201.19.2_image.webp">
       </div>
       <div class="news-post-left-side">

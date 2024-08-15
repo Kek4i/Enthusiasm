@@ -3,7 +3,7 @@
 
     <nav class="nav">
       <router-link class="nav__logo" to="/">
-        <img alt="logo" src="../../assets/icons/logo.svg">
+        <img alt="logo" src="../../assets/icons/logo.png">
       </router-link>
       <ul class="nav__menu">
         <li class="nav__menu-item">

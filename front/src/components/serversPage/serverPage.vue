@@ -1,14 +1,9 @@
 <template>
-  <div class="monitoring-section">
-    <div class="monitoring-header">
-      <div class="title-container">
-        <h2 class="section-title">Мониторинг</h2>
-        <div class="title-underline"></div>
-      </div>
-      <div class="online-status">
-        <span class="online-status-label">Общий онлайн:</span>
-        <span class="online-status-number">{{ totalOnline }}</span>
-      </div>
+<main class="layout_container">
+  <div class="PageBlock_block">
+    <div class="PageTitle_container">
+      <h2 class="PageTitle_title">Список серверов</h2>
+      <div class="title-underline"></div>
     </div>
     <div class="server-list-container">
       <div class="server-cards">
@@ -35,32 +30,41 @@
             </div>
             <div class="server-title">
               <div class="server-name">{{ server.name }}</div>
-                <div class="server-version">{{ server.version }}</div>
+              <div class="server-version">{{ server.version }}</div>
             </div>
           </router-link>
         </div>
       </div>
     </div>
   </div>
+</main>
 </template>
 
 <style scoped>
-.monitoring-section {
-  padding: 64px 96px;
-  flex-direction: column;
-  gap: 24px;
-  border-radius: 10px;
-  background: hsla(0, 0%, 100%, .05);
+
+.layout_container {
+  max-width: 1320px;
+  position: relative;
+  margin-top: 64px;
+  margin-inline: auto;
+  padding: 0 15px;
   font-family: 'Inter', sans-serif;
 }
 
-.monitoring-header {
+.PageBlock_block {
   display: flex;
-  justify-content: space-between;
-  width: 100%;
+  padding: 64px 96px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 32px;
+  border-radius: 10px;
+  background: hsla(0, 0%, 100%, .05);
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
 }
 
-.title-container {
+.PageTitle_container {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -68,7 +72,7 @@
   gap: 8px;
 }
 
-.section-title {
+.PageTitle_title {
   color: #fff;
   font-size: 36px;
   font-style: normal;
@@ -82,29 +86,6 @@
   height: 8px;
   border-radius: 4px;
   background: linear-gradient(132deg, #ff5f6d, #ffc371);
-}
-
-.online-status {
-  display: flex;
-  gap: 8px;
-}
-
-.online-status-label {
-  color: #fff;
-  font-size: 32px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
-}
-
-.online-status-number {
-  font-size: 32px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-  background: linear-gradient(90deg, #ff626d, #ffc171);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 
 .server-list-container {

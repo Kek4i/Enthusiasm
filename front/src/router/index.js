@@ -13,11 +13,11 @@ const router = createRouter({
       name: 'playPage',
       component: () => import('../components/playPage/playComponent.vue')
     },
-    // {
-    //   path: '/servers',
-    //   name: 'servers',
-    //   component: () => import('../views/AboutView.vue')
-    // },
+    {
+      path: '/servers',
+      name: 'servers',
+      component: () => import('../components/serversPage/serverPage.vue')
+    },
     // {
     //   path: '/rules',
     //   name: 'rules',

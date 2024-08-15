@@ -17,10 +17,10 @@
         <div class="slide-image">
           <img :src="slide.image" :alt="slide.title" />
           <button class="slider-navigation__button slider-navigation__button--prev" @click="prevSlide">
-            <img src="@/assets/icons/arrow.svg" alt="Предыдущий слайд" />
+            <img src="@/assets/icons/arrow.png" alt="Предыдущий слайд" />
           </button>
           <button class="slider-navigation__button slider-navigation__button--next" @click="nextSlide">
-            <img src="@/assets/icons/arrow.svg" alt="Следующий слайд" />
+            <img src="@/assets/icons/arrow.png" alt="Следующий слайд" />
           </button>
         </div>
       </div>
@@ -29,6 +29,7 @@
 </template>
 
 <style scoped>
+/* Стили остаются без изменений */
 .slider-page {
   display: flex;
   flex-direction: column;
@@ -173,7 +174,7 @@
 </style>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue';
+import { ref } from 'vue';
 
 const slides = ref([
   {
@@ -189,7 +190,7 @@ const slides = ref([
   {
     title: 'IND:UPGRADE',
     description: 'Уникальный сервер на базе мода Industrial Upgrade, предлагающий огромное количество технологий и постепенную прогрессию улучшения производства.',
-    image: 'src/assets/icons/apgrade.webp',
+    image: 'src/assets/icons/apgrade.png',
   },
 ]);
 
@@ -201,12 +202,6 @@ const serverLinks = ref([
 ]);
 
 const currentSlide = ref(0);
-let intervalId;
-
-function setSlide(index) {
-  currentSlide.value = index;
-  resetTimer();
-}
 
 function nextSlide() {
   currentSlide.value = (currentSlide.value + 1) % slides.value.length;
@@ -215,17 +210,4 @@ function nextSlide() {
 function prevSlide() {
   currentSlide.value = (currentSlide.value - 1 + slides.value.length) % slides.value.length;
 }
-
-function resetTimer() {
-  clearInterval(intervalId);
-  intervalId = setInterval(nextSlide, 10000);
-}
-
-onMounted(() => {
-  intervalId = setInterval(nextSlide, 10000);
-});
-
-onUnmounted(() => {
-  clearInterval(intervalId);
-});
 </script>
