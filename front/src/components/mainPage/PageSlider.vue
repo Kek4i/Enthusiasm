@@ -29,7 +29,6 @@
 </template>
 
 <style scoped>
-/* Стили остаются без изменений */
 .slider-page {
   display: flex;
   flex-direction: column;
@@ -52,10 +51,14 @@
 .slider-slide {
   display: none;
   align-items: center;
+  width: 100%;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
 }
 
 .slider-slide--active {
   display: flex;
+  opacity: 1;
 }
 
 .slide-info {
@@ -67,27 +70,14 @@
   align-items: flex-start;
 }
 
-.slide-image {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  max-width: 50%;
-  margin-left: 40px;
-  position: relative;
-}
-
-.slide-image img {
-  width: 660px;
-  height: 373px;
-  object-fit: cover;
-  border-radius: 6px;
-}
-
 .slide-title {
   color: #fff;
-  font-size: 64px;
+  font-size: 60px;
   font-weight: 800;
   text-transform: uppercase;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .slide-description {
@@ -98,6 +88,24 @@
 .slide-buttons {
   display: flex;
   gap: 24px;
+}
+
+.slide-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 50%;
+  margin-left: 40px;
+  position: relative;
+  overflow: hidden;
+  height: 360px;
+}
+
+.slide-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 6px;
 }
 
 .slider-navigation__button {
@@ -113,14 +121,15 @@
   cursor: pointer;
   border: none;
   transition: opacity 0.3s ease;
+  z-index: 10;
 }
 
 .slider-navigation__button--prev {
-  left: 0px;
+  left: 10px;
 }
 
 .slider-navigation__button--next {
-  right: 0px;
+  right: 10px;
   transform: translateY(-50%) rotate(180deg);
 }
 
@@ -174,13 +183,18 @@
 </style>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, onMounted, onBeforeUnmount } from 'vue';
 
 const slides = ref([
   {
     title: 'HARDTECH',
     description: 'Сервер с постепенным техническим развитием. Начни с бронзовых механизмов, изучай новые технологии и дойди до термоядерного синтеза!',
     image: 'src/assets/icons/hardtech.webp',
+  },
+  {
+    title: 'TERRAFIRMACREATE',
+    description: 'Сервер, предлагающий уникальный геймплей, где реалистичная выживаемость и сложные механизмы сочетаются с автоматизацией процессов.',
+    image: 'src/assets/icons/terrafirmacreate.webp',
   },
   {
     title: 'HITECH',
@@ -196,18 +210,38 @@ const slides = ref([
 
 const serverLinks = ref([
   '/servers/hardtech',
-  '/servers/mif',
-  '/servers/indupgrade',
+  '/servers/terrafirmacreate',
   '/servers/hitech',
+  '/servers/indupgrade',
 ]);
 
 const currentSlide = ref(0);
+let slideInterval = null;
 
 function nextSlide() {
   currentSlide.value = (currentSlide.value + 1) % slides.value.length;
+  resetInterval();
 }
 
 function prevSlide() {
   currentSlide.value = (currentSlide.value - 1 + slides.value.length) % slides.value.length;
+  resetInterval();
 }
+
+function resetInterval() {
+  clearInterval(slideInterval);
+  startAutoSlide();
+}
+
+function startAutoSlide() {
+  slideInterval = setInterval(nextSlide, 20000);
+}
+
+onMounted(() => {
+  startAutoSlide();
+});
+
+onBeforeUnmount(() => {
+  clearInterval(slideInterval);
+});
 </script>

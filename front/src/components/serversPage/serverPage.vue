@@ -267,6 +267,16 @@ const servers = ref([
   },
   {
     id: 3,
+    name: 'TerraFirmaCreate',
+    version: '1.20.1',
+    online: 37,
+    image: 'src/assets/icons/terrafirmacreate.png',
+    link: '/servers/terrafirmacreate',
+    status: 'online',
+    tag: 'NEW',
+  },
+  {
+    id: 4,
     name: 'MI:FoundationNew',
     version: '1.19.2',
     online: 32,
@@ -276,7 +286,7 @@ const servers = ref([
     tag: 'SEASON',
   },
   {
-    id: 4,
+    id: 5,
     name: 'Ind:Upgrade',
     version: '1.12.2',
     online: 0,
@@ -286,7 +296,7 @@ const servers = ref([
     tag: 'NEW',
   },
   {
-    id: 5,
+    id: 6,
     name: 'HiTech',
     version: '1.7.10',
     online: 0,
@@ -294,7 +304,7 @@ const servers = ref([
     link: '/servers/hitech',
     status: 'offline',
     tag: 'WIPE',
-  },
+  }
 ]);
 
 const totalOnline = computed(() => {
