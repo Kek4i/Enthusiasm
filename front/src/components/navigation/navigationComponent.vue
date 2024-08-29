@@ -55,7 +55,6 @@ a {
   -webkit-backdrop-filter: blur(2px);
   backdrop-filter: blur(2px);
   border-radius: 10px;
-  font-family: 'Inter', sans-serif;
 }
 
 .nav__logo {

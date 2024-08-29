@@ -48,7 +48,6 @@
   margin-top: 64px;
   margin-inline: auto;
   padding: 0 15px;
-  font-family: 'Inter', sans-serif;
 }
 
 .PageBlock_block {

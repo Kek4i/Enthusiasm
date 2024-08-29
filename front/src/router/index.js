@@ -32,7 +32,12 @@ const router = createRouter({
     //   path: '/auth',
     //   name: 'auth',
     //   component: () => import('../views/AboutView.vue')
-    // }
+    // },
+    {
+      path: '/other',
+      name: 'other',
+      component: () => import('../components/other/otherPage.vue')
+    },
   ]
 })
 

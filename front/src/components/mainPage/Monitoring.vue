@@ -51,7 +51,6 @@
   gap: 24px;
   border-radius: 10px;
   background: hsla(0, 0%, 100%, .05);
-  font-family: 'Inter', sans-serif;
 }
 
 .monitoring-header {

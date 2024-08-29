@@ -35,7 +35,6 @@ a {
   background: hsla(0, 0%, 100%, .05);
   -webkit-backdrop-filter: blur(2px);
   backdrop-filter: blur(2px);
-  font-family: 'Inter', sans-serif;
 }
 
 .news-header {

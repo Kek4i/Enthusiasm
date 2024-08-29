@@ -18,6 +18,7 @@
 </template>
 
 <style scoped>
+
 .info-section {
   padding: 64px 96px;
   display: flex;

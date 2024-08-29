@@ -71,7 +71,6 @@ a {
   border-radius: 16px;
   background: hsla(0, 0%, 100%, 0.05);
   backdrop-filter: blur(2px);
-  font-family: 'Inter', sans-serif;
   width: 100%;
   box-sizing: border-box;
 }
