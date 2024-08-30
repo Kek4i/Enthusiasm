@@ -38,6 +38,11 @@ const router = createRouter({
       name: 'other',
       component: () => import('../components/other/otherPage.vue')
     },
+    {
+      path: '/other/admins',
+      name: 'admins',
+      component: () => import('../components/other/admins/adminsPage.vue')
+    }
   ]
 })
 
