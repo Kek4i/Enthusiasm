@@ -1,13 +1,13 @@
 <template>
-  <div class="PageTitle_container">
-    <h2 class="PageTitle_title">{{ title }}</h2>
-    <div class="PageTitle_line"></div>
+  <div class="page-title">
+    <h2 class="page-title__text">{{ title }}</h2>
+    <div class="page-title__line"></div>
   </div>
 </template>
 
 <style scoped>
 
-.PageTitle_container {
+.page-title {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -15,7 +15,7 @@
   gap: 8px;
 }
 
-.PageTitle_title {
+.page-title__text {
   color: #fff;
   font-size: 36px;
   font-style: normal;
@@ -24,7 +24,7 @@
   margin: 0;
 }
 
-.PageTitle_line {
+.page-title__line {
   width: 64px;
   height: 8px;
   border-radius: 4px;

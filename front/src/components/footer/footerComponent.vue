@@ -15,11 +15,8 @@
       <router-link to="/play">
         <span class="footer__info-link">Скачать лаунчер</span>
       </router-link>
-      <router-link to="/auth">
-        <span class="footer__info-link">Регистрация</span>
-      </router-link>
       <router-link to="/rules">
-        <span class="footer__info-link">Правила проекта</span>
+        <span class="footer__info-link">Правила</span>
       </router-link>
       <a href="https://enthusiasm.world/forum/" target="_blank">
         <span class="footer__info-link">Форум</span>
@@ -28,11 +25,14 @@
 
     <div class="footer__info-section">
       <span class="footer__info-title">Для пользователей</span>
-      <router-link to="/">
+      <router-link to="/rules/license">
         <span class="footer__info-link">Лицензионное соглашение</span>
       </router-link>
-      <router-link to="/">
-        <span class="footer__info-link">Политика обработки персональных данных</span>
+      <router-link to="/rules/policy">
+        <span class="footer__info-link">Политика конфиденциальности</span>
+      </router-link>
+      <router-link to="/other/admins">
+        <span class="footer__info-link">Наша команда</span>
       </router-link>
     </div>
 

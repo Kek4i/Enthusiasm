@@ -1,10 +1,10 @@
 <template>
-  <div class="AdminsPage_card">
-    <span class="AdminsPage_nick">{{ nick }}</span>
-    <img :src="avatar" class="AdminsPage_avatar" :alt="`Avatar of ${nick}`">
-    <span class="AdminsPage_pex">{{ role }}</span>
+  <div class="admin-card">
+    <span class="admin-card__nick">{{ nick }}</span>
+    <img :src="avatar" class="admin-card__avatar" :alt="`Avatar of ${nick}`">
+    <span class="admin-card__role">{{ role }}</span>
 
-    <div v-if="links.length" class="AdminsPage_links">
+    <div v-if="links.length" class="admin-card__links">
       <a v-for="(link, index) in links" :key="index" :href="link.url" target="_blank">
         <img :src="getIcon(link.type)" :alt="`${link.type} icon`" class="social-link">
       </a>
@@ -14,7 +14,7 @@
 
 <style scoped>
 
-.AdminsPage_card {
+.admin-card {
   display: flex;
   padding: 15px 0px;
   flex-direction: column;
@@ -27,7 +27,7 @@
   margin-inside: auto;
 }
 
-.AdminsPage_nick {
+.admin-card__nick {
   color: #fff;
   text-align: center;
   font-size: 20px;
@@ -36,14 +36,14 @@
   line-height: normal;
 }
 
-.AdminsPage_avatar {
+.admin-card__avatar {
   width: 120px;
   height: 120px;
   color: transparent;
   border-radius: 10px;
 }
 
-.AdminsPage_pex {
+.admin-card__role {
   color: #fff;
   text-align: center;
   font-size: 13px;
@@ -53,7 +53,7 @@
   text-transform: uppercase;
 }
 
-.AdminsPage_links {
+.admin-card__links {
   display: flex;
   justify-content: center;
   align-items: center;

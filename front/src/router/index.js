@@ -18,11 +18,11 @@ const router = createRouter({
       name: 'servers',
       component: () => import('../components/serversPage/serverPage.vue')
     },
-    // {
-    //   path: '/rules',
-    //   name: 'rules',
-    //   component: () => import('../views/AboutView.vue')
-    // },
+    {
+      path: '/rules',
+      name: 'rules',
+      component: () => import('../components/rules/rulesPage.vue')
+    },
     // {
     //   path: '/shop',
     //   name: 'shop',

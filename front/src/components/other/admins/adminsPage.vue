@@ -1,17 +1,17 @@
 <template>
   <main class="layout-container">
-    <div class="AdminsPage_container">
-      <div class="PageBlock_block">
+    <div class="admins-page">
+      <div class="page-block">
         <PageTitle title="Наша команда" />
-        <div class="AdminsPage_admText">
+        <div class="admins-page__description">
           <p>На каждом сервере существует свой персонал со своими должностями и обязанностями.</p>
           <p>На данной странице мы собрали всю нашу команду.</p>
         </div>
       </div>
 
-      <div v-for="(server, index) in servers" :key="index" class="PageBlock_block">
+      <div v-for="(server, index) in servers" :key="index" class="page-block">
         <PageTitle :title="server.title" />
-        <div class="AdminsPage_cardsContainer">
+        <div class="admins-page__cards">
           <AdminCard
               v-for="(admin, idx) in server.admins"
               :key="idx"
@@ -36,13 +36,13 @@
   padding: 0 15px;
 }
 
-.AdminsPage_container {
+.admins-page {
   display: flex;
   flex-direction: column;
   gap: 32px;
 }
 
-.PageBlock_block {
+.page-block {
   display: flex;
   padding: 64px 96px;
   flex-direction: column;
@@ -55,7 +55,7 @@
   backdrop-filter: blur(2px);
 }
 
-.AdminsPage_admText {
+.admins-page__description {
   color: #fff;
   font-size: 20px;
 }
@@ -64,7 +64,7 @@ p {
   margin: 0;
 }
 
-.AdminsPage_cardsContainer {
+.admins-page__cards {
   display: grid;
   gap: 16px;
   width: 100%;

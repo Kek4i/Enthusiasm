@@ -126,5 +126,5 @@
 }
 </style>
 
-<script>
+<script setup>
 </script>
