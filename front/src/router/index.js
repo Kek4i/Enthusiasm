@@ -23,6 +23,16 @@ const router = createRouter({
       name: 'rules',
       component: () => import('../components/rules/rulesPage.vue')
     },
+    {
+      path: '/rules/license',
+      name: 'license',
+      component: () => import('../components/rules/licensePage.vue')
+    },
+    {
+      path: '/rules/policy',
+      name: 'policy',
+      component: () => import('../components/rules/policyPage.vue')
+    },
     // {
     //   path: '/shop',
     //   name: 'shop',

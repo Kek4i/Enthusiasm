@@ -1,6 +1,6 @@
 import { createApp } from 'vue';
 import App from './App.vue';
-import router from './router';  // Импортируйте ваш файл роутинга
+import router from './router';
 
 const app = createApp(App);
 
