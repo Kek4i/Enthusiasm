@@ -94,7 +94,6 @@ import NeOxygenCreateImage from '@/assets/icons/NeOxygen.png'
 import guzyaCreateImage from '@/assets/icons/guzya.png'
 import milhovskiCreateImage from '@/assets/icons/milhovski.png'
 import _reflexedCreateImage from '@/assets/icons/_reflexed.png'
-import fdfgfdfg144CreateImage from '@/assets/icons/fdfgfdfg144.png'
 import MAD_RTXCreateImage from '@/assets/icons/MAD_RTX.png'
 import BlxckdssCreateImage from '@/assets/icons/Blxckdss.png'
 import cracker7CreateImage from '@/assets/icons/cracker7.png'
@@ -126,7 +125,7 @@ const servers = [
       { nick: 'Pilyaaaa', avatar: PilyaaaaCreateImage, role: 'Основатель', links: [{ type: 'discord', url: 'https://discord.com/users/355710510760460289' }, { type: 'telegram', url: 'https://t.me/opulat' }] },
       { nick: 'srccc', avatar: srcccCreateImage, role: 'Админ состава', links: [{ type: 'discord', url: 'https://discord.com/users/320449433747587072' }, { type: 'telegram', url: 'https://t.me/srccc74' }] },
       { nick: 'KyKyPy3a', avatar: KyKyPy3aCreateImage, role: 'Админ форума', links: [{ type: 'discord', url: 'https://discord.com/users/410478161717886987' }] },
-      { nick: 'supernovus', avatar: supernovusCreateImage, role: 'Разработчик', links: [{ type: 'discord', url: 'https://discord.com/users/616554814494605322' }] },
+      { nick: 'NeOxygen', avatar: NeOxygenCreateImage, role: 'Админ поддержки', links: [{ type: 'discord', url: 'https://discord.com/users/737990554452754504' }, { type: 'telegram', url: 'https://t.me/ne0xygen' }] },
     ],
   },
   {
@@ -135,8 +134,8 @@ const servers = [
       { nick: 'srccc', avatar: srcccCreateImage, role: 'Разработчик' },
       { nick: 'Virusnyak', avatar: VirusnyakCreateImage, role: 'Куратор' },
       { nick: 'ChocolateBounty', avatar: ChocolateBountyCreateImage, role: 'Гл. модератор' },
-      { nick: 'XomaMilash', avatar: XomaMilashCreateImage, role: 'Модератор' },
       { nick: 'Skout', avatar: SkoutCreateImage, role: 'Модератор' },
+      { nick: 'XomaMilash', avatar: XomaMilashCreateImage, role: 'Модератор' },
       { nick: 'lama', avatar: lamaCreateImage, role: 'Помощник' },
     ],
   },
@@ -185,7 +184,6 @@ const servers = [
       { nick: 'guzya', avatar: guzyaCreateImage, role: 'Гл. модератор' },
       { nick: 'milhovski', avatar: milhovskiCreateImage, role: 'Модератор' },
       { nick: '_reflexed', avatar: _reflexedCreateImage, role: 'Модератор' },
-      { nick: 'fdfgfdfg144', avatar: fdfgfdfg144CreateImage, role: 'Модератор' },
     ],
   },
   {

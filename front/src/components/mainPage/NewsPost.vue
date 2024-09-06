@@ -141,6 +141,7 @@ a {
 
 <script setup>
 import { ref } from 'vue';
+import HiTechCreateImage from '@/assets/icons/HiTech 1.20.1.png';
 import terraFirmaCreateImage from '@/assets/icons/TERRAFIRMACREATE1.20.1.png';
 import indUpgradeCreateImage from '@/assets/icons/INDUPGRADE.png';
 import miFoundationNewCreateImage from '@/assets/icons/MIFOUNDATION NEW 1.19.2.png';
@@ -152,6 +153,19 @@ import voteCreateImage from '@/assets/icons/Голосование_image.png';
 const posts = ref([
   {
     id: 1,
+    title: 'HiTech 1.20.1',
+    link: '/servers/hitech',
+    imageSrc: HiTechCreateImage,
+    imageAlt: 'HiTech 1.20.1',
+    description: `
+      Дорогие игроки!<br><br>
+      Сервер <strong><router-link to="/servers/hitech" target="_blank"><span style="color: rgb(22, 145, 121);">HiTech 1.20.1</span></router-link></strong> открыт и доступен для игры!<br>
+      В честь открытия вы можете <strong><router-link to="/store/servers" target="_blank"><span style="color: rgb(230, 126, 35);">купить привилегию</span></router-link></strong> со скидкой до <strong><span style="color: rgb(230, 126, 35);">20%</span></strong><br><br>
+      В полной новости вы сможете ознакомиться с сервером подробней!
+    `
+  },
+  {
+    id: 2,
     title: 'TerraFirmaCreate 1.20.1',
     link: '/servers/terrafirmacreate',
     imageSrc: terraFirmaCreateImage,
@@ -159,12 +173,12 @@ const posts = ref([
     description: `
       Дорогие игроки!<br><br>
       Сервер <strong><router-link to="/servers/industrialupgrade" target="_blank"><span style="color: rgb(22, 145, 121)">TerraFirmaCreate</span></router-link></strong> открыт и доступен для игры!<br>
-      В честь открытия вы можете <strong><router-link to="/store/servers" target="_blank"><span style="color: rgb(230, 126, 35);">приобрести привилегию</span></router-link></strong> со скидкой до <strong><span style="color: rgb(230, 126, 35);">20%</span></strong><br><br>
+      В честь открытия вы можете <strong><router-link to="/store/servers" target="_blank"><span style="color: rgb(230, 126, 35);">купить привилегию</span></router-link></strong> со скидкой до <strong><span style="color: rgb(230, 126, 35);">20%</span></strong><br><br>
       В полной новости вы сможете ознакомиться с сервером подробней!
     `
   },
   {
-    id: 2,
+    id: 3,
     title: 'Ind:Upgrade',
     link: '/servers/indupgrade',
     imageSrc: indUpgradeCreateImage,
@@ -172,12 +186,12 @@ const posts = ref([
     description: `
       Дорогие игроки!<br><br>
       Сервер <strong><router-link to="/servers/industrialupgrade" target="_blank"><span style="color: rgb(230, 126, 35);">Ind:Upgrade</span></router-link></strong> открыт и доступен для игры!<br>
-      В честь открытия вы можете <strong><router-link to="/store/servers" target="_blank"><span style="color: rgb(230, 126, 35);">приобрести привилегию</span></router-link></strong> со скидкой до <strong><span style="color: rgb(230, 126, 35);">20%</span></strong><br><br>
+      В честь открытия вы можете <strong><router-link to="/store/servers" target="_blank"><span style="color: rgb(230, 126, 35);">купить привилегию</span></router-link></strong> со скидкой до <strong><span style="color: rgb(230, 126, 35);">20%</span></strong><br><br>
       В полной новости вы сможете ознакомиться с сервером подробней!
     `
   },
   {
-    id: 3,
+    id: 4,
     title: 'MI:FOUNDATION NEW 1.19.2',
     link: '/servers/mif',
     imageSrc: miFoundationNewCreateImage,
@@ -190,7 +204,7 @@ const posts = ref([
     `
   },
   {
-    id: 4,
+    id: 5,
     title: 'HITECH 1.19.2',
     link: '/servers/hitech',
     imageSrc: hiTechCreateImage,
@@ -203,7 +217,7 @@ const posts = ref([
     `
   },
   {
-    id: 5,
+    id: 6,
     title: 'HARDTECH 1.20.1',
     link: '/servers/hardtech',
     imageSrc: hardTechCreateImage,
@@ -216,7 +230,7 @@ const posts = ref([
     `
   },
   {
-    id: 6,
+    id: 7,
     title: 'MI:FOUNDATION 1.19.2',
     link: '/news/posts/mi-foundation-1-19-2-11',
     imageSrc: miFoundationCreateImage,
@@ -224,12 +238,12 @@ const posts = ref([
     description: `
       Дорогие игроки!<br><br>
       Сервер <strong><router-link to="/servers/mifoundation" target="_blank"><span style="color: rgb(230, 126, 35);">MI:Foundation</span></router-link></strong> обновлен до версии 1.19.2!<br>
-      В честь обновления вы можете <strong><router-link to="/store/servers" target="_blank"><span style="color: rgb(230, 126, 35);">приобрести привилегию</span></router-link></strong> со скидкой до <strong><span style="color: rgb(230, 126, 35);">20%</span></strong><br><br>
+      В честь обновления вы можете <strong><router-link to="/store/servers" target="_blank"><span style="color: rgb(230, 126, 35);">пкупить привилегию</span></router-link></strong> со скидкой до <strong><span style="color: rgb(230, 126, 35);">20%</span></strong><br><br>
       В полной новости вы сможете ознакомиться с изменениями подробнее!
     `
   },
   {
-    id: 7,
+    id: 8,
     imageAlt: 'Голосование',
     imageSrc: voteCreateImage,
     link: '/news/posts/golosovanie-8',

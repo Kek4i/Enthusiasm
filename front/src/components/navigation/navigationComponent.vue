@@ -137,5 +137,8 @@ button:hover {
 }
 </style>
 
-<script setup>
+<script>
+export default {
+  name: 'CommonNav',
+}
 </script>

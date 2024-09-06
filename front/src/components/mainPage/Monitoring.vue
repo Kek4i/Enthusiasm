@@ -276,7 +276,7 @@ const servers = ref([
   {
     id: 2,
     name: 'HiTech',
-    version: '1.19.2',
+    version: '1.20.1',
     online: 110,
     image: 'src/assets/icons/hitech.png',
     link: '/servers/hitech',
@@ -309,7 +309,7 @@ const servers = ref([
     version: '1.12.2',
     online: 0,
     image: 'src/assets/icons/apgradeIcon.png',
-    link: '/servers/indupgrade',
+    link: '/servers/industrialupgrade',
     status: 'maintenance',
     tag: 'NEW',
   },

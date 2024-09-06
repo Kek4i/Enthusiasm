@@ -19,6 +19,11 @@ const router = createRouter({
       component: () => import('../components/serversPage/serverPage.vue')
     },
     {
+      path: '/servers/hardtech',
+      name: 'hardtech',
+      component: () => import('../components/serversPage/hardtechPage/hardtech.vue')
+    },
+    {
       path: '/rules',
       name: 'rules',
       component: () => import('../components/rules/rulesPage.vue')
