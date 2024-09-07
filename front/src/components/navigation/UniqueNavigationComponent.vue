@@ -1,24 +1,54 @@
 <template>
   <header class="header">
-    <nav class="nav">
+    <nav class="nav" :class="{ 'nav-mif': isHighlightLink('/servers/mif') }">
       <router-link class="nav__logo" to="/">
         <img alt="logo" src="../../assets/icons/logo.png">
       </router-link>
       <ul class="nav__menu">
         <li class="nav__menu-item">
-          <router-link class="nav__menu-link" to="/servers">Сервера</router-link>
+          <router-link
+              class="nav__menu-link"
+              :class="{ 'nav__menu-link--blue': isHighlightLink('/servers/mif') }"
+              to="/servers"
+          >
+            Сервера
+          </router-link>
         </li>
         <li class="nav__menu-item">
-          <router-link class="nav__menu-link" to="/rules">Правила</router-link>
+          <router-link
+              class="nav__menu-link"
+              :class="{ 'nav__menu-link--blue': isHighlightLink('/servers/mif') }"
+              to="/rules"
+          >
+            Правила
+          </router-link>
         </li>
         <li class="nav__menu-item">
-          <router-link class="nav__menu-link" to="/store">Магазин</router-link>
+          <router-link
+              class="nav__menu-link"
+              :class="{ 'nav__menu-link--blue': isHighlightLink('/servers/mif') }"
+              to="/store"
+          >
+            Магазин
+          </router-link>
         </li>
         <li class="nav__menu-item">
-          <a class="nav__menu-link" href="https://enthusiasm.world/forum/" target="_blank">Форум</a>
+          <a
+              class="nav__menu-link"
+              :class="{ 'nav__menu-link--blue': isHighlightLink('/servers/mif') }"
+              href="https://enthusiasm.world/forum/"
+              target="_blank"
+          >
+            Форум
+          </a>
         </li>
       </ul>
-      <button class="nav__button">Начать играть</button>
+      <button
+          class="nav__button"
+          :class="{ 'nav__button--blue': isHighlightLink('/servers/mif') }"
+      >
+        Начать играть
+      </button>
     </nav>
   </header>
 </template>
@@ -37,6 +67,11 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.nav-mif {
+  max-width: 1316px;
+  background-color: hsla(0, 0%, 100%, .05);;
 }
 
 .nav__logo {
@@ -68,13 +103,17 @@
   margin-left: 10px;
   margin-right: 10px;
   text-decoration: none;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, color 0.3s ease;
   transform-origin: center;
 }
 
 .nav__menu-link:hover {
   transform: scale(1.1);
   color: #ff9671;
+}
+
+.nav__menu-link--blue:hover {
+  color: #1e90ff;
 }
 
 .nav__button {
@@ -95,10 +134,25 @@
   box-shadow: rgb(255, 147, 112) 0px 20px 50px -10px;
   transform: scale(1.05) translateZ(0px);
 }
+
+.nav__button--blue {
+  background: linear-gradient(132deg, #3a6ad4, #7ab4f7 100%);
+}
+
+.nav__button--blue:hover {
+  box-shadow: rgba(30, 144, 255, 0.5) 0px 20px 50px -10px;
+  transform: scale(1.05) translateZ(0px);
+}
 </style>
 
 <script>
 export default {
   name: 'UniqueNav',
+  methods: {
+    isHighlightLink(path) {
+      const highlightPaths = ['/servers/mif'];
+      return highlightPaths.some(highlightPath => this.$route.path.includes(highlightPath));
+    }
+  }
 }
 </script>

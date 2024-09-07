@@ -33,8 +33,6 @@ import GregTechFeatures from './components/GregTechFeatures.vue';
 import ProgressionLevels from './components/ProgressionLevels.vue';
 import ModList from './components/ModList.vue';
 import ContestsSection from './components/ContestsSection.vue';
-
-import { ref } from 'vue';
 import versionCreateImage from '@/assets/icons/version.png'
 import gtceuCreateImage from '@/assets/icons/gtceu.png'
 import questsCreateImage from '@/assets/icons/quests.png'

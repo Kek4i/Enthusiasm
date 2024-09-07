@@ -24,6 +24,11 @@ const router = createRouter({
       component: () => import('../components/serversPage/hardtechPage/hardtech.vue')
     },
     {
+      path: '/servers/mif',
+      name: 'mif',
+      component: () => import('../components/serversPage/mifPage/mif.vue')
+    },
+    {
       path: '/rules',
       name: 'rules',
       component: () => import('../components/rules/rulesPage.vue')
