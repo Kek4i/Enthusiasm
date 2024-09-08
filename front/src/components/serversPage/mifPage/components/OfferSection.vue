@@ -12,6 +12,7 @@
       </div>
     </div>
   </div>
+  <img src="@/assets/icons/earth.png" class="hidden-image">
 </template>
 
 <style scoped>
@@ -55,7 +56,7 @@ h1 {
 
 .anonce {
   position: relative;
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(15px);
   font-weight: 700;
   letter-spacing: .05em;
   color: white;
@@ -76,6 +77,17 @@ h1 {
   padding-top: 3rem;
   text-align: center;
   font-size: 1.5rem;
+}
+
+.hidden-image {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50%;
+  height: auto;
+  z-index: -1;
+  opacity: 1;
+  transform: translateX(-40%) translateY(50%);
 }
 
 </style>

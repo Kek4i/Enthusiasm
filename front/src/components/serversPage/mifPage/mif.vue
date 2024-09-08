@@ -23,6 +23,7 @@
 </template>
 
 <style scoped>
+
 .stars-container {
   position: fixed;
   top: 0;
@@ -66,7 +67,6 @@
   }
 }
 </style>
-
 
 <script setup>
 import OfferSection from './components/OfferSection.vue';

@@ -42,6 +42,15 @@
             Форум
           </a>
         </li>
+        <li class="nav__menu-item">
+          <router-link
+              class="nav__menu-link"
+              :class="{ 'nav__menu-link--blue': isHighlightLink('/servers/mif') }"
+              to="/other"
+          >
+            Прочее
+          </router-link>
+        </li>
       </ul>
       <button
           class="nav__button"
@@ -54,24 +63,30 @@
 </template>
 
 <style scoped>
+
+.header {
+  padding: 15px 15px 0;
+}
+
 .nav {
-  margin-top: 16px;
+  max-width: 1140px;
+  min-height: 110px;
   margin-right: auto;
   margin-left: auto;
   background-color: rgba(20, 20, 20, 0.251);
-  border-radius: 1.5rem;
-  padding: 1.5rem 1rem;
+  border-radius: 10px;
+  padding: 15px 30px;
   box-shadow: 0 0px 1px rgba(108, 108, 108, 0.421);
   backdrop-filter: blur(2px);
-  max-width: 1140px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  box-sizing: border-box;
 }
 
 .nav-mif {
   max-width: 1316px;
-  background-color: hsla(0, 0%, 100%, .05);;
+  background-color: hsla(0, 0%, 100%, .05);
 }
 
 .nav__logo {
@@ -117,6 +132,9 @@
 }
 
 .nav__button {
+  padding: 13px;
+  padding-left: 36px;
+  padding-right: 36px;
   font-size: 1.15rem;
   border-radius: 6px;
   color: #fff;
@@ -124,7 +142,6 @@
   font-weight: 700;
   text-transform: uppercase;
   background: linear-gradient(132deg, rgb(255, 95, 109) 0%, rgb(255, 195, 113) 100%);
-  padding: 10px 30px;
   transition: box-shadow 200ms, transform 200ms;
   border: none;
   cursor: pointer;

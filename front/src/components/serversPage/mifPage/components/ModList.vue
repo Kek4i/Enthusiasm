@@ -1,26 +1,33 @@
 <template>
-  <div class="container about-server">
-    <div class="col-md-12">
-      <h2>{{ modsTitle }}</h2>
-    </div>
-    <div class="container row">
-      <div v-for="(modType, type) in modTypes" :key="type" class="col-md-4 d-flex flex-column">
-        <h3>{{ type }}</h3>
-        <ul class="list-group list-group-flush custom-list">
-          <li v-for="(mod, index) in modType" :key="index" class="text mod-info">
-            <div class="tooltip-container">
-              {{ mod.name }}
-              <span class="tooltip-text" v-html="mod.description"></span>
-            </div>
-            <span v-if="mod.customLabel" class="custom-label">{{ mod.customLabel }}</span>
-          </li>
-        </ul>
+  <div class="image-wrapper">
+    <div class="container about-server">
+      <div class="col-md-12">
+        <h2>{{ modsTitle }}</h2>
+      </div>
+      <div class="container row">
+        <div v-for="(modType, type) in modTypes" :key="type" class="col-md-4 d-flex flex-column">
+          <h3>{{ type }}</h3>
+          <ul class="list-group list-group-flush custom-list">
+            <li v-for="(mod, index) in modType" :key="index" class="text mod-info">
+              <div class="tooltip-container">
+                {{ mod.name }}
+                <span class="tooltip-text" v-html="mod.description"></span>
+              </div>
+              <span v-if="mod.customLabel" class="custom-label">{{ mod.customLabel }}</span>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
+    <img src="@/assets/icons/mercury.png" class="hidden-image_3">
   </div>
 </template>
 
 <style scoped>
+
+.image-wrapper {
+  position: relative;
+}
 
 h2 {
   font-weight: 700;
@@ -79,7 +86,7 @@ h3 {
   margin-bottom: 10rem;
   padding-bottom: 2rem;
   padding-top: 2rem;
-  backdrop-filter: blur(2px);
+  backdrop-filter: blur(15px);
   box-shadow: 0 0px 1px rgba(108, 108, 108, 0.421);
 }
 
@@ -195,6 +202,17 @@ h3 {
   transform: scale(1.05) translateZ(0px);
   background: linear-gradient(132deg, rgb(255, 95, 109) 0%, rgb(255, 195, 113) 100%);
   position: relative;
+}
+
+.hidden-image_3 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50%;
+  height: auto;
+  z-index: -1;
+  opacity: 1;
+  transform: translateX(-57%) translateY(-20%);
 }
 
 </style>

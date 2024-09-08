@@ -1,19 +1,22 @@
 <template>
-  <div class="container about-server">
-    <div class="col-md-12">
-      <h2>{{ whatIsGregTechTitle }}</h2>
-    </div>
-    <div v-for="(item, index) in gregTechFeatures" :key="index" class="container row about-row d-flex align-items-center">
-      <div class="col-md-6">
-        <div class="text">
-          <h3>{{ item.title }}</h3>
-          <h4 v-html="item.description"></h4>
+  <div class="container-wrapper">
+    <div class="container about-server">
+      <div class="col-md-12">
+        <h2>{{ whatIsGregTechTitle }}</h2>
+      </div>
+      <div v-for="(item, index) in gregTechFeatures" :key="index" class="container row about-row d-flex align-items-center">
+        <div class="col-md-6">
+          <div class="text">
+            <h3>{{ item.title }}</h3>
+            <h4 v-html="item.description"></h4>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <img class="block-image img-fluid" :src="item.image" :alt="item.title">
         </div>
       </div>
-      <div class="col-md-6">
-        <img class="block-image img-fluid" :src="item.image" :alt="item.title">
-      </div>
     </div>
+    <img src="@/assets/icons/mars.png" class="hidden-image_2">
   </div>
 </template>
 
@@ -50,6 +53,10 @@ h4 {
   margin: 0 0 8px 0;
 }
 
+.container-wrapper {
+  position: relative;
+}
+
 .container {
   max-width: 1140px;
   padding-right: 15px;
@@ -77,7 +84,7 @@ h4 {
   margin-bottom: 10rem;
   padding-bottom: 2rem;
   padding-top: 2rem;
-  backdrop-filter: blur(2px);
+  backdrop-filter: blur(15px);
   box-shadow: 0 0px 1px rgba(108, 108, 108, 0.421);
 }
 
@@ -125,6 +132,17 @@ h4 {
 .text {
   color: white;
   margin-bottom: 20px;
+}
+
+.hidden-image_2 {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 50%;
+  height: auto;
+  z-index: -1;
+  opacity: 1;
+  transform: translateX(50%) translateY(-70%);
 }
 
 </style>

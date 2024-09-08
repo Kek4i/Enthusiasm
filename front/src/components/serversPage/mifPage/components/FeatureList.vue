@@ -75,7 +75,7 @@ h4 {
   margin-bottom: 10rem;
   padding-bottom: 2rem;
   padding-top: 2rem;
-  backdrop-filter: blur(2px);
+  backdrop-filter: blur(15px);
   box-shadow: 0 0px 1px rgba(108, 108, 108, 0.421);
 }
 

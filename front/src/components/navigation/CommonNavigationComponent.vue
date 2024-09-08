@@ -44,8 +44,9 @@ a {
 
 .nav {
   max-width: 1316px;
+  min-height: 110px;
   margin: 0 auto;
-  padding: 15px 30px;
+  padding: 15px 15px;
   position: relative;
   z-index: 1;
   display: flex;
@@ -55,6 +56,7 @@ a {
   -webkit-backdrop-filter: blur(2px);
   backdrop-filter: blur(2px);
   border-radius: 10px;
+  box-sizing: border-box;
 }
 
 .nav__logo {
@@ -94,7 +96,7 @@ a {
   position: absolute;
   left: 0;
   right: 0;
-  bottom: -35px;
+  bottom: -45px;
   height: 4px;
   border-radius: 6px;
   width: 0;
@@ -111,15 +113,13 @@ button {
   padding: 16px 20px;
   justify-content: center;
   align-items: center;
-  width: 100%;
   border-radius: 8px;
   background: linear-gradient(132deg, rgb(255, 95, 109) 0%, rgb(255, 195, 113) 100%);
   color: #fff;
-  font-size: 16px;
+  font-size: 19px;
   font-style: normal;
-  font-weight: 700;
+  font-weight: 600;
   line-height: normal;
-  text-transform: uppercase;
   cursor: pointer;
   border: initial;
   box-shadow: none;

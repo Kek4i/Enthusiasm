@@ -15,7 +15,7 @@
 
 .main_content {
   max-width: 1320px;
-  margin-top: 32px;
+  margin-top: 64px;
   margin-inline: auto;
   display: flex;
   width: 100%;
