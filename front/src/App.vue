@@ -48,7 +48,7 @@ onBeforeUnmount(() => {
 </template>
 
 <style>
-/* Общие стили фона */
+
 body.global-background {
   background: url('assets/icons/globalBg.png');
   background-size: cover;
@@ -64,16 +64,15 @@ body.global-scrollbar::-webkit-scrollbar {
 }
 
 body.global-scrollbar::-webkit-scrollbar-thumb {
-  background-color: rgba(100, 100, 100, 0.8); /* Тёмно-серая прокрутка */
+  background: linear-gradient(132deg, rgb(255, 95, 109) 0%, rgb(255, 195, 113) 100%);
   border-radius: 10px;
 }
 
 body.global-scrollbar::-webkit-scrollbar-track {
-  background-color: rgba(50, 50, 50, 0.5); /* Тёмный трек */
+  background: rgb(38, 36, 30);
   background-clip: content-box;
 }
 
-/* Полоса прокрутки для mif-page-background */
 body.mif-scrollbar::-webkit-scrollbar {
   width: 10px;
 }

@@ -29,6 +29,11 @@ const router = createRouter({
       component: () => import('../components/serversPage/mifPage/mif.vue')
     },
     {
+      path: '/servers/terrafirmacreate',
+      name: 'terrafirmacreate',
+      component: () => import('../components/serversPage/terrafirmacreatePage/terrafirmacreate.vue')
+    },
+    {
       path: '/rules',
       name: 'rules',
       component: () => import('../components/rules/rulesPage.vue')
