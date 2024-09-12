@@ -235,7 +235,7 @@
 }
 
 .status-maintenance {
-  color: #ffc371;
+  color: #ff9f70;
 }
 
 .server-title {

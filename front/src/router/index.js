@@ -53,11 +53,11 @@ const router = createRouter({
     //   name: 'shop',
     //   component: () => import('../views/AboutView.vue')
     // },
-    // {
-    //   path: '/auth',
-    //   name: 'auth',
-    //   component: () => import('../views/AboutView.vue')
-    // },
+    {
+      path: '/register',
+      name: 'register',
+      component: () => import('../components/registerPage/register.vue')
+    },
     {
       path: '/other',
       name: 'other',

@@ -1,6 +1,5 @@
 <template>
   <header class="header">
-
     <nav class="nav">
       <router-link class="nav__logo" to="/">
         <img alt="logo" src="../../assets/icons/logo.png">
@@ -135,6 +134,7 @@ button:hover {
 .nav__button {
   max-width: 222px;
 }
+
 </style>
 
 <script>
