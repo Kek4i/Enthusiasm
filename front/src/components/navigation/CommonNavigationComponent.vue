@@ -4,7 +4,8 @@
       <router-link class="nav__logo" to="/">
         <img alt="logo" src="../../assets/icons/logo.png">
       </router-link>
-      <ul class="nav__menu">
+
+      <ul class="nav__menu" v-if="!isMobileView">
         <li class="nav__menu-item">
           <router-link class="nav__menu-link" to="/">Главная</router-link>
         </li>
@@ -24,9 +25,17 @@
           <router-link class="nav__menu-link" to="/other">Прочее</router-link>
         </li>
       </ul>
-      <button class="nav__button">Личный кабинет</button>
+
+      <div v-if="isMobileView" class="burger" :class="{ open: burgerOpen }" @click="toggleBurgerMenu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <button v-if="!isMobileView" class="nav__button">Личный кабинет</button>
     </nav>
 
+    <BurgerMenu :isOpen="burgerOpen" @close="closeBurgerMenu" />
   </header>
 </template>
 
@@ -47,7 +56,7 @@ a {
   margin: 0 auto;
   padding: 15px 15px;
   position: relative;
-  z-index: 1;
+  z-index: 13;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -68,7 +77,7 @@ a {
   display: flex;
   gap: 32px;
   margin: 0 0 0 36px;
-  padding: 0px;
+  padding: 0;
   list-style-type: none;
 }
 
@@ -135,10 +144,95 @@ button:hover {
   max-width: 222px;
 }
 
+.burger {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 24px;
+  width: 30px;
+  position: relative;
+  z-index: 11;
+}
+
+.burger span {
+  width: 30px;
+  height: 3px;
+  background-color: white;
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+
+.burger.open span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.burger.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.burger.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(10px, -10px);
+}
+
+.nav__button {
+  max-width: 222px;
+  background: linear-gradient(132deg, rgb(255, 95, 109) 0%, rgb(255, 195, 113) 100%);
+  padding: 16px 20px;
+  color: #fff;
+  font-size: 19px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  border: none;
+}
+
+.nav__menu-link {
+  font-size: 16px;
+  text-transform: uppercase;
+  color: white;
+}
 </style>
 
 <script>
+import BurgerMenu from './NavBurger.vue';
+
 export default {
   name: 'CommonNav',
-}
+  components: {
+    BurgerMenu
+  },
+  data() {
+    return {
+      burgerOpen: false,
+      isMobileView: false
+    };
+  },
+  mounted() {
+    this.checkMobileView();
+    window.addEventListener('resize', this.checkMobileView);
+  },
+  beforeDestroy() {
+    window.removeEventListener('resize', this.checkMobileView);
+  },
+  methods: {
+    toggleBurgerMenu() {
+      this.burgerOpen = !this.burgerOpen;
+      if (this.burgerOpen) {
+        document.body.classList.add('nav-open');
+      } else {
+        document.body.classList.remove('nav-open');
+      }
+    },
+    closeBurgerMenu() {
+      this.burgerOpen = false;
+      document.body.classList.remove('nav-open');
+    },
+    checkMobileView() {
+      this.isMobileView = window.innerWidth <= 1131;
+    }
+  }
+};
 </script>
