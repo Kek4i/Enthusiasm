@@ -1,71 +1,65 @@
 <template>
-  <header class="header">
+  <header class="header" :class="{ 'header-mif': isHighlightLink('/servers/mif') }">
     <nav class="nav" :class="{ 'nav-mif': isHighlightLink('/servers/mif') }">
       <router-link class="nav__logo" to="/">
         <img alt="logo" src="../../assets/icons/logo.png">
       </router-link>
-      <ul class="nav__menu">
+
+      <div class="burger" @click="toggleMenu" :class="{ 'burger--blue': isHighlightLink('/servers/mif') }">
+        <div :class="{ 'burger-line': true, 'burger-line--active': isMenuOpen }"></div>
+        <div :class="{ 'burger-line': true, 'burger-line--active': isMenuOpen }"></div>
+        <div :class="{ 'burger-line': true, 'burger-line--active': isMenuOpen }"></div>
+      </div>
+
+      <ul class="nav__menu" :class="{ 'nav__menu--open': isMenuOpen }">
         <li class="nav__menu-item">
-          <router-link
-              class="nav__menu-link"
-              :class="{ 'nav__menu-link--blue': isHighlightLink('/servers/mif') }"
-              to="/servers"
-          >
+          <router-link class="nav__menu-link" :class="{ 'nav__menu-link--blue': isHighlightLink('/servers/mif') }" to="/servers">
             Сервера
           </router-link>
         </li>
         <li class="nav__menu-item">
-          <router-link
-              class="nav__menu-link"
-              :class="{ 'nav__menu-link--blue': isHighlightLink('/servers/mif') }"
-              to="/rules"
-          >
+          <router-link class="nav__menu-link" :class="{ 'nav__menu-link--blue': isHighlightLink('/servers/mif') }" to="/rules">
             Правила
           </router-link>
         </li>
         <li class="nav__menu-item">
-          <router-link
-              class="nav__menu-link"
-              :class="{ 'nav__menu-link--blue': isHighlightLink('/servers/mif') }"
-              to="/store"
-          >
+          <router-link class="nav__menu-link" :class="{ 'nav__menu-link--blue': isHighlightLink('/servers/mif') }" to="/store">
             Магазин
           </router-link>
         </li>
         <li class="nav__menu-item">
-          <a
-              class="nav__menu-link"
-              :class="{ 'nav__menu-link--blue': isHighlightLink('/servers/mif') }"
-              href="https://enthusiasm.world/forum/"
-              target="_blank"
-          >
+          <a class="nav__menu-link" :class="{ 'nav__menu-link--blue': isHighlightLink('/servers/mif') }" href="https://enthusiasm.world/forum/" target="_blank">
             Форум
           </a>
         </li>
         <li class="nav__menu-item">
-          <router-link
-              class="nav__menu-link"
-              :class="{ 'nav__menu-link--blue': isHighlightLink('/servers/mif') }"
-              to="/other"
-          >
+          <router-link class="nav__menu-link" :class="{ 'nav__menu-link--blue': isHighlightLink('/servers/mif') }" to="/other">
             Прочее
           </router-link>
         </li>
+        <li class="nav__menu-item nav__button-container nav__button-container--burger">
+          <button class="nav__button" :class="{ 'nav__button--blue': isHighlightLink('/servers/mif') }">
+            Начать играть
+          </button>
+        </li>
       </ul>
-      <button
-          class="nav__button"
-          :class="{ 'nav__button--blue': isHighlightLink('/servers/mif') }"
-      >
-        Начать играть
-      </button>
+      <div class="nav__button-container nav__button-container--desktop">
+        <button class="nav__button" :class="{ 'nav__button--blue': isHighlightLink('/servers/mif') }">
+          Начать играть
+        </button>
+      </div>
     </nav>
   </header>
 </template>
 
 <style scoped>
-
 .header {
   padding: 15px 15px 0;
+  transition: backdrop-filter 0.3s ease;
+}
+
+.header-mif {
+  backdrop-filter: blur(5px);
 }
 
 .nav {
@@ -74,14 +68,14 @@
   margin-right: auto;
   margin-left: auto;
   background-color: rgba(20, 20, 20, 0.251);
-  border-radius: 10px;
+  border-radius: 10px 10px 0 0;
   padding: 15px 30px;
-  box-shadow: 0 0px 1px rgba(108, 108, 108, 0.421);
-  backdrop-filter: blur(2px);
   display: flex;
   align-items: center;
   justify-content: space-between;
   box-sizing: border-box;
+  position: relative;
+  transition: padding-bottom 0.3s ease;
 }
 
 .nav-mif {
@@ -106,6 +100,21 @@
   list-style: none;
   flex-direction: row;
   align-items: center;
+  flex-grow: 1;
+  justify-content: center;
+  transition: transform 0.3s ease;
+}
+
+.nav__menu--open {
+  flex-direction: column;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: hsla(0, 0%, 100%, .05);
+  padding: 20px;
+  border-radius: 0 0 10px 10px;
+  display: flex;
 }
 
 .nav__menu-link {
@@ -119,7 +128,6 @@
   margin-right: 10px;
   text-decoration: none;
   transition: transform 0.3s ease, color 0.3s ease;
-  transform-origin: center;
 }
 
 .nav__menu-link:hover {
@@ -128,6 +136,7 @@
 }
 
 .nav__menu-link--blue:hover {
+  transform: scale(1.1);
   color: #1e90ff;
 }
 
@@ -138,7 +147,6 @@
   font-size: 1.15rem;
   border-radius: 6px;
   color: #fff;
-  margin-left: 1rem;
   font-weight: 700;
   text-transform: uppercase;
   background: linear-gradient(132deg, rgb(255, 95, 109) 0%, rgb(255, 195, 113) 100%);
@@ -160,16 +168,105 @@
   box-shadow: rgba(30, 144, 255, 0.5) 0px 20px 50px -10px;
   transform: scale(1.05) translateZ(0px);
 }
+
+.burger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+.burger-line {
+  width: 30px;
+  height: 4px;
+  border-radius: 6px;
+  background-color: white;
+  margin: 2px 0;
+  transition: transform 0.3s ease;
+}
+
+.burger-line--active:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.burger-line--active:nth-child(2) {
+  opacity: 0;
+}
+
+.burger-line--active:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+.burger--blue .burger-line {
+  background: linear-gradient(132deg, #5c8bf1, #9fc7f5 100%);
+}
+
+.nav__button-container {
+  display: flex;
+}
+
+.nav__button-container--desktop {
+  display: block;
+}
+
+.nav__button-container--burger {
+  display: none;
+}
+
+@media (max-width: 1131px) {
+  .nav__menu {
+    display: none;
+  }
+
+  .nav__menu--open {
+    display: flex;
+  }
+
+  .burger {
+    display: flex;
+  }
+
+  .nav__button-container--desktop {
+    display: none;
+  }
+
+  .nav__button-container--burger {
+    display: block;
+    margin-top: 10px;
+  }
+}
+
+.header.menu-open {
+  padding-bottom: 200px;
+}
 </style>
+
 
 <script>
 export default {
   name: 'UniqueNav',
+  data() {
+    return {
+      isMenuOpen: false,
+    };
+  },
   methods: {
     isHighlightLink(path) {
-      const highlightPaths = ['/servers/mif'];
-      return highlightPaths.some(highlightPath => this.$route.path.includes(highlightPath));
+      return this.$route.path.includes(path);
+    },
+    toggleMenu() {
+      this.isMenuOpen = !this.isMenuOpen;
+      document.body.style.overflow = this.isMenuOpen ? 'hidden' : '';
+
+      if (this.isMenuOpen) {
+        document.querySelector('header').classList.add('menu-open');
+      } else {
+        document.querySelector('header').classList.remove('menu-open');
+      }
     }
+  },
+  beforeDestroy() {
+    document.body.style.overflow = '';
   }
 }
 </script>
