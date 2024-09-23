@@ -9,7 +9,7 @@
         <div class="slide-info">
           <div class="slide-title">{{ slide.title }}</div>
           <div class="slide-description">{{ slide.description }}</div>
-          <div class="slide-buttons">
+          <div class="slide-buttons" v-if="!isMobile">
             <router-link to="/play" class="button button--primary">Начать играть</router-link>
             <router-link :to="serverLinks[currentSlide]" class="button button--secondary">Подробнее</router-link>
           </div>
@@ -22,6 +22,10 @@
           <button class="slider-navigation__button slider-navigation__button--next" @click="nextSlide">
             <img src="@/assets/icons/arrow.png" alt="Следующий слайд" />
           </button>
+        </div>
+        <div class="slide-buttons-mobile" v-if="isMobile">
+          <router-link to="/play" class="button button--primary">Начать играть</router-link>
+          <router-link :to="serverLinks[currentSlide]" class="button button--secondary">Подробнее</router-link>
         </div>
       </div>
     </div>
@@ -89,21 +93,27 @@
   gap: 24px;
 }
 
-.slide-image {
+.slide-buttons-mobile {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  max-width: 50%;
-  margin-left: 40px;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.slide-image {
   position: relative;
-  overflow: hidden;
-  height: 360px;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  margin-left: 40px;
 }
 
 .slide-image img {
-  width: 100%;
   height: 100%;
-  border-radius: 6px;
+  width: 100%;
+  inset: 0;
+  color: transparent;
+  border-radius: 10px;
 }
 
 .slider-navigation__button {
@@ -158,6 +168,7 @@
   text-decoration: none;
   white-space: nowrap;
   transition: transform 0.3s ease;
+  box-sizing: border-box;
 }
 
 .button--primary {
@@ -178,10 +189,52 @@
   box-shadow: none;
   transform: scale(1.05);
 }
+
+@media (max-width: 1270px) {
+  .slide-title {
+    font-size: 44px;
+  }
+
+  .slide-description {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .slider-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .slide-image {
+    margin-left: 0;
+    margin-top: 16px;
+  }
+
+  .slide-info {
+    max-width: 100%;
+  }
+
+  .slider-slide {
+    flex-direction: column;
+  }
+
+  .slide-title {
+    font-size: 27px;
+  }
+
+  .slide-description {
+    font-size: 20px;
+  }
+
+  .slide-buttons {
+    display: none; /* Скрыть кнопки в slide-info */
+  }
+}
 </style>
 
 <script setup>
-import { ref, onMounted, onBeforeUnmount } from 'vue';
+import {ref, onMounted, onBeforeUnmount} from 'vue';
 
 const slides = ref([
   {
@@ -216,6 +269,8 @@ const serverLinks = ref([
 const currentSlide = ref(0);
 let slideInterval = null;
 
+const isMobile = ref(window.innerWidth < 1024);
+
 function nextSlide() {
   currentSlide.value = (currentSlide.value + 1) % slides.value.length;
   resetInterval();
@@ -237,9 +292,15 @@ function startAutoSlide() {
 
 onMounted(() => {
   startAutoSlide();
+  window.addEventListener('resize', handleResize);
 });
 
 onBeforeUnmount(() => {
   clearInterval(slideInterval);
+  window.removeEventListener('resize', handleResize);
 });
+
+function handleResize() {
+  isMobile.value = window.innerWidth < 1024;
+}
 </script>

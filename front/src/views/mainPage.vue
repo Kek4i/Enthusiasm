@@ -19,8 +19,9 @@
   margin-inline: auto;
   display: flex;
   width: 100%;
-  padding: 0 16px;
+  padding: 0 15px;
   backdrop-filter: blur(2px);
+  box-sizing: border-box;
 }
 
 .page {
@@ -34,6 +35,16 @@
   flex-direction: column;
   align-items: center;
   gap: 128px;
+}
+
+@media (max-width: 1024px) {
+  .main_content {
+    margin-top: 32px;
+  }
+
+  .page__container {
+    gap: 40px;
+  }
 }
 </style>
 
