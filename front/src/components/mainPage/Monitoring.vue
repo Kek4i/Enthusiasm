@@ -35,16 +35,22 @@
             </div>
             <div class="server-title">
               <div class="server-name">{{ server.name }}</div>
-                <div class="server-version">{{ server.version }}</div>
+              <div class="server-version">{{ server.version }}</div>
             </div>
           </router-link>
         </div>
+      </div>
+      <!-- Новый блок для отображения онлайн-статуса под server-list-container -->
+      <div class="online-status-below">
+        <span class="online-status-label">Общий онлайн:</span>
+        <span class="online-status-number">{{ totalOnline }}</span>
       </div>
     </div>
   </div>
 </template>
 
 <style scoped>
+
 .monitoring-section {
   padding: 64px 96px;
   flex-direction: column;
@@ -125,7 +131,7 @@
 
 .server-card {
   width: 100%;
-  max-width: 360px;
+  max-width: 330px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -153,9 +159,9 @@
   justify-content: center;
   align-items: center;
   border-radius: 10px;
-  width: 360px;
+  width: 330px;
   height: 136px;
-  background-color: #222;
+  background-color: rgba(0, 0, 0, .3);
   overflow: hidden;
 }
 
@@ -173,8 +179,8 @@
 }
 
 .server-status img {
-  width: 18px;
-  height: 18px;
+  width: 24px;
+  height: 24px;
   margin-left: 8px;
 }
 
@@ -192,6 +198,7 @@
   width: 100%;
   max-width: 324px;
   gap: 20px;
+  box-sizing: border-box;
 }
 
 .server-tag {
@@ -257,6 +264,47 @@
   font-weight: 600;
   text-align: right;
 }
+
+@media (max-width: 768px) {
+
+  .monitoring-section {
+    padding: 35px 20px;
+  }
+
+  .section-title {
+    font-size: 27px;
+  }
+
+  .online-status {
+    display: none;
+  }
+
+  .server-list-container {
+    position: relative;
+  }
+
+  .online-status-below {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .online-status-label {
+    font-size: 26px;
+  }
+
+  .online-status-number {
+    font-size: 26px;
+  }
+}
+
+@media (min-width: 768px) {
+  .online-status-below {
+    display: none;
+  }
+}
+
 </style>
 
 <script setup>

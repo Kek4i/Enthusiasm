@@ -202,12 +202,13 @@ import BurgerMenu from './NavBurger.vue';
 export default {
   name: 'CommonNav',
   components: {
-    BurgerMenu
+    BurgerMenu,
   },
   data() {
     return {
       burgerOpen: false,
-      isMobileView: false
+      isMobileView: false,
+      previousScrollPosition: 0,
     };
   },
   mounted() {
@@ -221,18 +222,25 @@ export default {
     toggleBurgerMenu() {
       this.burgerOpen = !this.burgerOpen;
       if (this.burgerOpen) {
-        document.body.classList.add('nav-open');
+        this.previousScrollPosition = window.scrollY;
+        document.body.style.position = 'fixed';
+        document.body.style.top = `-${this.previousScrollPosition}px`;
+        document.body.style.width = '100%';
       } else {
-        document.body.classList.remove('nav-open');
+        document.body.style.position = '';
+        document.body.style.top = '';
+        window.scrollTo(0, this.previousScrollPosition);
       }
     },
     closeBurgerMenu() {
       this.burgerOpen = false;
-      document.body.classList.remove('nav-open');
+      document.body.style.position = '';
+      document.body.style.top = '';
+      window.scrollTo(0, this.previousScrollPosition);
     },
     checkMobileView() {
       this.isMobileView = window.innerWidth <= 1131;
-    }
-  }
+    },
+  },
 };
 </script>
