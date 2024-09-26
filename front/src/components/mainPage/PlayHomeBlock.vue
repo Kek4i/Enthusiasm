@@ -26,6 +26,8 @@
   gap: 32px;
   border-radius: 10px;
   background: hsla(0, 0%, 100%, .05);
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .section-header {
@@ -52,7 +54,6 @@
 
 .card-container {
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
   width: 100%;
@@ -68,10 +69,10 @@
   padding: 26px 56px;
   border-radius: 30px;
   background: #1b1918;
-  width: 442px;
+  width: calc(50% - 20px);
   min-height: 181px;
   background-size: cover;
-  flex: 0 1 calc(50% - 20px);
+  flex: 1 1 calc(50% - 20px);
   max-width: 442px;
 }
 
@@ -122,6 +123,29 @@
 
 .download-button {
   background: rgba(255, 255, 255, 0.05);
+}
+
+@media (max-width: 1023px) {
+
+  .info-section {
+    padding: 35px 20px;
+  }
+
+  .info-card {
+    width: calc(100% - 20px);
+  }
+
+  .download-card {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .header-title {
+    font-size: 27px;
+  }
+
 }
 </style>
 

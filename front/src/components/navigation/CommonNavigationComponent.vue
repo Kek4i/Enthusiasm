@@ -160,13 +160,14 @@ button:hover {
 .burger span {
   width: 30px;
   height: 3px;
-  background-color: white;
+  background: rgb(255, 147, 112);
   border-radius: 2px;
   transition: all 0.3s;
 }
 
 .burger.open span:nth-child(1) {
   transform: rotate(45deg) translate(5px, 5px);
+  background: white;
 }
 
 .burger.open span:nth-child(2) {
@@ -175,6 +176,7 @@ button:hover {
 
 .burger.open span:nth-child(3) {
   transform: rotate(-45deg) translate(10px, -10px);
+  background: white;
 }
 
 .nav__button {

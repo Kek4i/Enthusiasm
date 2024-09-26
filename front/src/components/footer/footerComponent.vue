@@ -65,7 +65,7 @@ a {
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 20px;
   justify-content: space-between;
-  padding: 48px 94px;
+  padding: 48px 94px 48px 96px;
   margin: 128px auto 32px;
   max-width: 1316px;
   border-radius: 16px;

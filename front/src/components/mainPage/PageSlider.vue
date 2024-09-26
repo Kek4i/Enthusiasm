@@ -200,7 +200,7 @@
   }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1023px) {
   .slider-container {
     flex-direction: column;
     align-items: flex-start;
@@ -269,7 +269,7 @@ const serverLinks = ref([
 const currentSlide = ref(0);
 let slideInterval = null;
 
-const isMobile = ref(window.innerWidth < 1024);
+const isMobile = ref(window.innerWidth < 1023);
 
 function nextSlide() {
   currentSlide.value = (currentSlide.value + 1) % slides.value.length;

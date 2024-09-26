@@ -136,7 +136,7 @@
   border-radius: 10px;
   width: 360px;
   height: 136px;
-  background-color: #222;
+  background-color: rgba(0, 0, 0, .3);
   overflow: hidden;
 }
 
@@ -154,15 +154,14 @@
 }
 
 .server-status img {
-  width: 18px;
-  height: 18px;
+  width: 24px;
+  height: 24px;
   margin-left: 8px;
 }
 
 .server-info {
   position: absolute;
   top: 10px;
-  left: 10px;
   color: #fff;
   padding: 5px 10px;
   border-radius: 5px;
@@ -173,6 +172,7 @@
   width: 100%;
   max-width: 324px;
   gap: 20px;
+  box-sizing: border-box;
 }
 
 .server-tag {
@@ -238,6 +238,22 @@
   font-weight: 600;
   text-align: right;
 }
+
+@media (max-width: 768px) {
+
+  .PageBlock_block {
+    padding: 35px 20px;
+  }
+
+  .PageTitle_title {
+    font-size: 27px;
+  }
+
+  .server-list-container {
+    position: relative;
+  }
+}
+
 </style>
 
 <script setup>

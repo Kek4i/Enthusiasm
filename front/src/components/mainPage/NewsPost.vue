@@ -6,7 +6,7 @@
     </div>
     <div class="news-post" v-for="post in posts" :key="post.id">
       <div class="news-post-right-side">
-        <img :alt="post.imageAlt" :src="post.imageSrc">
+        <img :alt="post.imageAlt" :src="post.imageSrc" />
       </div>
       <div class="news-post-left-side">
         <router-link :to="post.link" class="news-post-title" target="_blank">{{ post.title }}</router-link>
@@ -20,6 +20,7 @@
 </template>
 
 <style scoped>
+
 a {
   text-decoration: none;
 }
@@ -63,9 +64,8 @@ a {
 }
 
 .news-post {
-  position: relative;
-  flex-direction: row;
   display: flex;
+  flex-direction: row;
   gap: 32px;
   width: 100%;
 }
@@ -73,14 +73,12 @@ a {
 .news-post-left-side {
   flex-basis: 60%;
   flex-grow: 1;
-  flex-shrink: 1;
   max-width: 815px;
 }
 
 .news-post-right-side {
   flex-basis: 40%;
   flex-grow: 1;
-  flex-shrink: 1;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -137,6 +135,39 @@ a {
   justify-content: center;
   align-items: center;
   padding: 0;
+}
+
+@media (max-width: 1023px) {
+  .news-post {
+    flex-direction: column;
+  }
+
+  .news-post-left-side,
+  .news-post-right-side {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .custom-button {
+    justify-content: center;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .full-width-button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .section-title {
+    font-size: 27px;
+  }
+
+  .news-list {
+    padding: 35px 20px;
+  }
 }
 </style>
 
