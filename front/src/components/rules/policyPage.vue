@@ -606,4 +606,10 @@ export default {
   padding: 0 15px;
 }
 
+@media (max-width: 768px) {
+  .main-container {
+    margin-top: 32px;
+  }
+}
+
 </style>

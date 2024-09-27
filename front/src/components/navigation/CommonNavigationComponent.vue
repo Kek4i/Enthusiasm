@@ -7,7 +7,7 @@
 
       <ul class="nav__menu" v-if="!isMobileView">
         <li class="nav__menu-item">
-          <router-link class="nav__menu-link" to="/">Главная</router-link>
+          <router-link class="nav__menu-link nav__menu-link--home" to="/">Главная</router-link>
         </li>
         <li class="nav__menu-item">
           <router-link class="nav__menu-link" to="/servers">Сервера</router-link>
@@ -196,6 +196,12 @@ button:hover {
   text-transform: uppercase;
   color: white;
 }
+
+@media (max-width: 1472px) {
+  .nav__menu-link--home {
+    display: none;
+  }
+}
 </style>
 
 <script>
@@ -241,7 +247,7 @@ export default {
       window.scrollTo(0, this.previousScrollPosition);
     },
     checkMobileView() {
-      this.isMobileView = window.innerWidth <= 1131;
+      this.isMobileView = window.innerWidth <= 1024;
     },
   },
 };

@@ -87,7 +87,7 @@
 .step {
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: 14px;
   padding: 8px 10px;
   border-radius: 8px;
   background: hsla(0, 0%, 100%, .05);
@@ -105,6 +105,7 @@
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  box-sizing: border-box;
 }
 
 .step__name {
@@ -123,6 +124,26 @@
   background: hsla(0, 0%, 100%, .05);
   padding: 20px;
   border-radius: 10px;
+}
+
+@media (max-width: 1024px) {
+  .clients {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    margin-top: 32px;
+  }
+
+  .page-title {
+    padding: 35px 20px;
+  }
+
+  .page-title__title {
+    font-size: 27px;
+  }
 }
 </style>
 

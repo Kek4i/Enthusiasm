@@ -241,6 +241,10 @@
 
 @media (max-width: 768px) {
 
+  .layout_container {
+    margin-top: 32px;
+  }
+
   .PageBlock_block {
     padding: 35px 20px;
   }

@@ -121,7 +121,6 @@ a {
   font-style: normal;
   font-weight: 800;
   line-height: normal;
-  text-transform: uppercase;
 }
 
 .link-description {
@@ -140,6 +139,31 @@ a {
   -moz-user-select: none;
   user-select: none;
 }
+
+@media (max-width: 768px) {
+  .layout-container {
+    margin-top: 32px;
+  }
+
+  .block-container {
+    padding: 35px 20px;
+  }
+
+  .title-text {
+    font-size: 27px;
+  }
+
+  .link-item {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .link-title {
+    font-size: 28px;
+    font-weight: 600;
+  }
+}
+
 </style>
 
 <script setup>
@@ -148,8 +172,6 @@ import { ref } from 'vue';
 import adminsCreateImage from '@/assets/icons/admins.png';
 import bonusCreateImage from '@/assets/icons/bonus.png';
 import vacationCreateImage from '@/assets/icons/vacation.png';
-import supportCreateImage from '@/assets/icons/support.png';
-import mediaCreateImage from '@/assets/icons/media.png';
 
 const links = ref([
   {
@@ -175,21 +197,7 @@ const links = ref([
     description: 'Ищем людей, у которых есть желание присоединиться к команде проекта.',
     alt: 'Вакансии',
     disabled: false,
-  },
-  {
-    icon: supportCreateImage,
-    title: 'Техническая поддержка',
-    description: 'Ответы на большинство вопросов, различные ошибки и способы их решения.',
-    alt: 'Техническая поддержка',
-    disabled: true,
-  },
-  {
-    icon: mediaCreateImage,
-    title: 'Медиа',
-    description: 'Видеотворчество наших игроков.',
-    alt: 'Медиа',
-    disabled: true,
-  },
+  }
 ]);
 
 </script>

@@ -31,6 +31,12 @@
   background: linear-gradient(132deg, #ff5f6d, #ffc371);
 }
 
+@media (max-width: 768px) {
+  .page-title__text {
+    font-size: 27px;
+  }
+}
+
 </style>
 
 <script setup>

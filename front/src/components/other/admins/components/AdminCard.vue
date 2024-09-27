@@ -16,7 +16,7 @@
 
 .admin-card {
   display: flex;
-  padding: 15px 0px;
+  padding: 15px 10px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -25,6 +25,7 @@
   background: hsla(0, 0%, 100%, .05);
   width: 100%;
   margin-inside: auto;
+  box-sizing: border-box;
 }
 
 .admin-card__nick {
@@ -64,6 +65,22 @@
 .social-link {
   width: 24px;
   height: 24px;
+}
+
+@media (max-width: 768px) {
+
+  .admin-card__nick {
+    font-size: 17px;
+  }
+
+  .admin-card__avatar {
+    width: 70px;
+    height: 70px;
+  }
+
+  .admin-card__role {
+    font-size: 11px;
+  }
 }
 
 </style>

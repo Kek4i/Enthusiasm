@@ -214,4 +214,14 @@ ul {
   transform: rotate(-360deg) scale(1.1);
 }
 
+@media (max-width: 768px) {
+  .category-block {
+    padding: 35px 20px;
+  }
+
+  .page-title {
+    font-size: 27px;
+  }
+}
+
 </style>

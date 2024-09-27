@@ -68,7 +68,32 @@ p {
   display: grid;
   gap: 16px;
   width: 100%;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(2, 1fr);
+}
+
+@media (min-width: 1024px) {
+  .admins-page__cards {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+}
+
+@media (max-width: 768px) {
+  .layout-container {
+    margin-top: 32px;
+  }
+
+  .page-block {
+    padding: 35px 20px;
+  }
+
+  .admins-page__description {
+    font-size: 17px;
+  }
+
+  .admins-page__cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 </style>
