@@ -11,7 +11,7 @@
         <router-link to="/rules" @click.native="closeMenu">Правила</router-link>
       </li>
       <li class="nav__burger-item">
-        <router-link to="/store" @click.native="closeMenu">Магазин</router-link>
+        <router-link to="/shop" @click.native="closeMenu">Магазин</router-link>
       </li>
       <li class="nav__burger-item">
         <a href="https://enthusiasm.world/forum/" target="_blank" @click="closeMenu">Форум</a>

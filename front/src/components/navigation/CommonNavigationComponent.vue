@@ -16,7 +16,7 @@
           <router-link class="nav__menu-link" to="/rules">Правила</router-link>
         </li>
         <li class="nav__menu-item">
-          <router-link class="nav__menu-link" to="/store">Магазин</router-link>
+          <router-link class="nav__menu-link" to="/shop">Магазин</router-link>
         </li>
         <li class="nav__menu-item">
           <a class="nav__menu-link" href="https://enthusiasm.world/forum/" target="_blank">Форум</a>

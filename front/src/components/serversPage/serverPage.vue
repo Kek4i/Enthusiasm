@@ -261,7 +261,7 @@
 </style>
 
 <script setup>
-import { ref, computed } from 'vue';
+import { ref } from 'vue';
 
 const servers = ref([
   {
@@ -325,8 +325,4 @@ const servers = ref([
     tag: 'WIPE',
   }
 ]);
-
-const totalOnline = computed(() => {
-  return servers.value.reduce((sum, server) => sum + server.online, 0);
-});
 </script>

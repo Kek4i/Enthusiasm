@@ -23,7 +23,7 @@
           </router-link>
         </li>
         <li class="nav__menu-item">
-          <router-link class="nav__menu-link" :class="{ 'nav__menu-link--blue': isHighlightLink('/servers/mif') }" to="/store">
+          <router-link class="nav__menu-link" :class="{ 'nav__menu-link--blue': isHighlightLink('/servers/mif') }" to="/shop">
             Магазин
           </router-link>
         </li>

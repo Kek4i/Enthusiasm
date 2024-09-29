@@ -48,11 +48,11 @@ const router = createRouter({
       name: 'policy',
       component: () => import('../components/rules/policyPage.vue')
     },
-    // {
-    //   path: '/shop',
-    //   name: 'shop',
-    //   component: () => import('../views/AboutView.vue')
-    // },
+    {
+      path: '/shop',
+      name: 'shop',
+      component: () => import('@/components/shop/shopPage.vue')
+    },
     {
       path: '/register',
       name: 'register',
