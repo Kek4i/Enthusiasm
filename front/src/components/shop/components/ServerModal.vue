@@ -4,8 +4,8 @@
       <img class="modal-close-icon" @click="closeModal" src="@/assets/icons/close.svg" alt="close" />
       <div class="modal-header">Выберите сервер</div>
       <div class="modal-body">
-        <div v-for="subServer in subServers" :key="subServer.id" class="server-card">
-          <a :href="subServer.link" class="server-card-link">
+        <div v-for="subServer in subServers" :key="subServer.id" class="server-card" @click="goToSubServer(subServer)">
+          <div class="server-card-link">
             <img :src="subServer.image" alt="server_image" class="server-image" />
             <div class="server-info">
               <div class="server-tag" :class="subServer.tag === 'NEW' ? 'tag-new' : subServer.tag === 'WIPE' ? 'tag-wipe' : subServer.tag === 'SEASON' ? 'tag-season' : ''">{{ subServer.tag }}</div>
@@ -28,7 +28,7 @@
               <div class="server-name">{{ subServer.name }}</div>
               <div class="server-version">{{ subServer.version }}</div>
             </div>
-          </a>
+          </div>
         </div>
       </div>
     </div>
@@ -138,6 +138,7 @@ a {
   display: flex;
   justify-content: center;
   border-radius: 10px;
+  cursor: pointer;
 }
 
 .server-image {
@@ -238,8 +239,17 @@ a {
 </style>
 
 <script setup>
+import { useRouter } from 'vue-router';
+
 const props = defineProps({
   subServers: Array,
   closeModal: Function
 });
+
+const router = useRouter();
+
+const goToSubServer = (subServer) => {
+  router.push(`/shop/servers/${subServer.id}/privileges`);
+  props.closeModal();
+};
 </script>

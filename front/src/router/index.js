@@ -54,6 +54,12 @@ const router = createRouter({
       component: () => import('@/components/shop/shopPage.vue')
     },
     {
+      path: '/shop/servers/:id/privileges',
+      name: 'ServerPrivileges',
+      component: () => import('@/components/shop/components/privilegesPage.vue'),
+      props: true,
+    },
+    {
       path: '/register',
       name: 'register',
       component: () => import('../components/registerPage/register.vue')

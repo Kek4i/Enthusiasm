@@ -274,58 +274,52 @@ const servers = ref([
     version: '1.20.1',
     online: 120,
     image: 'src/assets/icons/hardtech.png',
-    link: null,
     status: 'online',
     tag: 'NEW',
     modal: true,
     subServers: [
       {
-        id: 1,
+        id: 5,
         name: 'HardTech #1',
         version: '1.20.1',
         online: 50,
         image: 'src/assets/icons/hardtech.png',
-        link: '/shop/servers/5/privileges',
         status: 'online',
         tag: 'NEW'
       },
       {
-        id: 2,
+        id: 105,
         name: 'HardTech #2',
         version: '1.20.1',
         online: 30,
         image: 'src/assets/icons/hardtech.png',
-        link: '/shop/servers/105/privileges',
         status: 'online',
         tag: 'NEW'
       },
       {
-        id: 3,
+        id: 205,
         name: 'HardTech #3',
         version: '1.20.1',
         online: 20,
         image: 'src/assets/icons/hardtech.png',
-        link: '/shop/servers/205/privileges',
         status: 'online',
         tag: 'NEW'
       },
       {
-        id: 4,
+        id: 305,
         name: 'HardTech #4',
         version: '1.20.1',
         online: 10,
         image: 'src/assets/icons/hardtech.png',
-        link: '/shop/servers/305/privileges',
         status: 'online',
         tag: 'NEW'
       },
       {
-        id: 5,
+        id: 405,
         name: 'HardTech #5',
         version: '1.20.1',
         online: 5,
         image: 'src/assets/icons/hardtech.png',
-        link: '/shop/servers/405/privileges',
         status: 'online',
         tag: 'NEW'
       }]
@@ -336,28 +330,25 @@ const servers = ref([
     version: '1.20.1',
     online: 110,
     image: 'src/assets/icons/hitech.png',
-    link: '/servers/hitech',
     status: 'online',
     tag: 'WIPE',
     modal: true,
     subServers: [
       {
-        id: 1,
+        id: 6,
         name: 'HiTech #1',
         version: '1.20.1',
         online: 68,
         image: 'src/assets/icons/hitech.png',
-        link: '/shop/servers/6/privileges',
         status: 'online',
         tag: 'WIPE'
       },
       {
-        id: 2,
+        id: 106,
         name: 'HiTech #2',
         version: '1.20.1',
         online: 42,
         image: 'src/assets/icons/hitech.png',
-        link: '/shop/servers/106/privileges',
         status: 'online',
         tag: 'WIPE'
       }]
@@ -368,73 +359,66 @@ const servers = ref([
     version: '1.20.1',
     online: 37,
     image: 'src/assets/icons/terrafirmacreate.png',
-    link: '/servers/terrafirmacreate',
     status: 'online',
     tag: 'NEW',
     modal: true,
     subServers: [
       {
-        id: 1,
+        id: 10,
         name: 'TerraFirmaCreate #1',
         version: '1.20.1',
         online: 17,
         image: 'src/assets/icons/terrafirmacreate.png',
-        link: '/shop/servers/10/privileges',
         status: 'online',
         tag: 'NEW'
       },
       {
-        id: 2,
+        id: 110,
         name: 'TerraFirmaCreate #2',
         version: '1.20.1',
         online: 13,
         image: 'src/assets/icons/terrafirmacreate.png',
-        link: '/shop/servers/110/privileges',
         status: 'online',
         tag: 'NEW'
       },
       {
-        id: 3,
+        id: 210,
         name: 'TerraFirmaCreate #3',
         version: '1.20.1',
         online: 7,
         image: 'src/assets/icons/terrafirmacreate.png',
-        link: '/shop/servers/210/privileges',
         status: 'online',
         tag: 'NEW'
       }]
   },
   {
-    id: 4,
+    id: 11,
     name: 'MI:FoundationNew',
     version: '1.19.2',
     online: 32,
     image: 'src/assets/icons/MIFoundationNew.png',
-    link: '/shop/mif/privileges',
     status: 'online',
     tag: 'SEASON',
     modal: false,
     subServers: null
   },
   {
-    id: 5,
+    id: 2,
     name: 'Ind:Upgrade',
     version: '1.12.2',
     online: 0,
     image: 'src/assets/icons/apgradeIcon.png',
-    link: '/shop/industrialupgrade/privileges',
     status: 'maintenance',
     tag: 'NEW',
     modal: false,
     subServers: null
   },
   {
-    id: 6,
+    id: 1,
     name: 'HiTech',
     version: '1.7.10',
     online: 0,
     image: 'src/assets/icons/hitech2.png',
-    link: '/shop/hitech1710/privileges',
     status: 'offline',
     tag: 'WIPE',
     modal: false,
@@ -451,7 +435,7 @@ const onServerClick = (server) => {
     selectedServer.value = server;
     showModal.value = true;
   } else {
-    router.push(server.link);
+    router.push(`/shop/servers/${server.id}/privileges`);
   }
 };
 
