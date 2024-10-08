@@ -367,7 +367,7 @@ const servers = ref([
     version: '1.7.10',
     online: 0,
     image: 'src/assets/icons/hitech2.png',
-    link: '/servers/hitech',
+    link: '/servers/hitech1710',
     status: 'offline',
     tag: 'WIPE',
   }

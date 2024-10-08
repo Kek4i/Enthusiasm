@@ -1,14 +1,15 @@
 <script setup>
-import { computed, onMounted, onBeforeUnmount, watch } from 'vue'
-import { useRoute } from 'vue-router'
+import {computed, onMounted, onBeforeUnmount, watch} from 'vue'
+import {useRoute} from 'vue-router'
 import CommonNav from './components/navigation/CommonNavigationComponent.vue'
 import UniqueNav from './components/navigation/UniqueNavigationComponent.vue'
 import Footer from './components/footer/footerComponent.vue'
 
 const route = useRoute()
 
-const routesWithUniqueNav = ['/servers/hardtech', '/servers/hitech', '/servers/terrafirmacreate',
-  '/servers/mif', '/servers/industrialupgrade', '/servers/hitech2']
+const routesWithUniqueNav = ['/servers/hardtech', '/servers/terrafirmacreate', '/servers/mif']
+
+const routesWithoutMifBackground = ['/servers/hardtech']
 
 const currentNav = computed(() => {
   return routesWithUniqueNav.includes(route.path) ? UniqueNav : CommonNav
@@ -20,6 +21,7 @@ const showFooter = computed(() => {
 
 const updateBodyClass = () => {
   const isGlobalBackground = !routesWithUniqueNav.includes(route.path)
+  const isMifBackground = !routesWithoutMifBackground.includes(route.path) && routesWithUniqueNav.includes(route.path)
 
   if (route.path === '/servers/terrafirmacreate') {
     document.body.classList.add('terrafirmacreate-background')
@@ -29,10 +31,15 @@ const updateBodyClass = () => {
     document.body.classList.add('global-background', 'global-scrollbar')
     document.body.classList.remove('mif-page-background', 'mif-scrollbar', 'terrafirmacreate-background')
     initializeBallsAnimation()
-  } else {
+  } else if (isMifBackground) {
     document.body.classList.add('mif-page-background', 'mif-scrollbar')
     document.body.classList.remove('global-background', 'global-scrollbar', 'terrafirmacreate-background')
     removeBalls()
+  } else {
+    // Для маршрутов без mif-background (например, /servers/hardtech)
+    document.body.classList.add('global-background')
+    document.body.classList.remove('mif-page-background', 'terrafirmacreate-background', 'mif-scrollbar')
+    initializeBallsAnimation()
   }
 }
 
@@ -81,7 +88,6 @@ function initializeBallsAnimation() {
 
 function animateBalls() {
   const balls = document.querySelectorAll('.ball')
-  const containerRect = document.body.getBoundingClientRect()
 
   balls.forEach(ball => {
     const rect = ball.getBoundingClientRect()
@@ -126,9 +132,9 @@ function removeBalls() {
 </script>
 
 <template>
-  <component :is="currentNav" />
-  <router-view />
-  <Footer v-if="showFooter" />
+  <component :is="currentNav"/>
+  <router-view/>
+  <Footer v-if="showFooter"/>
 </template>
 
 <style>

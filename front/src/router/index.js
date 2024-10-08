@@ -34,6 +34,11 @@ const router = createRouter({
       component: () => import('../components/serversPage/terrafirmacreatePage/terrafirmacreate.vue')
     },
     {
+      path: '/servers/:serverName',
+      name: 'ServerInfo',
+      component: () => import('@/components/serversPage/serverInfoPage/ServerInfoDisplay.vue')
+    },
+    {
       path: '/rules',
       name: 'rules',
       component: () => import('../components/rules/rulesPage.vue')
