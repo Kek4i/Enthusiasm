@@ -20,8 +20,14 @@
         <router-link to="/other" @click.native="closeMenu">Прочее</router-link>
       </li>
     </ul>
-    <button class="nav__burger-account">Личный кабинет</button>
+    <button class="nav__burger-account" @click="handlePersonalCabinetClick">Личный кабинет</button>
   </div>
+
+  <LoginModal
+      v-if="showLoginModal"
+      :isVisible="showLoginModal"
+      @close="showLoginModal = false"
+  />
 </template>
 
 <style scoped>
@@ -83,7 +89,7 @@ button {
 }
 
 button:hover {
-  box-shadow: rgb(255, 147, 112) 0px 20px 50px -10px;
+  box-shadow: rgb(255, 147, 112) 0 20px 50px -10px;
   transform: scale(1.05) translateZ(0px);
 }
 
@@ -93,6 +99,8 @@ button:hover {
 </style>
 
 <script>
+import LoginModal from '../modalComponent/AuthModal.vue';
+
 export default {
   props: {
     isOpen: {
@@ -100,9 +108,26 @@ export default {
       required: true
     }
   },
+  data() {
+    return {
+      isAuthenticated: false,  // Флаг авторизации пользователя
+      showLoginModal: false
+    };
+  },
+  components: {
+    LoginModal,
+  },
   methods: {
     closeMenu() {
       this.$emit('close');
+    },
+    handlePersonalCabinetClick() {
+      if (this.isAuthenticated) {
+        this.$router.push('/account');
+        this.closeMenu();
+      } else {
+        this.showLoginModal = true;
+      }
     }
   }
 };

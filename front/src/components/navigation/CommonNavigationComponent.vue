@@ -32,8 +32,16 @@
         <span></span>
       </div>
 
-      <button v-if="!isMobileView" class="nav__button">Личный кабинет</button>
+      <button v-if="!isMobileView" class="nav__button" @click="handlePersonalCabinetClick">
+        Личный кабинет
+      </button>
     </nav>
+
+    <LoginModal
+        v-if="showLoginModal"
+        :isVisible="showLoginModal"
+        @close="showLoginModal = false"
+    />
 
     <BurgerMenu :isOpen="burgerOpen" @close="closeBurgerMenu" />
   </header>
@@ -136,7 +144,7 @@ button {
 }
 
 button:hover {
-  box-shadow: rgb(255, 147, 112) 0px 20px 50px -10px;
+  box-shadow: rgb(255, 147, 112) 0 20px 50px -10px;
   transform: scale(1.05) translateZ(0px);
 }
 
@@ -206,17 +214,21 @@ button:hover {
 
 <script>
 import BurgerMenu from './NavBurger.vue';
+import LoginModal from '../modalComponent/AuthModal.vue';
 
 export default {
   name: 'CommonNav',
   components: {
     BurgerMenu,
+    LoginModal,
   },
   data() {
     return {
       burgerOpen: false,
       isMobileView: false,
       previousScrollPosition: 0,
+      isAuthenticated: false, // Флаг авторизации пользователя
+      showLoginModal: false,
     };
   },
   mounted() {
@@ -248,6 +260,13 @@ export default {
     },
     checkMobileView() {
       this.isMobileView = window.innerWidth <= 1024;
+    },
+    handlePersonalCabinetClick() {
+      if (this.isAuthenticated) {
+        this.$router.push('/account');
+      } else {
+        this.showLoginModal = true;
+      }
     },
   },
 };

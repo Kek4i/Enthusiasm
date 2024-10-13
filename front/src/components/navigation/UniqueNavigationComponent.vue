@@ -44,7 +44,7 @@
         </li>
       </ul>
       <div class="nav__button-container nav__button-container--desktop">
-        <button class="nav__button" :class="{ 'nav__button--blue': isHighlightLink('/servers/mif') }">
+        <button class="nav__button" :class="{ 'nav__button--blue': isHighlightLink('/servers/mif') }" @click="startPlaying">
           Начать играть
         </button>
       </div>
@@ -156,7 +156,7 @@
 }
 
 .nav__button:hover {
-  box-shadow: rgb(255, 147, 112) 0px 20px 50px -10px;
+  box-shadow: rgb(255, 147, 112) 0 20px 50px -10px;
   transform: scale(1.05) translateZ(0px);
 }
 
@@ -165,7 +165,7 @@
 }
 
 .nav__button--blue:hover {
-  box-shadow: rgba(30, 144, 255, 0.5) 0px 20px 50px -10px;
+  box-shadow: rgba(30, 144, 255, 0.5) 0 20px 50px -10px;
   transform: scale(1.05) translateZ(0px);
 }
 
@@ -263,6 +263,9 @@ export default {
       } else {
         document.querySelector('header').classList.remove('menu-open');
       }
+    },
+    startPlaying() {
+      this.$router.push('/register');
     }
   },
   beforeDestroy() {

@@ -36,13 +36,13 @@
               <label class="checkbox-container">
                 <input type="checkbox" v-model="termsAgreed" class="checkbox-input" name="termsAgreed">
                 <span class="checkbox-overlay"></span>
-                <div class="text">
+                <span class="text">
                   Я принимаю
                   <router-link to="/rules" class="gradient-text" target="_blank">правила</router-link>,
                   <router-link to="/rules/license" class="gradient-text" target="_blank">лицензионное соглашение</router-link>,
                   и даю свое согласие на
                   <router-link to="/rules/policy" class="gradient-text" target="_blank">обработку персональных данных</router-link>.
-                </div>
+                </span>
               </label>
               <span class="error-message" v-if="errors.termsAgreed">{{ errors.termsAgreed }}</span>
             </div>
@@ -50,13 +50,18 @@
           <div class="form-footer">
             <button type="submit" class="submit-button">Зарегистрироваться</button>
             <div class="divider"></div>
-            <div class="text pointer">Есть аккаунт?
-            <span class="action-link">Войти</span>
+            <div class="text pointer" @click="openLoginModal">Есть аккаунт?
+              <span class="action-link">Войти</span>
             </div>
           </div>
         </div>
       </form>
     </div>
+    <LoginModal
+        v-if="showLoginModal"
+        :isVisible="showLoginModal"
+        @close="showLoginModal = false"
+    />
   </main>
 </template>
 
@@ -310,6 +315,7 @@
 
 <script setup>
 import { ref } from 'vue';
+import LoginModal from '../modalComponent/AuthModal.vue';
 
 const email = ref('');
 const username = ref('');
@@ -326,6 +332,12 @@ const errors = ref({
 });
 
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+const showLoginModal = ref(false);
+
+const openLoginModal = () => {
+  showLoginModal.value = true;
+};
 
 const validateForm = () => {
   errors.value.email = null;
@@ -348,8 +360,8 @@ const validateForm = () => {
 
   if (!password.value) {
     errors.value.password = 'Пароль обязателен.';
-  } else if (password.value.length < 6) {
-    errors.value.password = 'Пароль должен быть не менее 6 символов.';
+  } else if (password.value.length < 8) {
+    errors.value.password = 'Пароль должен быть не менее 8 символов.';
   }
 
   if (password.value !== passwordConfirmation.value) {
