@@ -96,7 +96,6 @@ h4 {
   width: 100%;
   padding-right: 15px;
   padding-left: 15px;
-  box-sizing: border-box;
 }
 
 .block-image {

@@ -79,7 +79,6 @@ h1, h2, p {
   margin-top: 64px;
   margin-inline: auto;
   padding: 0 15px;
-  box-sizing: border-box;
 }
 
 .server-info {
@@ -98,7 +97,6 @@ h1, h2, p {
   background: hsla(0, 0%, 100%, .05);
   border-radius: 10px;
   padding: 30px 64px;
-  box-sizing: border-box;
 }
 
 .server-info__title-container {
@@ -131,7 +129,6 @@ h1, h2, p {
   background: hsla(0, 0%, 100%, .05);
   -webkit-backdrop-filter: blur(2px);
   backdrop-filter: blur(2px);
-  box-sizing: border-box;
 }
 
 .page-title {

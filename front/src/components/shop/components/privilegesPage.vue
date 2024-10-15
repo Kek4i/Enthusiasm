@@ -42,7 +42,6 @@
   margin-top: 64px;
   margin-inline: auto;
   padding: 0 15px;
-  box-sizing: border-box;
 }
 
 .shop-header {
@@ -122,7 +121,6 @@
   text-transform: uppercase;
   color: #fff;
   transition: transform 0.3s ease;
-  box-sizing: border-box;
 }
 
 .privilege-card:hover {

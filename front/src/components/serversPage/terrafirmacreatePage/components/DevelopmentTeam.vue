@@ -79,8 +79,7 @@ h4 {
   padding-bottom: 2rem;
   padding-top: 2rem;
   backdrop-filter: blur(2px);
-  box-shadow: 0 0px 1px rgba(108, 108, 108, 0.421);
-  box-sizing: border-box;
+  box-shadow: 0 0 1px rgba(108, 108, 108, 0.421);
 }
 
 .d-flex {

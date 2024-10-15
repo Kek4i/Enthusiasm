@@ -47,7 +47,6 @@ p {
   -webkit-backdrop-filter: blur(2px);
   backdrop-filter: blur(2px);
   z-index: 100;
-  box-sizing: border-box;
 }
 
 .modal-content {
@@ -61,7 +60,6 @@ p {
   width: 100%;
   max-width: 600px;
   max-height: min(700px, -20px + 100vh);
-  box-sizing: border-box;
 }
 
 .close-icon {
@@ -119,7 +117,6 @@ p {
   padding: 16px 22px;
   background: hsla(0, 0%, 100%, .05);
   border-radius: 10px;
-  box-sizing: border-box;
 }
 
 .privilege-item {
@@ -131,7 +128,6 @@ p {
   width: 100%;
   background: hsla(0, 0%, 100%, .05);
   border-radius: 10px;
-  box-sizing: border-box;
 }
 
 .privilege-description-img {
@@ -154,7 +150,6 @@ p {
   grid-template-columns: 9fr 1fr;
   grid-gap: 6px;
   gap: 6px;
-  box-sizing: border-box;
 }
 
 .buy-btn, .gift-btn {

@@ -134,7 +134,6 @@
   -webkit-backdrop-filter: blur(2px);
   backdrop-filter: blur(2px);
   z-index: 100;
-  box-sizing: border-box;
 }
 
 .modal {
@@ -148,7 +147,6 @@
   border-radius: 10px;
   background: rgba(30, 29, 29, .9);
   width: 100%;
-  box-sizing: border-box;
 }
 
 .modal__close-icon {
@@ -198,7 +196,6 @@
   font-weight: 600;
   line-height: normal;
   border: 0;
-  box-sizing: border-box;
 }
 
 .ModalFooter_container {
@@ -211,7 +208,6 @@
   align-items: center;
   gap: 10px;
   width: 100%;
-  box-sizing: border-box;
 }
 
 .submit-button {

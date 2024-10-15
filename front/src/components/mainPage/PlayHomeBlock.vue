@@ -27,7 +27,6 @@
   border-radius: 10px;
   background: hsla(0, 0%, 100%, .05);
   width: 100%;
-  box-sizing: border-box;
 }
 
 .section-header {

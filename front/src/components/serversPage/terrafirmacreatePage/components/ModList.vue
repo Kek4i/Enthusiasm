@@ -84,7 +84,6 @@ h2 {
   padding-left: 15px;
   flex: 0 0 50%;
   max-width: 50%;
-  box-sizing: border-box;
 }
 
 .text {

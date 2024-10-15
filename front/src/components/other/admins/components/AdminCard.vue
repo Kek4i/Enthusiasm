@@ -25,7 +25,6 @@
   background: hsla(0, 0%, 100%, .05);
   width: 100%;
   margin-inside: auto;
-  box-sizing: border-box;
 }
 
 .admin-card__nick {

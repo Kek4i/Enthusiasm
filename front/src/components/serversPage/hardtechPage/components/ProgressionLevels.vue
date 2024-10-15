@@ -72,7 +72,6 @@ h4 {
   max-width: 33.3333%;
   padding-right: 15px;
   padding-left: 15px;
-  box-sizing: border-box;
 }
 
 .about-server {

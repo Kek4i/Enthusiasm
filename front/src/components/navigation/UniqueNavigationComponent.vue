@@ -73,7 +73,6 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  box-sizing: border-box;
   position: relative;
   transition: padding-bottom 0.3s ease;
 }

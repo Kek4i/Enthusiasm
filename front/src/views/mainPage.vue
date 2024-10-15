@@ -21,7 +21,6 @@
   width: 100%;
   padding: 0 15px;
   backdrop-filter: blur(2px);
-  box-sizing: border-box;
 }
 
 .page {

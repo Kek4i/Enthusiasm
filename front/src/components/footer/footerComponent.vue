@@ -72,7 +72,6 @@ a {
   background: hsla(0, 0%, 100%, 0.05);
   backdrop-filter: blur(2px);
   width: 100%;
-  box-sizing: border-box;
 }
 
 .footer__logo-section {

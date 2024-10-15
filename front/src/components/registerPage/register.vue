@@ -87,7 +87,6 @@
   border-radius: 10px;
   background: hsla(0, 0%, 100%, .05);
   backdrop-filter: blur(2px);
-  box-sizing: border-box;
 }
 
 .page_container {
@@ -125,7 +124,6 @@
   gap: 16px;
   width: 100%;
   max-width: 100%;
-  box-sizing: border-box;
 }
 
 .form-fields {
@@ -143,7 +141,6 @@
   align-items: flex-start;
   gap: 8px;
   width: 100%;
-  box-sizing: border-box;
 }
 
 .input-field, .input-default {
@@ -165,7 +162,6 @@
   line-height: normal;
   padding: 16px;
   border: none;
-  box-sizing: border-box;
 }
 
 .input-field::placeholder {

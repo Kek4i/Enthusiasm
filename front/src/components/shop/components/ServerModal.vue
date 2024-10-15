@@ -55,7 +55,6 @@ a {
   -webkit-backdrop-filter: blur(2px);
   backdrop-filter: blur(2px);
   z-index: 100;
-  box-sizing: border-box;
 }
 
 .modal-content {

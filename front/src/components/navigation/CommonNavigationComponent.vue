@@ -72,7 +72,6 @@ a {
   -webkit-backdrop-filter: blur(2px);
   backdrop-filter: blur(2px);
   border-radius: 10px;
-  box-sizing: border-box;
 }
 
 .nav__logo {

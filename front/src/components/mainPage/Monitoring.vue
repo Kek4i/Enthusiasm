@@ -198,7 +198,6 @@
   width: 100%;
   max-width: 324px;
   gap: 20px;
-  box-sizing: border-box;
 }
 
 .server-tag {

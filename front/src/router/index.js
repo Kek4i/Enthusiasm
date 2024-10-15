@@ -78,6 +78,11 @@ const router = createRouter({
       path: '/other/admins',
       name: 'admins',
       component: () => import('../components/other/admins/adminsPage.vue')
+    },
+    {
+      path: '/account',
+      name: 'account',
+      component: () => import('../components/accountPage/account.vue')
     }
   ]
 })

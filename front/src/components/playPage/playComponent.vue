@@ -105,7 +105,6 @@
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  box-sizing: border-box;
 }
 
 .step__name {

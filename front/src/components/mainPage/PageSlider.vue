@@ -48,7 +48,6 @@
   width: 100%;
   position: relative;
   padding: 16px;
-  box-sizing: border-box;
 }
 
 .slider-slide {
@@ -168,7 +167,6 @@
   text-decoration: none;
   white-space: nowrap;
   transition: transform 0.3s ease;
-  box-sizing: border-box;
 }
 
 .button--primary {
