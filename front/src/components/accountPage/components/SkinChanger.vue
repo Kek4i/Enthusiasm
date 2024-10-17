@@ -7,7 +7,7 @@
       </div>
     </div>
     <div class="skin-changer-header">
-      <button class="btn btn-gradient skin-changer-button" @click="uploadSkin">
+      <button class="btn btn-gradient skin-changer-button" @click="openModal">
         <img alt="upload" src="@/assets/icons/upload.svg">
       </button>
       <h4 class="skin-changer-text">Здесь можно установить собственный скин и плащ!</h4>
@@ -16,57 +16,8 @@
       <canvas ref="skinCanvas"></canvas>
     </div>
   </div>
+  <SkinModal v-if="showModal" @close="closeModal" @upload-skin="setSkin" @upload-cape="setCape" @delete="deleteSkinAndCape" />
 </template>
-
-<script setup>
-import { onMounted, ref } from 'vue';
-import { SkinViewer, WalkingAnimation } from 'skinview3d';
-import steveSkin from '@/assets/icons/steve.png';
-
-const skinCanvas = ref(null);
-let viewer = null;
-let rotationSpeed = 0.01;
-
-const uploadSkin = () => {
-  const input = document.createElement('input');
-  input.type = 'file';
-  input.accept = '.png';
-  input.onchange = (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = (event) => {
-        const skinUrl = event.target.result;
-        if (viewer) {
-          viewer.loadSkin(skinUrl);
-        }
-      };
-      reader.readAsDataURL(file);
-    }
-  };
-  input.click();
-};
-
-const rotateModel = () => {
-  viewer.playerObject.rotation.y += rotationSpeed;
-  requestAnimationFrame(rotateModel);
-};
-
-onMounted(() => {
-  viewer = new SkinViewer({
-    canvas: skinCanvas.value,
-    width: 351,
-    height: 520,
-    skin: steveSkin,
-  });
-
-  if (WalkingAnimation && viewer.animations) {
-    viewer.animations.add(WalkingAnimation);
-  }
-
-  rotateModel();
-});
-</script>
 
 <style scoped>
 h2, h4 {
@@ -171,3 +122,94 @@ h2, h4 {
   margin-inline: auto;
 }
 </style>
+
+<script setup>
+import { ref, onMounted, onBeforeUnmount } from 'vue';
+import SkinModal from './SkinModal.vue';
+import { SkinViewer } from 'skinview3d';
+import steveSkin from '@/assets/icons/steve.png';
+
+const skinCanvas = ref(null);
+let viewer = null;
+let skinTexture = null;
+let capeTexture = null;
+const showModal = ref(false);
+let skinUrl = null;
+let capeUrl = null;
+
+const openModal = () => {
+  showModal.value = true;
+};
+
+const closeModal = () => {
+  showModal.value = false;
+};
+
+const clearTextures = () => {
+  if (skinTexture && typeof skinTexture.dispose === 'function') {
+    skinTexture.dispose();
+    skinTexture = null;
+  }
+  if (capeTexture && typeof capeTexture.dispose === 'function') {
+    capeTexture.dispose();
+    capeTexture = null;
+  }
+};
+
+const setSkin = (url) => {
+  clearTextures();
+  skinUrl = url;
+  viewer.loadSkin(skinUrl);
+  skinTexture = viewer.playerObject.skin;
+};
+
+const setCape = (url) => {
+  clearTextures();
+  capeUrl = url;
+  viewer.loadCape(capeUrl);
+  capeTexture = viewer.playerObject.cape;
+};
+
+const deleteSkinAndCape = () => {
+  clearTextures();
+  skinUrl = steveSkin;
+  capeUrl = null;
+  viewer.loadSkin(steveSkin);
+  viewer.loadCape(null);
+};
+
+const handleContextLost = () => {
+  console.warn('WebGL context lost, attempting to restore...');
+};
+
+const handleContextRestored = () => {
+  console.log('WebGL context restored, reloading textures...');
+  viewer.loadSkin(skinUrl || steveSkin);
+  viewer.loadCape(capeUrl || null);
+};
+
+onMounted(() => {
+  viewer = new SkinViewer({
+    canvas: skinCanvas.value,
+    width: 300,
+    height: 500,
+    skin: steveSkin,
+  });
+
+  skinCanvas.value.addEventListener('webglcontextlost', (event) => {
+    event.preventDefault();
+    handleContextLost();
+  });
+
+  skinCanvas.value.addEventListener('webglcontextrestored', () => {
+    handleContextRestored();
+  });
+});
+
+onBeforeUnmount(() => {
+  clearTextures();
+  if (viewer) {
+    viewer.dispose();
+  }
+});
+</script>

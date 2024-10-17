@@ -5,13 +5,12 @@
       <div class="title-line"></div>
     </div>
     <div class="buttons">
-      <button class="btn btn-transparent btn-profile">Активировать</button>
+      <button class="btn btn-transparent btn-profile" @click="openModal">Активировать</button>
     </div>
   </div>
-</template>
 
-<script setup>
-</script>
+  <PromoModal v-if="showModal" @close="closeModal" />
+</template>
 
 <style scoped>
 h2 {
@@ -29,13 +28,6 @@ h2 {
   background: hsla(0, 0%, 100%, .05);
   -webkit-backdrop-filter: blur(2px);
   backdrop-filter: blur(2px);
-}
-
-.block-header {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 24px;
 }
 
 .title-container {
@@ -94,3 +86,20 @@ h2 {
   gap: .5rem;
 }
 </style>
+
+<script setup>
+import { ref } from 'vue';
+import PromoModal from './PromoModal.vue'; // Импортируем ваше модальное окно
+
+const showModal = ref(false); // Управляем состоянием модального окна
+
+// Функция для открытия модального окна
+const openModal = () => {
+  showModal.value = true;
+};
+
+// Функция для закрытия модального окна
+const closeModal = () => {
+  showModal.value = false;
+};
+</script>
