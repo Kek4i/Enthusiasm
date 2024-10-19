@@ -1,40 +1,38 @@
 <template>
-  <div class="modal-backdrop">
-    <div class="modal">
-      <img alt="close" src="@/assets/icons/close.svg" class="modal__close-icon" @click="$emit('close')">
+  <div class="modal-backdrop" @click="handleBackdropClick">
+    <div class="modal" @click.stop>
+      <img alt="close" src="@/assets/icons/close.svg" class="modal__close-icon" @click="handleBackdropClick">
       <div class="modal__header">Установить скин и плащ</div>
       <div class="modal__body">
         <div class="modal__body-container">
-          <form @submit.prevent="uploadSkin">
-            <div class="modal__upload">
-              <div class="modal__upload-type">
-                <img src="@/assets/icons/skin.png" alt="skin">
-                <span class="modal__upload-text">Скин</span>
-              </div>
-              <input type="file" accept=".png" @change="selectSkin">
+          <div class="modal__upload">
+            <div class="modal__upload-type">
+              <img src="@/assets/icons/skin.png" alt="skin">
+              <span class="modal__upload-text">Скин</span>
             </div>
-          </form>
+          </div>
         </div>
         <div class="modal__body-container">
-          <form @submit.prevent="uploadCape">
-            <div class="modal__upload">
-              <div class="modal__upload-type">
-                <img src="@/assets/icons/cape.png" alt="cape">
-                <span class="modal__upload-text">Плащ</span>
-              </div>
-              <input type="file" accept=".png" @change="selectCape">
+          <div class="modal__upload">
+            <div class="modal__upload-type">
+              <img src="@/assets/icons/cape.png" alt="cape">
+              <span class="modal__upload-text">Плащ</span>
             </div>
-          </form>
+          </div>
         </div>
       </div>
       <div class="ModalFooter_container">
         <div class="SkinUploadModal_actionsContainer">
-          <button @click="uploadSkin" class="submit-button">Загрузить скин</button>
-          <button @click="removeSkinAndCape" class="submit-button transperent">Удалить</button>
+          <div class="SkinUploadModal_actions">
+            <button @click="chooseSkin" class="submit-button">Загрузить</button>
+            <button @click="removeSkin" class="submit-button transperent">Удалить</button>
+          </div>
         </div>
         <div class="SkinUploadModal_actionsContainer">
-          <button @click="uploadCape" class="submit-button">Загрузить плащ</button>
-          <button @click="removeSkinAndCape" class="submit-button transperent">Удалить</button>
+          <div class="SkinUploadModal_actions">
+            <button @click="chooseCape" class="submit-button">Загрузить</button>
+            <button @click="removeCape" class="submit-button transperent">Удалить</button>
+          </div>
         </div>
       </div>
     </div>
@@ -177,44 +175,56 @@
   box-shadow: none;
   transform: scale(1.05) translateZ(0px);
 }
+
+@media (max-width: 768px) {
+  .modal {
+    padding: 30px 10px;
+  }
+}
 </style>
 
 <script setup>
-const emit = defineEmits(['close', 'upload-skin', 'upload-cape', 'delete']);
-let skinFile = null;
-let capeFile = null;
+const emit = defineEmits(['close', 'upload-skin', 'upload-cape', 'delete-skin', 'delete-cape']);
 
-const selectSkin = (event) => {
-  skinFile = event.target.files[0];
+const handleBackdropClick = () => {
+  emit('close');
 };
 
-const selectCape = (event) => {
-  capeFile = event.target.files[0];
+const chooseSkin = () => {
+  const input = document.createElement('input');
+  input.type = 'file';
+  input.accept = '.png';
+  input.onchange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      emit('upload-skin', file);
+      emit('close');
+    }
+  };
+  input.click();
 };
 
-const uploadSkin = () => {
-  if (skinFile) {
-    const reader = new FileReader();
-    reader.onload = (e) => {
-      const skinUrl = e.target.result;
-      emit('upload-skin', skinUrl);
-    };
-    reader.readAsDataURL(skinFile);
-  }
+const chooseCape = () => {
+  const input = document.createElement('input');
+  input.type = 'file';
+  input.accept = '.png';
+  input.onchange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      emit('upload-cape', file);
+      emit('close');
+    }
+  };
+  input.click();
 };
 
-const uploadCape = () => {
-  if (capeFile) {
-    const reader = new FileReader();
-    reader.onload = (e) => {
-      const capeUrl = e.target.result;
-      emit('upload-cape', capeUrl);
-    };
-    reader.readAsDataURL(capeFile);
-  }
+const removeSkin = () => {
+  emit('delete-skin');
+  emit('close');
 };
 
-const removeSkinAndCape = () => {
-  emit('delete');
+const removeCape = () => {
+  emit('delete-cape');
+  emit('close');
 };
 </script>

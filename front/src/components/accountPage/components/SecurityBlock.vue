@@ -30,7 +30,7 @@ a {
   padding: 32px 64px;
   flex-direction: column;
   align-items: flex-start;
-  gap: 32px;
+  gap: 24px;
   border-radius: 10px;
   background: hsla(0, 0%, 100%, .05);
   -webkit-backdrop-filter: blur(2px);
@@ -91,5 +91,17 @@ a {
 .btn-profile {
   display: flex;
   gap: .5rem;
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 27px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .block {
+    padding: 35px 20px;
+  }
 }
 </style>

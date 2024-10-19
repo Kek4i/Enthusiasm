@@ -30,7 +30,7 @@
 .profile {
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: 24px;
 }
 
 .profile-columns {
@@ -45,6 +45,15 @@
   flex-direction: column;
   gap: 16px;
   width: 100%;
+}
+
+@media (max-width: 1024px) {
+  .profile-columns {
+    grid-template-columns: 1fr;
+  }
+  .layout-container, .profile-columns, .profile-column {
+    overflow-x: hidden;
+  }
 }
 </style>
 

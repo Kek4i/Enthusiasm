@@ -14,7 +14,7 @@
         <label for="refLink" class="label">Ваша персональная ссылка</label>
         <div class="input-icon-container">
           <div class="input input-disabled">{{ referralLink }}</div>
-          <img src="@/assets/icons/file-multiple.svg" class="icon" alt="copy">
+          <img src="@/assets/icons/file-multiple.svg" class="icon" alt="copy" @click="copyReferralLink">
         </div>
       </div>
     </div>
@@ -37,7 +37,7 @@ h2 {
   padding: 32px 64px;
   flex-direction: column;
   align-items: flex-start;
-  gap: 32px;
+  gap: 24px;
   border-radius: 10px;
   background: hsla(0, 0%, 100%, .05);
   -webkit-backdrop-filter: blur(2px);
@@ -171,17 +171,38 @@ h2 {
   -webkit-text-fill-color: transparent;
 }
 
-.referral-block {
-  flex-direction: row;
-}
-
 .text {
   color: #fff;
   font-size: 16px;
 }
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 27px;
+  }
+  .referral-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (min-width: 768px) {
+  .referral-block {
+    flex-direction: row;
+  }
+}
+
+@media (max-width: 1024px) {
+  .block {
+    padding: 35px 20px;
+  }
+}
 </style>
 
 <script setup>
+import { ref } from 'vue';
+
 const props = defineProps({
   referralLink: String,
   referrals: {
@@ -189,4 +210,19 @@ const props = defineProps({
     default: 0
   }
 });
+
+const copySuccess = ref(false);
+
+function copyReferralLink() {
+  navigator.clipboard.writeText(props.referralLink)
+      .then(() => {
+        copySuccess.value = true;
+        setTimeout(() => {
+          copySuccess.value = false;
+        }, 2000);
+      })
+      .catch((err) => {
+        console.error('Ошибка при копировании: ', err);
+      });
+}
 </script>

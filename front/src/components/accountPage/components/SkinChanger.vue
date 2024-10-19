@@ -16,7 +16,14 @@
       <canvas ref="skinCanvas"></canvas>
     </div>
   </div>
-  <SkinModal v-if="showModal" @close="closeModal" @upload-skin="setSkin" @upload-cape="setCape" @delete="deleteSkinAndCape" />
+  <SkinModal
+      v-if="showModal"
+      @close="closeModal"
+      @upload-skin="setSkin"
+      @upload-cape="setCape"
+      @delete-skin="deleteSkin"
+      @delete-cape="deleteCape"
+  />
 </template>
 
 <style scoped>
@@ -30,7 +37,7 @@ h2, h4 {
   padding: 32px 64px;
   flex-direction: column;
   align-items: flex-start;
-  gap: 32px;
+  gap: 24px;
   border-radius: 10px;
   background: hsla(0, 0%, 100%, .05);
   -webkit-backdrop-filter: blur(2px);
@@ -121,6 +128,18 @@ h2, h4 {
   position: relative;
   margin-inline: auto;
 }
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 27px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .block {
+    padding: 35px 20px;
+  }
+}
 </style>
 
 <script setup>
@@ -134,8 +153,8 @@ let viewer = null;
 let skinTexture = null;
 let capeTexture = null;
 const showModal = ref(false);
-let skinUrl = null;
-let capeUrl = null;
+
+let animationFrameId = null;
 
 const openModal = () => {
   showModal.value = true;
@@ -156,36 +175,53 @@ const clearTextures = () => {
   }
 };
 
-const setSkin = (url) => {
-  clearTextures();
-  skinUrl = url;
-  viewer.loadSkin(skinUrl);
-  skinTexture = viewer.playerObject.skin;
+const setSkin = (file) => {
+  const fileExtension = file.name.split('.').pop().toLowerCase();
+  if (fileExtension !== 'png') {
+    alert('Неверный формат файла для скина. Используйте PNG.');
+    return;
+  }
+  const reader = new FileReader();
+  reader.onload = (e) => {
+    const skinUrl = e.target.result;
+    clearTextures();
+    viewer.loadSkin(skinUrl);
+    skinTexture = viewer.playerObject.skin;
+  };
+  reader.readAsDataURL(file);
 };
 
-const setCape = (url) => {
-  clearTextures();
-  capeUrl = url;
-  viewer.loadCape(capeUrl);
-  capeTexture = viewer.playerObject.cape;
+const setCape = (file) => {
+  const fileExtension = file.name.split('.').pop().toLowerCase();
+  if (fileExtension !== 'png') {
+    alert('Неверный формат файла для плаща. Используйте PNG.');
+    return;
+  }
+  const reader = new FileReader();
+  reader.onload = (e) => {
+    const capeUrl = e.target.result;
+    clearTextures();
+    viewer.loadCape(capeUrl);
+    capeTexture = viewer.playerObject.cape;
+  };
+  reader.readAsDataURL(file);
 };
 
-const deleteSkinAndCape = () => {
-  clearTextures();
-  skinUrl = steveSkin;
-  capeUrl = null;
+const deleteSkin = () => {
   viewer.loadSkin(steveSkin);
+};
+
+const deleteCape = () => {
   viewer.loadCape(null);
 };
 
-const handleContextLost = () => {
-  console.warn('WebGL context lost, attempting to restore...');
+const animate = () => {
+  viewer.playerObject.rotation.y += 0.01;
+  animationFrameId = requestAnimationFrame(animate);
 };
 
-const handleContextRestored = () => {
-  console.log('WebGL context restored, reloading textures...');
-  viewer.loadSkin(skinUrl || steveSkin);
-  viewer.loadCape(capeUrl || null);
+const stopAnimation = () => {
+  cancelAnimationFrame(animationFrameId);
 };
 
 onMounted(() => {
@@ -196,17 +232,11 @@ onMounted(() => {
     skin: steveSkin,
   });
 
-  skinCanvas.value.addEventListener('webglcontextlost', (event) => {
-    event.preventDefault();
-    handleContextLost();
-  });
-
-  skinCanvas.value.addEventListener('webglcontextrestored', () => {
-    handleContextRestored();
-  });
+  animate();
 });
 
 onBeforeUnmount(() => {
+  stopAnimation();
   clearTextures();
   if (viewer) {
     viewer.dispose();

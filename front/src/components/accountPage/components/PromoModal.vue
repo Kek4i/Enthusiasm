@@ -142,6 +142,12 @@
   box-shadow: rgb(255, 147, 112) 0 20px 50px -10px;
   transform: scale(1.05) translateZ(0px);
 }
+
+@media (max-width: 768px) {
+  .modal {
+    padding: 30px 10px;
+  }
+}
 </style>
 
 <script>
