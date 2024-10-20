@@ -24,7 +24,7 @@
       <InfoBlock
           label="Телеграм"
           linkText="Не привязан"
-          linkTo="#"
+          linkTo="/account/security"
       />
       <InfoBlock
           label="Discord"

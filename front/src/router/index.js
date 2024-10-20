@@ -83,6 +83,11 @@ const router = createRouter({
       path: '/account',
       name: 'account',
       component: () => import('../components/accountPage/account.vue')
+    },
+    {
+      path: '/account/security',
+      name: 'security',
+      component: () => import('../components/securityPage/security.vue')
     }
   ]
 })

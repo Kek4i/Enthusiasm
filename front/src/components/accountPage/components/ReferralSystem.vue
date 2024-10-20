@@ -201,8 +201,6 @@ h2 {
 </style>
 
 <script setup>
-import { ref } from 'vue';
-
 const props = defineProps({
   referralLink: String,
   referrals: {
@@ -211,16 +209,8 @@ const props = defineProps({
   }
 });
 
-const copySuccess = ref(false);
-
 function copyReferralLink() {
   navigator.clipboard.writeText(props.referralLink)
-      .then(() => {
-        copySuccess.value = true;
-        setTimeout(() => {
-          copySuccess.value = false;
-        }, 2000);
-      })
       .catch((err) => {
         console.error('Ошибка при копировании: ', err);
       });
