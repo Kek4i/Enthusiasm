@@ -88,6 +88,11 @@ const router = createRouter({
       path: '/account/security',
       name: 'security',
       component: () => import('../components/securityPage/security.vue')
+    },
+    {
+      path: '/account/balance',
+      name: 'balance',
+      component: () => import('../components/balancePage/balance.vue')
     }
   ]
 })

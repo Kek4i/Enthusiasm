@@ -96,25 +96,6 @@
   gap: 8px;
 }
 
-.input-field {
-  padding: 16px;
-  font-size: 16px;
-}
-
-.input-field--default {
-  display: flex;
-  width: 100%;
-  align-items: flex-start;
-  gap: 10px;
-  border-radius: 8px;
-  background: hsla(0, 0%, 100%, .1);
-  color: #fff;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
-  border: 0;
-}
-
 .ModalFooter_container {
   padding-inline: 15px;
 }
