@@ -106,7 +106,7 @@
 
 .server-card {
   width: 100%;
-  max-width: 360px;
+  max-width: 330px;
   display: flex;
   justify-content: center;
   align-items: center;

@@ -133,8 +133,7 @@ ul {
 
 .rule-id {
   display: flex;
-  width: 39px;
-  height: 39px;
+  width: 51px;
   padding: 6px;
   flex-direction: column;
   align-items: center;

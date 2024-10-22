@@ -6,45 +6,8 @@
           <h2 class="balance__title">Пополнение баланса</h2>
           <div class="balance__title-line"></div>
         </div>
-        <div class="balance__block">
-          <div class="balance__wrapper">
-            <label for="money" class="balance__block-title">Сумма пополнения:</label>
-            <input
-                type="text"
-                v-model="depositAmount"
-                @input="validateInput"
-                placeholder="Введи сумму"
-                class="balance__input"
-            >
-          </div>
-          <div class="balance__wrapper">
-            <span class="balance__block-title">Способы пополнения:</span>
-            <div class="balance__ways-container">
-              <div
-                  v-for="(method, index) in paymentMethods"
-                  :key="index"
-                  :class="['payment-method', { selected: selectedMethod === index, blocked: isBlocked(method.minAmount) }]"
-                  @click="!isBlocked(method.minAmount) && selectMethod(index)"
-                  :style="{ cursor: isBlocked(method.minAmount) ? 'not-allowed' : 'pointer' }"
-              >
-                <div
-                    class="payment-method__way-block"
-                    :style="{ opacity: isBlocked(method.minAmount) ? 0.2 : 1 }"
-                >
-                  <img :alt="method.name" :src="method.icon" width="42" height="42">
-                  <span>{{ method.name }}</span>
-                </div>
-                <div
-                    class="PaymentMethod_minAvailable-blocker"
-                    :class="{ 'PaymentMethod_minAvailable-blocker-active': isBlocked(method.minAmount) }"
-                >
-                  От {{ method.minAmount }}
-                  <img alt="entcoins" width="28" height="32" src="@/assets/icons/entcoins.svg">
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <DepositInput :depositAmount="depositAmount" @update:depositAmount="updateAmount" />
+        <PaymentMethods :paymentMethods="paymentMethods" :selectedMethod="selectedMethod" :depositAmount="depositAmount" @selectMethod="selectMethod" />
         <button
             type="submit"
             class="balance__submit-button"
@@ -55,24 +18,13 @@
         </button>
       </div>
       <div class="page-block">
-        <div class="balance__block">
-          <div class="balance__wrapper">
-            <span class="balance__block-title">При возникновении проблем с пополнением, свяжитесь с администрацией:</span>
-            <a target="_blank" href="https://t.me/opulat">
-              <button type="submit" class="balance__submit-button">Связаться (Telegram)</button>
-            </a>
-          </div>
-        </div>
+        <ContactButton />
       </div>
     </div>
   </main>
 </template>
 
 <style scoped>
-
-a {
-  text-decoration: none;
-}
 
 h2 {
   margin: 0;
@@ -128,112 +80,6 @@ h2 {
   background: linear-gradient(132deg, #ff5f6d, #ffc371);
 }
 
-.balance__block {
-  display: flex;
-  width: 100%;
-  flex-direction: column;
-  gap: 32px;
-}
-
-.balance__wrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  width: 100%;
-}
-
-.balance__block-title {
-  color: #fff;
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
-}
-
-.balance__input {
-  color: #fff;
-  font-size: 20px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  text-transform: uppercase;
-  padding: 12px 24px;
-  border-radius: 10px;
-  background: hsla(0, 0%, 100%, .05);
-  border: initial;
-}
-
-.balance__input::placeholder {
-  font-weight: 500;
-  color: #fff;
-}
-
-.balance__ways-container {
-  display: grid;
-  grid-gap: 10px;
-  gap: 10px;
-  grid-template-columns: repeat(4, 1fr);
-}
-
-.payment-method.blocked {
-  pointer-events: none;
-}
-
-.payment-method {
-  position: relative;
-  user-select: none;
-  width: 100%;
-  border: 3px solid transparent;
-  border-radius: 10px;
-  transition: border 0.3s ease;
-  cursor: pointer; /* курсор теперь работает на весь элемент */
-}
-
-.payment-method:hover:not(.blocked) {
-  border: 3px solid rgb(255, 147, 112);
-}
-
-.payment-method.selected {
-  border: 3px solid rgb(255, 147, 112);
-}
-
-.payment-method__way-block {
-  display: flex;
-  width: 100%;
-  height: 80px;
-  padding: 8px;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  color: #fff;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: normal;
-  border-radius: 10px;
-  background: hsla(0, 0%, 100%, .05);
-}
-
-.PaymentMethod_minAvailable-blocker {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #fff;
-  font-size: 16px;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  border-radius: 10px;
-  gap: 4px;
-}
-
-.PaymentMethod_minAvailable-blocker-active {
-  opacity: 1;
-}
-
 .balance__submit-button {
   display: flex;
   padding: 16px 20px;
@@ -268,13 +114,32 @@ h2 {
   transform: none;
   background: grey;
 }
+
+@media (max-width: 1024px) {
+  .layout-container {
+    margin-top: 32px;
+  }
+}
+
+@media (max-width: 768px) {
+  .page-block {
+    padding: 35px 20px;
+  }
+
+  .balance__title {
+    font-size: 27px;
+  }
+}
 </style>
 
 <script setup>
-import { ref } from 'vue';
-import cryptoIcon from '@/assets/icons/crypto.svg';
-import payeerIcon from '@/assets/icons/payeer.svg';
-import advcashIcon from '@/assets/icons/advcash.svg';
+import { ref, watch } from 'vue';
+import DepositInput from './components/DepositInput.vue';
+import PaymentMethods from './components/PaymentMethods.vue';
+import ContactButton from './components/ContactButton.vue';
+import cryptoIcon from "@/assets/icons/crypto.svg";
+import payeerIcon from "@/assets/icons/payeer.svg";
+import advcashIcon from "@/assets/icons/advcash.svg";
 
 const selectedMethod = ref(null);
 const depositAmount = ref('100');
@@ -289,19 +154,8 @@ const paymentMethods = [
   { name: 'Advcash | EUR', icon: advcashIcon, minAmount: 10 }
 ];
 
-/* Проверяем сумму при вводе и сбрасываем метод оплаты, если сумма меньше */
-const checkBlockedMethods = () => {
-  if (selectedMethod.value !== null && isBlocked(paymentMethods[selectedMethod.value].minAmount)) {
-    selectedMethod.value = null;
-  }
-};
-
-/* Валидация ввода — только цифры */
-const validateInput = (event) => {
-  const value = event.target.value;
-  // Убираем все символы кроме цифр
-  depositAmount.value = value.replace(/\D/g, '');
-  checkBlockedMethods();
+const updateAmount = (newAmount) => {
+  depositAmount.value = newAmount;
 };
 
 const selectMethod = (index) => {
@@ -311,4 +165,10 @@ const selectMethod = (index) => {
 const isBlocked = (minAmount) => {
   return Number(depositAmount.value) < minAmount;
 };
+
+watch(depositAmount, (newAmount) => {
+  if (selectedMethod.value !== null && isBlocked(paymentMethods[selectedMethod.value].minAmount)) {
+    selectedMethod.value = null;
+  }
+});
 </script>
