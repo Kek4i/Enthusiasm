@@ -97,7 +97,7 @@ const router = createRouter({
     {
       path: '/account/transfer',
       name: 'transfer',
-      component: () => import('../components/transferPage/transfer.vue')
+      component: () => import('../components/transferPage/TransferPage.vue')
     }
   ]
 })
