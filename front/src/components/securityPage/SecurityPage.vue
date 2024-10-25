@@ -22,9 +22,9 @@
 <script setup>
 import { ref } from 'vue';
 import TitleBlock from './components/TitleBlock.vue';
-import FaBlock from './components/FaBlock.vue';
+import FaBlock from './components/TwoFactorAuthBlock.vue';
 import ChangePasswordForm from './components/ChangePasswordForm.vue';
-import SecurityModal from './components/securityModal.vue';
+import SecurityModal from './components/SecurityModal.vue';
 
 const isModalVisible = ref(false);
 

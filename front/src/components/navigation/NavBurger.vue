@@ -99,7 +99,7 @@ button:hover {
 </style>
 
 <script>
-import LoginModal from '../modalComponent/AuthModal.vue';
+import LoginModal from '@/components/modalComponents/AuthModal.vue';
 
 export default {
   props: {

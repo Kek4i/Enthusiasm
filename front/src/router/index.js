@@ -11,12 +11,12 @@ const router = createRouter({
     {
       path: '/play',
       name: 'playPage',
-      component: () => import('../components/playPage/playComponent.vue')
+      component: () => import('../components/playPage/PlayPage.vue')
     },
     {
       path: '/servers',
       name: 'servers',
-      component: () => import('../components/serversPage/serverPage.vue')
+      component: () => import('../components/serversPage/ServerPage.vue')
     },
     {
       path: '/servers/hardtech',
@@ -41,27 +41,27 @@ const router = createRouter({
     {
       path: '/rules',
       name: 'rules',
-      component: () => import('../components/rules/rulesPage.vue')
+      component: () => import('../components/rules/RulesPage.vue')
     },
     {
       path: '/rules/license',
       name: 'license',
-      component: () => import('../components/rules/licensePage.vue')
+      component: () => import('../components/rules/LicensePage.vue')
     },
     {
       path: '/rules/policy',
       name: 'policy',
-      component: () => import('../components/rules/policyPage.vue')
+      component: () => import('../components/rules/PolicyPage.vue')
     },
     {
       path: '/shop',
       name: 'shop',
-      component: () => import('@/components/shop/shopPage.vue')
+      component: () => import('@/components/shop/ShopPage.vue')
     },
     {
       path: '/shop/servers/:id/privileges',
       name: 'ServerPrivileges',
-      component: () => import('@/components/shop/components/privilegesPage.vue'),
+      component: () => import('@/components/shop/components/PrivilegesPage.vue'),
       props: true,
     },
     {
@@ -72,27 +72,27 @@ const router = createRouter({
     {
       path: '/other',
       name: 'other',
-      component: () => import('../components/other/otherPage.vue')
+      component: () => import('../components/other/OtherPage.vue')
     },
     {
       path: '/other/admins',
       name: 'admins',
-      component: () => import('../components/other/admins/adminsPage.vue')
+      component: () => import('../components/other/admins/OtherPage.vue')
     },
     {
       path: '/account',
       name: 'account',
-      component: () => import('../components/accountPage/account.vue')
+      component: () => import('../components/accountPage/AccountPage.vue')
     },
     {
       path: '/account/security',
       name: 'security',
-      component: () => import('../components/securityPage/security.vue')
+      component: () => import('../components/securityPage/SecurityPage.vue')
     },
     {
       path: '/account/balance',
       name: 'balance',
-      component: () => import('../components/balancePage/balance.vue')
+      component: () => import('../components/balancePage/Balance.vue')
     },
     {
       path: '/account/transfer',

@@ -113,6 +113,8 @@ const servers = ref([
   { id: 7, name: 'HiTech 1.20.1 #2', rate: 7 },
 ])
 
+const userBalance = ref(1000)
+
 const selectedServer = ref({
   transfer: null,
 })
@@ -143,6 +145,12 @@ const handleTransfer = () => {
     return
   }
 
+  if (coinAmountTransfer.value > userBalance.value) {
+    alert('У вас недостаточно средств.')
+    return
+  }
+
   alert(`Вы переводите ${coinAmountTransfer.value} коинов на сервере ${selectedServer.value.transfer.name}.`)
+  userBalance.value -= coinAmountTransfer.value
 }
 </script>
