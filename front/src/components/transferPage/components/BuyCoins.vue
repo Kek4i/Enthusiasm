@@ -115,6 +115,8 @@ const servers = ref([
   { id: 7, name: 'HiTech 1.20.1 #2', rate: 7 },
 ])
 
+const userBalance = ref(1000)
+
 const selectedServer = ref({
   balance: null
 })
@@ -149,6 +151,12 @@ const handleBuy = () => {
     return
   }
 
+  if (coinAmount.value > userBalance.value) {
+    alert('У вас недостаточно средств.')
+    return
+  }
+
   alert(`Вы покупаете ${totalPrice.value} коинов на сервере ${selectedServer.value.balance.name}.`)
+  userBalance.value -= coinAmount.value
 }
 </script>

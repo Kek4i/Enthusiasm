@@ -3,7 +3,7 @@ import {computed, onMounted, onBeforeUnmount, watch} from 'vue'
 import {useRoute} from 'vue-router'
 import CommonNav from './components/navigation/CommonNavigationComponent.vue'
 import UniqueNav from './components/navigation/UniqueNavigationComponent.vue'
-import Footer from './components/footer/footerComponent.vue'
+import Footer from './components/footer/FooterComponent.vue'
 
 const route = useRoute()
 

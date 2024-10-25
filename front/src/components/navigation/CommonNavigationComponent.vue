@@ -213,7 +213,7 @@ button:hover {
 
 <script>
 import BurgerMenu from './NavBurger.vue';
-import LoginModal from '../modalComponent/AuthModal.vue';
+import LoginModal from '@/components/modalComponents/AuthModal.vue';
 
 export default {
   name: 'CommonNav',

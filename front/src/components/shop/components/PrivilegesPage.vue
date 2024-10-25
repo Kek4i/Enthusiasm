@@ -184,7 +184,7 @@
 <script setup>
 import { ref, onMounted, watch, onBeforeUnmount } from 'vue';
 import { useRoute } from 'vue-router';
-import PrivilegesModal from "../components/privilegesModal.vue";
+import PrivilegesModal from "./PrivilegesModal.vue";
 
 import rubyCreateImage from '@/assets/icons/Ruby.gif'
 import sapphireCreateImage from '@/assets/icons/Sapphire.gif'

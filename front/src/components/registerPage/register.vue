@@ -311,7 +311,7 @@
 
 <script setup>
 import { ref } from 'vue';
-import LoginModal from '../modalComponent/AuthModal.vue';
+import LoginModal from '@/components/modalComponents/AuthModal.vue';
 
 const email = ref('');
 const username = ref('');
