@@ -20,14 +20,42 @@
         <router-link to="/other" @click.native="closeMenu">Прочее</router-link>
       </li>
     </ul>
-    <button class="nav__burger-account" @click="handlePersonalCabinetClick">Личный кабинет</button>
+    <div v-if="isAuthenticated" class="nav__mini-profile" @click="toggleProfileMenu">
+      <div class="mini-profile__login-block">
+        <div class="mini-profile__profile">
+          <div class="mini-profile__user-container">
+            <div class="mini-profile__user">
+              <img alt="avatar" loading="lazy" width="24" height="24" decoding="async" class="mini-profile__avatar" :src="userAvatar" />
+              <span class="mini-profile__nickname">{{ userNickname }}</span>
+            </div>
+            <div class="mini-profile__balance">
+              <div class="mini-profile__balance-item">
+                <img alt="entcoins" loading="lazy" width="19" height="22" decoding="async" src="@/assets/icons/entcoins.svg" />
+                <span>{{ userEntCoins }}</span>
+              </div>
+              <div class="mini-profile__balance-item">
+                <img alt="coins" loading="lazy" width="22" height="22" decoding="async" src="@/assets/icons/coins.svg" />
+                <span>{{ userCoins }}</span>
+              </div>
+            </div>
+          </div>
+          <transition name="fade">
+            <div v-if="isProfileMenuOpen" class="mini-profile__hovered-profile">
+              <div class="mini-profile__hover-menu">
+                <router-link class="mini-profile__hover-menu-link" to="/account" @click="closeMenu">Личный кабинет</router-link>
+                <div class="mini-profile__hover-menu-link" @click="logout">
+                  Выйти
+                  <img alt="Exit" loading="lazy" width="24" height="25" src="@/assets/icons/account_exit.svg" />
+                </div>
+              </div>
+            </div>
+          </transition>
+        </div>
+      </div>
+    </div>
+    <button v-else class="nav__burger-account" @click="handlePersonalCabinetClick">Личный кабинет</button>
   </div>
-
-  <LoginModal
-      v-if="showLoginModal"
-      :isVisible="showLoginModal"
-      @close="showLoginModal = false"
-  />
+  <LoginModal v-if="showLoginModal" :isVisible="showLoginModal" @close="showLoginModal = false" />
 </template>
 
 <style scoped>
@@ -96,10 +124,127 @@ button:hover {
 .nav__burger-account {
   max-width: 222px;
 }
+
+.nav__mini-profile {
+  display: block;
+}
+
+.mini-profile__login-block {
+  display: flex;
+  gap: 16px;
+}
+
+.mini-profile__profile {
+  position: relative;
+  cursor: pointer;
+}
+
+.mini-profile__user-container {
+  display: flex;
+  flex-direction: column;
+  padding: 7px;
+  align-items: center;
+  gap: 8px;
+  width: 200px;
+  border-radius: 8px;
+  background: hsla(0, 0%, 100%, .05);
+}
+
+.mini-profile__user {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.mini-profile__avatar {
+  color: transparent;
+  border-radius: 3px;
+}
+
+.mini-profile__nickname {
+  color: #fff;
+  text-align: center;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.mini-profile__balance {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 4px;
+  border-radius: 6px;
+  background: hsla(0, 0%, 100%, .05);
+}
+
+.mini-profile__balance-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #fff;
+  text-align: center;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.mini-profile__hovered-profile {
+  display: flex;
+  width: 100%;
+  min-width: fit-content;
+  flex-direction: column;
+  position: absolute;
+  padding-top: 8px;
+}
+
+.mini-profile__hover-menu {
+  background: rgba(62, 62, 62, .7);
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+  color: #fff;
+  text-align: center;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  border-radius: 8px;
+}
+
+.fade-slide-enter-active,
+.fade-slide-leave-active {
+  transition: all 0.3s;
+}
+.fade-slide-enter {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+.fade-slide-leave-to {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+.mini-profile__hover-menu-link {
+  display: flex;
+  padding: 8px 16px;
+  gap: 8px;
+  white-space: nowrap;
+  transition: all 0.3s;
+}
+
+.mini-profile__hover-menu-link:hover {
+  color: #FF9370;
+}
+
 </style>
 
 <script>
 import LoginModal from '@/components/modalComponents/AuthModal.vue';
+import avatarIcon from '@/assets/icons/headSteve.png';
 
 export default {
   props: {
@@ -110,8 +255,13 @@ export default {
   },
   data() {
     return {
-      isAuthenticated: false,  // Флаг авторизации пользователя
-      showLoginModal: false
+      isAuthenticated: true,
+      showLoginModal: false,
+      isProfileMenuOpen: false,
+      userAvatar: avatarIcon,
+      userNickname: 'Ooda',
+      userEntCoins: 100,
+      userCoins: 50,
     };
   },
   components: {
@@ -128,6 +278,13 @@ export default {
       } else {
         this.showLoginModal = true;
       }
+    },
+    toggleProfileMenu() {
+      this.isProfileMenuOpen = !this.isProfileMenuOpen;
+    },
+    logout() {
+      this.isAuthenticated = false;
+      this.closeMenu();
     }
   }
 };
