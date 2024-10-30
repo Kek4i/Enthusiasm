@@ -7,18 +7,28 @@
           <div class="title-underline"></div>
         </div>
         <div class="link-list">
-          <router-link v-for="(link, index) in links" :key="index" :to="link.path">
-            <div :class="['link-item', link.disabled ? 'link-item--disabled' : '']">
-              <img :src="link.icon" :alt="link.alt" class="link-image" />
-              <div class="link-text-wrapper">
-                <span class="link-title">{{ link.title }}</span>
-                <span class="link-description">{{ link.description }}</span>
-              </div>
+          <div
+              v-for="(link, index) in links"
+              :key="index"
+              @click="link.isModal ? openModal(link) : $router.push(link.path)"
+              :class="['link-item', link.disabled ? 'link-item--disabled' : '']"
+          >
+            <img :src="link.icon" :alt="link.alt" class="link-image" />
+            <div class="link-text-wrapper">
+              <span class="link-title">{{ link.title }}</span>
+              <span class="link-description">{{ link.description }}</span>
             </div>
-          </router-link>
+          </div>
         </div>
       </div>
     </div>
+    <SupportModal
+        v-if="showModal"
+        :title="modalData.title"
+        :description="modalData.description"
+        :visible="showModal"
+        @close="closeModal"
+    />
   </main>
 </template>
 
@@ -91,6 +101,7 @@ a {
   border-radius: 10px;
   background: hsla(0, 0%, 100%, .05);
   transition: transform 0.2s ease;
+  cursor: pointer;
 }
 
 .link-item:not(.link-item--disabled):hover {
@@ -167,11 +178,24 @@ a {
 </style>
 
 <script setup>
-
 import { ref } from 'vue';
+import SupportModal from './components/SupportModal.vue';
 import adminsCreateImage from '@/assets/icons/admins.png';
 import bonusCreateImage from '@/assets/icons/bonus.png';
 import vacationCreateImage from '@/assets/icons/vacation.png';
+import supportCreateImage from "@/assets/icons/support.webp";
+
+const showModal = ref(false);
+const modalData = ref({});
+
+const openModal = (link) => {
+  modalData.value = link;
+  showModal.value = true;
+};
+
+const closeModal = () => {
+  showModal.value = false;
+};
 
 const links = ref([
   {
@@ -181,6 +205,16 @@ const links = ref([
     description: 'Те самые люди, которые делают игру лучше и приятнее!',
     alt: 'Команда проекта',
     disabled: false,
+    isModal: false
+  },
+  {
+    path: '',
+    icon: supportCreateImage,
+    title: 'Поддержка',
+    description: 'Ответы на большинство вопросов, различные ошибки и способы их решения.',
+    alt: 'Поддержка',
+    disabled: false,
+    isModal: true
   },
   {
     path: '/account/votetop',
@@ -189,6 +223,7 @@ const links = ref([
     description: 'Поддерживай наш проект и получай бонусы!',
     alt: 'Бонусы',
     disabled: false,
+    isModal: false
   },
   {
     path: '/other/vacancies',
@@ -197,7 +232,7 @@ const links = ref([
     description: 'Ищем людей, у которых есть желание присоединиться к команде проекта.',
     alt: 'Вакансии',
     disabled: false,
+    isModal: false
   }
 ]);
-
 </script>
