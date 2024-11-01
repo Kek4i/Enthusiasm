@@ -15,7 +15,7 @@
         </div>
         <div class="PaymentMethod_minAvailable-blocker" :class="{ 'PaymentMethod_minAvailable-blocker-active': isBlocked(method.minAmount) }">
           От {{ method.minAmount }}
-          <img alt="entcoins" width="28" height="32" src="@/assets/icons/entcoins.svg">
+          <img alt="entcoins" width="28" height="32" src="../../../assets/icons/accountPage/entcoins.svg">
         </div>
       </div>
     </div>

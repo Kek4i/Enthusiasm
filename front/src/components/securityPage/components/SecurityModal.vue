@@ -1,7 +1,7 @@
 <template>
   <div class="modal-backdrop">
     <div class="modal">
-      <img alt="close" src="@/assets/icons/close.svg" class="modal__close-icon" @click="$emit('close')">
+      <img alt="close" src="../../../assets/icons/common/close.svg" class="modal__close-icon" @click="$emit('close')">
       <div class="modal__header">2FA Telegram</div>
       <div class="modal__body">
         <form>
@@ -13,7 +13,7 @@
               <span class="text">Код:</span>
               <div class="input-icon-container">
                 <div class="input input-disabled">{{ code }}</div>
-                <img src="@/assets/icons/file-multiple.svg" class="icon" alt="copy" @click="copyCode">
+                <img src="../../../assets/icons/accountPage/file-multiple.svg" class="icon" alt="copy" @click="copyCode">
               </div>
               <span class="text">Важно: подключен может быть только один бот.</span>
             </div>

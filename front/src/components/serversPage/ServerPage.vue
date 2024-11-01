@@ -18,13 +18,13 @@
               <div class="server-tag" :class="server.tag === 'NEW' ? 'tag-new' : server.tag === 'WIPE' ? 'tag-wipe' : server.tag === 'SEASON' ? 'tag-season' : ''">{{ server.tag }}</div>
               <div class="server-status">
                 <template v-if="server.status === 'online'">
-                  <span>{{ server.online }}</span><img alt="onlineIcon" src="@/assets/icons/status_online.png"/>
+                  <span>{{ server.online }}</span><img alt="onlineIcon" src="../../assets/icons/serverPage/status_online.png"/>
                 </template>
                 <template v-else-if="server.status === 'offline'">
-                  <span class="status-offline">Оффлайн</span><img alt="offlineIcon" src="@/assets/icons/status_offline.png"/>
+                  <span class="status-offline">Оффлайн</span><img alt="offlineIcon" src="../../assets/icons/serverPage/status_offline.png"/>
                 </template>
                 <template v-else-if="server.status === 'maintenance'">
-                  <span class="status-maintenance">Тех.работы</span><img alt="maintenanceIcon" src="@/assets/icons/status_maintrance.png"/>
+                  <span class="status-maintenance">Тех.работы</span><img alt="maintenanceIcon" src="../../assets/icons/serverPage/status_maintrance.png"/>
                 </template>
               </div>
             </div>
@@ -268,7 +268,7 @@ const servers = ref([
     name: 'HardTech',
     version: '1.20.1',
     online: 120,
-    image: 'src/assets/icons/hardtech.png',
+    image: 'src/assets/icons/serverPage/hardtech.png',
     link: '/servers/hardtech',
     status: 'online',
     tag: 'NEW',
@@ -278,7 +278,7 @@ const servers = ref([
     name: 'HiTech',
     version: '1.20.1',
     online: 110,
-    image: 'src/assets/icons/hitech.png',
+    image: 'src/assets/icons/serverPage/hitech.png',
     link: '/servers/hitech',
     status: 'online',
     tag: 'WIPE',
@@ -288,7 +288,7 @@ const servers = ref([
     name: 'TerraFirmaCreate',
     version: '1.20.1',
     online: 37,
-    image: 'src/assets/icons/terrafirmacreate.png',
+    image: 'src/assets/icons/serverPage/terrafirmacreate.png',
     link: '/servers/terrafirmacreate',
     status: 'online',
     tag: 'NEW',
@@ -298,7 +298,7 @@ const servers = ref([
     name: 'MI:FoundationNew',
     version: '1.19.2',
     online: 32,
-    image: 'src/assets/icons/MIFoundationNew.png',
+    image: 'src/assets/icons/serverPage/MIFoundationNew.png',
     link: '/servers/mif',
     status: 'online',
     tag: 'SEASON',
@@ -308,7 +308,7 @@ const servers = ref([
     name: 'Ind:Upgrade',
     version: '1.12.2',
     online: 0,
-    image: 'src/assets/icons/apgradeIcon.png',
+    image: 'src/assets/icons/serverPage/apgradeIcon.png',
     link: '/servers/industrialupgrade',
     status: 'maintenance',
     tag: 'NEW',
@@ -318,7 +318,7 @@ const servers = ref([
     name: 'HiTech',
     version: '1.7.10',
     online: 0,
-    image: 'src/assets/icons/hitech2.png',
+    image: 'src/assets/icons/serverPage/hitech2.png',
     link: '/servers/hitech1710',
     status: 'offline',
     tag: 'WIPE',

@@ -3,7 +3,7 @@
     <div class="shop-header" v-if="server">
       <div class="shop-title-container">
         <router-link to="/shop">
-          <img src="@/assets/icons/arrow.png" alt="Изменить сервер">
+          <img src="../../../assets/icons/common/arrow.png" alt="Изменить сервер">
         </router-link>
         <span class="shop-title">{{ server.name }}</span>
       </div>
@@ -23,7 +23,7 @@
           <div class="privilege-price-container">
             <div class="privilege-price">
               {{ privilege.price }}
-              <img class="entcoins" src="@/assets/icons/entcoins.svg" alt="entcoins">
+              <img class="entcoins" src="../../../assets/icons/accountPage/entcoins.svg" alt="entcoins">
             </div>
           </div>
         </div>
@@ -186,41 +186,41 @@ import { ref, onMounted, watch, onBeforeUnmount } from 'vue';
 import { useRoute } from 'vue-router';
 import PrivilegesModal from "./PrivilegesModal.vue";
 
-import rubyCreateImage from '@/assets/icons/Ruby.gif'
-import sapphireCreateImage from '@/assets/icons/Sapphire.gif'
-import adamantCreateImage from '@/assets/icons/Adamant.gif'
-import titanCreateImage from '@/assets/icons/Titan.gif'
-import chaosCreateImage from '@/assets/icons/Chaos.gif'
-import infinityCreateImage from '@/assets/icons/Infinity.gif'
+import rubyCreateImage from '@/assets/icons/shopPage/Ruby.gif'
+import sapphireCreateImage from '@/assets/icons/shopPage/Sapphire.gif'
+import adamantCreateImage from '@/assets/icons/shopPage/Adamant.gif'
+import titanCreateImage from '@/assets/icons/shopPage/Titan.gif'
+import chaosCreateImage from '@/assets/icons/shopPage/Chaos.gif'
+import infinityCreateImage from '@/assets/icons/shopPage/Infinity.gif'
 
-import toolsCreateImage from '@/assets/icons/Tools.png'
-import mobsCreateImage from '@/assets/icons/mobs.png'
-import jetpackCreateImage from '@/assets/icons/jetpack.png'
-import nanoCreateImage from '@/assets/icons/nano.png'
-import resCreateImage from '@/assets/icons/res.png'
-import rubypngCreateImage from '@/assets/icons/ruby.png'
-import ultrananoCreateImage from '@/assets/icons/Ultranano.png'
-import extraarmorCreateImage from '@/assets/icons/Extraarmor.png'
-import ultratoolsCreateImage from '@/assets/icons/Ultratools.png'
-import beehiveCreateImage from '@/assets/icons/Beehive.png'
-import sapphirepngCreateImage from '@/assets/icons/Sapphire.png'
-import woolCreateImage from '@/assets/icons/Wool.png'
-import matterCreateImage from '@/assets/icons/Matter.png'
-import quantCreateImage from '@/assets/icons/Quant.png'
-import adamantpngCreateImage from '@/assets/icons/Adamant.png'
-import buildCreateImage from '@/assets/icons/Build.png'
-import titanpngCreateImage from '@/assets/icons/Titan.png'
-import endlessblocksCreateImage from '@/assets/icons/endlessblocks.png'
-import cosmeticwingsCreateImage from '@/assets/icons/CosmeticWings.png'
-import chaospngCreateImage from '@/assets/icons/Chaos.png'
-import ic2CreateImage from '@/assets/icons/Ic2.png'
-import ae2kitCreateImage from '@/assets/icons/Ae2kit.png'
-import ocCreateImage from '@/assets/icons/Oc.png'
-import forestryCreateImage from '@/assets/icons/Forestry.png'
-import infinitypngCreateImage from '@/assets/icons/Infinity.png'
-import tronCreateImage from '@/assets/icons/Tron.png'
-import endlessblocks2CreateImage from '@/assets/icons/endlessblocks2.png'
-import endlessblocks3CreateImage from '@/assets/icons/endlessblocks3.png'
+import toolsCreateImage from '@/assets/icons/shopPage/privilege/Tools.png'
+import mobsCreateImage from '@/assets/icons/shopPage/privilege/mobs.png'
+import jetpackCreateImage from '@/assets/icons/shopPage/privilege/jetpack.png'
+import nanoCreateImage from '@/assets/icons/shopPage/privilege/nano.png'
+import resCreateImage from '@/assets/icons/shopPage/privilege/res.png'
+import rubypngCreateImage from '@/assets/icons/shopPage/privilege/ruby.png'
+import ultrananoCreateImage from '@/assets/icons/shopPage/privilege/Ultranano.png'
+import extraarmorCreateImage from '@/assets/icons/shopPage/privilege/Extraarmor.png'
+import ultratoolsCreateImage from '@/assets/icons/shopPage/privilege/Ultratools.png'
+import beehiveCreateImage from '@/assets/icons/shopPage/privilege/Beehive.png'
+import sapphirepngCreateImage from '@/assets/icons/shopPage/privilege/Sapphire.png'
+import woolCreateImage from '@/assets/icons/shopPage/privilege/Wool.png'
+import matterCreateImage from '@/assets/icons/shopPage/privilege/Matter.png'
+import quantCreateImage from '@/assets/icons/shopPage/privilege/Quant.png'
+import adamantpngCreateImage from '@/assets/icons/shopPage/privilege/Adamant.png'
+import buildCreateImage from '@/assets/icons/shopPage/privilege/Build.png'
+import titanpngCreateImage from '@/assets/icons/shopPage/privilege/Titan.png'
+import endlessblocksCreateImage from '@/assets/icons/shopPage/privilege/endlessblocks.png'
+import cosmeticwingsCreateImage from '@/assets/icons/shopPage/privilege/CosmeticWings.png'
+import chaospngCreateImage from '@/assets/icons/shopPage/privilege/Chaos.png'
+import ic2CreateImage from '@/assets/icons/shopPage/privilege/Ic2.png'
+import ae2kitCreateImage from '@/assets/icons/shopPage/privilege/Ae2kit.png'
+import ocCreateImage from '@/assets/icons/shopPage/privilege/Oc.png'
+import forestryCreateImage from '@/assets/icons/shopPage/privilege/Forestry.png'
+import infinitypngCreateImage from '@/assets/icons/shopPage/privilege/Infinity.png'
+import tronCreateImage from '@/assets/icons/shopPage/privilege/Tron.png'
+import endlessblocks2CreateImage from '@/assets/icons/shopPage/privilege/endlessblocks2.png'
+import endlessblocks3CreateImage from '@/assets/icons/shopPage/privilege/endlessblocks3.png'
 
 const servers = [
   {

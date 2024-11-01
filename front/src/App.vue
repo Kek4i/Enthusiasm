@@ -147,7 +147,7 @@ body.mif-page-background {
 }
 
 body.terrafirmacreate-background {
-  background: url('@/assets/icons/background.png');
+  background: url('./assets/icons/serverPage/terrafirmacreatePage/background.png');
   background-size: cover;
 }
 

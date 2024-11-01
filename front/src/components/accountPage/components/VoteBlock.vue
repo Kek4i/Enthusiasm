@@ -10,7 +10,7 @@
           <span>McRating</span>
           <span class="bonus-wrapper">
             <span>+20</span>
-            <img src="@/assets/icons/coins.svg" alt="coins" width="20" height="26">
+            <img src="../../../assets/icons/accountPage/coins.svg" alt="coins" width="20" height="26">
           </span>
         </button>
       </a>
@@ -19,7 +19,7 @@
           <span>McServers</span>
           <span class="bonus-wrapper">
             <span>+10</span>
-            <img src="@/assets/icons/coins.svg" alt="coins" width="20" height="26">
+            <img src="../../../assets/icons/accountPage/coins.svg" alt="coins" width="20" height="26">
           </span>
         </button>
       </a>

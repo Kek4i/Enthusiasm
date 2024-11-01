@@ -180,10 +180,10 @@ a {
 <script setup>
 import { ref } from 'vue';
 import SupportModal from './components/SupportModal.vue';
-import adminsCreateImage from '@/assets/icons/admins.png';
-import bonusCreateImage from '@/assets/icons/bonus.png';
-import vacationCreateImage from '@/assets/icons/vacation.png';
-import supportCreateImage from "@/assets/icons/support.webp";
+import adminsCreateImage from '@/assets/icons/otherPage/admins.png';
+import bonusCreateImage from '@/assets/icons/otherPage/bonus.png';
+import vacationCreateImage from '@/assets/icons/otherPage/vacation.png';
+import supportCreateImage from "@/assets/icons/otherPage/support.webp";
 
 const showModal = ref(false);
 const modalData = ref({});

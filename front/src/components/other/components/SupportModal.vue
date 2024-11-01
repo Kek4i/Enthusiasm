@@ -1,19 +1,19 @@
 <template>
   <div v-if="visible" class="modal-backdrop" @click="close">
     <div class="modal" @click.stop>
-      <img @click="close" alt="close" src="@/assets/icons/close.svg" class="modal__close-icon">
+      <img @click="close" alt="close" src="../../../assets/icons/common/close.svg" class="modal__close-icon">
       <div class="modal__header">Способы связи</div>
       <div class="modal__body">
         <div class="PageList_modal">
           <a href="https://u.enthusiasm.world/discordsupport">
             <div class="PageList_item">
-              <img src="@/assets/icons/discord.svg" alt="Discord">
+              <img src="../../../assets/icons/otherPage/components/discord.svg" alt="Discord">
               <span class="PageList_name">Discord</span>
             </div>
           </a>
           <a href="https://u.enthusiasm.world/telegramsupport">
             <div class="PageList_item">
-              <img src="@/assets/icons/telegram.svg" alt="Telegram">
+              <img src="../../../assets/icons/otherPage/components/telegram.svg" alt="Telegram">
               <span class="PageList_name">Telegram</span>
             </div>
           </a>

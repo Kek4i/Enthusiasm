@@ -1,7 +1,7 @@
 <template>
   <div v-if="isVisible" class="modal-backdrop">
     <div class="modal-content">
-      <img @click="closeModal" class="close-icon" src="@/assets/icons/close.svg" alt="close" />
+      <img @click="closeModal" class="close-icon" src="../../../assets/icons/common/close.svg" alt="close" />
       <div class="modal-header">{{ selectedPrivilege.name }}</div>
       <div class="modal-body">
         <div class="privilege-description">
@@ -20,7 +20,7 @@
       <div class="modal-footer">
         <button class="buy-btn">Купить</button>
         <button class="gift-btn">
-          <img src="@/assets/icons/gift.svg" alt="gift" />
+          <img src="../../../assets/icons/shopPage/gift.svg" alt="gift" />
         </button>
       </div>
     </div>

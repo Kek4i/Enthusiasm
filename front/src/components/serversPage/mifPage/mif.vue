@@ -74,14 +74,14 @@ import FeatureList from './components/FeatureList.vue';
 import GregTechFeatures from './components/GregTechFeatures.vue';
 import ModList from './components/ModList.vue';
 
-import multi_progressionCreateImage from '@/assets/icons/multi_progression.png'
-import artefactsCreateImage from '@/assets/icons/artefacts.png'
-import economyCreateImage from '@/assets/icons/economy.png'
-import custom_contentCreateImage from '@/assets/icons/custom_content.png'
-import many_way_to_farmCreateImage from '@/assets/icons/many_way_to_farm.png'
-import multi_blocksCreateImage from '@/assets/icons/multi_blocks.png'
-import dungeonsCreateImage from '@/assets/icons/dungeons.png'
-import veinsCreateImage from '@/assets/icons/meat.png'
+import multi_progressionCreateImage from '@/assets/icons/serverPage/mifPage/multi_progression.png'
+import artefactsCreateImage from '@/assets/icons/serverPage/mifPage/artefacts.png'
+import economyCreateImage from '@/assets/icons/serverPage/mifPage/economy.png'
+import custom_contentCreateImage from '@/assets/icons/serverPage/mifPage/custom_content.png'
+import many_way_to_farmCreateImage from '@/assets/icons/serverPage/mifPage/many_way_to_farm.png'
+import multi_blocksCreateImage from '@/assets/icons/serverPage/mifPage/multi_blocks.png'
+import dungeonsCreateImage from '@/assets/icons/serverPage/mifPage/dungeons.png'
+import veinsCreateImage from '@/assets/icons/serverPage/mifPage/meat.png'
 
 
 import { onMounted } from 'vue';

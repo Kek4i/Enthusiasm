@@ -1,7 +1,7 @@
 <template>
   <div class="modal-overlay" @click="closeModal">
     <div class="modal-content" @click.stop>
-      <img class="modal-close-icon" @click="closeModal" src="@/assets/icons/close.svg" alt="close" />
+      <img class="modal-close-icon" @click="closeModal" src="../../../assets/icons/common/close.svg" alt="close" />
       <div class="modal-header">Выберите сервер</div>
       <div class="modal-body">
         <div v-for="subServer in subServers" :key="subServer.id" class="server-card" @click="goToSubServer(subServer)">
@@ -12,15 +12,15 @@
               <div class="server-status">
                 <template v-if="subServer.status === 'online'">
                   <span>{{ subServer.online }}</span>
-                  <img alt="onlineIcon" src="@/assets/icons/status_online.png" />
+                  <img alt="onlineIcon" src="../../../assets/icons/serverPage/status_online.png" />
                 </template>
                 <template v-else-if="subServer.status === 'offline'">
                   <span class="status-offline">Оффлайн</span>
-                  <img alt="offlineIcon" src="@/assets/icons/status_offline.png" />
+                  <img alt="offlineIcon" src="../../../assets/icons/serverPage/status_offline.png" />
                 </template>
                 <template v-else-if="subServer.status === 'maintenance'">
                   <span class="status-maintenance">Тех.работы</span>
-                  <img alt="maintenanceIcon" src="@/assets/icons/status_maintrance.png" />
+                  <img alt="maintenanceIcon" src="../../../assets/icons/serverPage/status_maintrance.png" />
                 </template>
               </div>
             </div>

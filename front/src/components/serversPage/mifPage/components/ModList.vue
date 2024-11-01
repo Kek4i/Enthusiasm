@@ -19,7 +19,7 @@
         </div>
       </div>
     </div>
-    <img src="@/assets/icons/mercury.png" class="hidden-image_3">
+    <img src="../../../../assets/icons/serverPage/mifPage/mercury.png" class="hidden-image_3">
   </div>
 </template>
 

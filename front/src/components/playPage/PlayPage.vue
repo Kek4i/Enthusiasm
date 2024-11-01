@@ -16,10 +16,10 @@
         </div>
         <div class="clients">
           <a class="client" target="_blank" href="https://enthusiasm.world/Enthusiasm.exe">
-            <img src="@/assets/icons/Windows.png" alt="Windows">
+            <img src="../../assets/icons/playPage/Windows.png" alt="Windows">
           </a>
           <a class="client" target="_blank" href="https://enthusiasm.world/Enthusiasm.jar">
-            <img src="@/assets/icons/Apple.png" alt="Apple">
+            <img src="../../assets/icons/playPage/Apple.png" alt="Apple">
           </a>
         </div>
         <div class="step">

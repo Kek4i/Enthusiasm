@@ -173,12 +173,12 @@ a {
 
 <script setup>
 import { ref } from 'vue';
-import HITECH1710CreateImage from '@/assets/icons/HITECH1710.webp';
-import denrozhdeniyaproektaCreateImage from '@/assets/icons/den-rozhdeniya-proekta.webp';
-import HARDTECH1201CreateImage from '@/assets/icons/HARDTECH1.20.1.webp';
-import HiTechCreateImage from '@/assets/icons/HiTech 1.20.1.png';
-import terraFirmaCreateImage from '@/assets/icons/TERRAFIRMACREATE1.20.1.png';
-import indUpgradeCreateImage from '@/assets/icons/INDUPGRADE.png';
+import HITECH1710CreateImage from '@/assets/icons/mainPage/HITECH1710.webp';
+import denrozhdeniyaproektaCreateImage from '@/assets/icons/mainPage/den-rozhdeniya-proekta.webp';
+import HARDTECH1201CreateImage from '@/assets/icons/mainPage/HARDTECH1.20.1.webp';
+import HiTechCreateImage from '@/assets/icons/mainPage/HiTech 1.20.1.png';
+import terraFirmaCreateImage from '../../assets/icons/mainPage/TERRAFIRMACREATE1.20.1.png';
+import indUpgradeCreateImage from '@/assets/icons/mainPage/INDUPGRADE.png';
 
 const posts = ref([
   {

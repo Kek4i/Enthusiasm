@@ -1,7 +1,7 @@
 <template>
   <div class="modal-backdrop">
     <div class="modal">
-      <img alt="close" src="@/assets/icons/close.svg" class="modal__close-icon" @click="$emit('close')">
+      <img alt="close" src="../../../assets/icons/common/close.svg" class="modal__close-icon" @click="$emit('close')">
       <div class="modal__header">Активация промокода</div>
       <div class="modal__body">
         <form>

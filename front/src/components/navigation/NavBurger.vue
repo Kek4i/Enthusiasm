@@ -30,11 +30,11 @@
             </div>
             <div class="mini-profile__balance">
               <div class="mini-profile__balance-item">
-                <img alt="entcoins" loading="lazy" width="19" height="22" decoding="async" src="@/assets/icons/entcoins.svg" />
+                <img alt="entcoins" loading="lazy" width="19" height="22" decoding="async" src="../../assets/icons/accountPage/entcoins.svg" />
                 <span>{{ userEntCoins }}</span>
               </div>
               <div class="mini-profile__balance-item">
-                <img alt="coins" loading="lazy" width="22" height="22" decoding="async" src="@/assets/icons/coins.svg" />
+                <img alt="coins" loading="lazy" width="22" height="22" decoding="async" src="../../assets/icons/accountPage/coins.svg" />
                 <span>{{ userCoins }}</span>
               </div>
             </div>
@@ -45,7 +45,7 @@
                 <router-link class="mini-profile__hover-menu-link" to="/account" @click="closeMenu">Личный кабинет</router-link>
                 <div class="mini-profile__hover-menu-link" @click="logout">
                   Выйти
-                  <img alt="Exit" loading="lazy" width="24" height="25" src="@/assets/icons/account_exit.svg" />
+                  <img alt="Exit" loading="lazy" width="24" height="25" src="../../assets/icons/navigation/account_exit.svg" />
                 </div>
               </div>
             </div>
@@ -244,7 +244,7 @@ button:hover {
 
 <script>
 import LoginModal from '@/components/modalComponents/AuthModal.vue';
-import avatarIcon from '@/assets/icons/headSteve.png';
+import avatarIcon from '@/assets/icons/navigation/headSteve.png';
 
 export default {
   props: {

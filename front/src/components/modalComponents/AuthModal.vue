@@ -1,7 +1,7 @@
 <template>
   <div v-if="isVisible" class="modal-backdrop" @click.self="closeModal">
     <div class="modal">
-      <img @click="closeModal" alt="close" src="../../assets/icons/close.svg" class="modal__close-icon">
+      <img @click="closeModal" alt="close" src="../../assets/icons/common/close.svg" class="modal__close-icon">
       <div class="modal__header">{{ modalTitle }}</div>
       <div class="modal__body modal__body--login">
         <!-- Авторизация -->

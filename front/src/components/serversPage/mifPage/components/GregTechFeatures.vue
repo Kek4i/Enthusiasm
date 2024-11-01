@@ -16,7 +16,7 @@
         </div>
       </div>
     </div>
-    <img src="@/assets/icons/mars.png" class="hidden-image_2">
+    <img src="../../../../assets/icons/serverPage/mifPage/mars.png" class="hidden-image_2">
   </div>
 </template>
 

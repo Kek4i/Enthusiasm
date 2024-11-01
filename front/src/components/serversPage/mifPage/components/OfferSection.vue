@@ -12,7 +12,7 @@
       </div>
     </div>
   </div>
-  <img src="@/assets/icons/earth.png" class="hidden-image">
+  <img src="../../../../assets/icons/serverPage/mifPage/earth.png" class="hidden-image">
 </template>
 
 <style scoped>

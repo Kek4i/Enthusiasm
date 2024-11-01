@@ -8,7 +8,7 @@
     </div>
     <div class="skin-changer-header">
       <button class="btn btn-gradient skin-changer-button" @click="openModal">
-        <img alt="upload" src="@/assets/icons/upload.svg">
+        <img alt="upload" src="../../../assets/icons/accountPage/upload.svg">
       </button>
       <h4 class="skin-changer-text">Здесь можно установить собственный скин и плащ!</h4>
     </div>
@@ -146,7 +146,7 @@ h2, h4 {
 import { ref, onMounted, onBeforeUnmount } from 'vue';
 import SkinModal from './SkinModal.vue';
 import { SkinViewer } from 'skinview3d';
-import steveSkin from '@/assets/icons/steve.png';
+import steveSkin from '@/assets/icons/accountPage/steve.png';
 
 const skinCanvas = ref(null);
 let viewer = null;

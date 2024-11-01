@@ -137,9 +137,9 @@ import { ref, watch } from 'vue';
 import DepositInput from './components/DepositInput.vue';
 import PaymentMethods from './components/PaymentMethods.vue';
 import ContactButton from './components/ContactButton.vue';
-import cryptoIcon from "@/assets/icons/crypto.svg";
-import payeerIcon from "@/assets/icons/payeer.svg";
-import advcashIcon from "@/assets/icons/advcash.svg";
+import cryptoIcon from "@/assets/icons/balancePage/crypto.svg";
+import payeerIcon from "@/assets/icons/balancePage/payeer.svg";
+import advcashIcon from "@/assets/icons/balancePage/advcash.svg";
 
 const selectedMethod = ref(null);
 const depositAmount = ref('100');

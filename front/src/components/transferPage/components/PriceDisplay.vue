@@ -9,7 +9,7 @@
           width="28"
           height="32"
           decoding="async"
-          src="@/assets/icons/entcoins.svg"
+          src="../../../assets/icons/accountPage/entcoins.svg"
       />
     </span>
   </div>

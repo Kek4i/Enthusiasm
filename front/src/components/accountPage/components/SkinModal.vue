@@ -1,13 +1,13 @@
 <template>
   <div class="modal-backdrop" @click="handleBackdropClick">
     <div class="modal" @click.stop>
-      <img alt="close" src="@/assets/icons/close.svg" class="modal__close-icon" @click="handleBackdropClick">
+      <img alt="close" src="../../../assets/icons/common/close.svg" class="modal__close-icon" @click="handleBackdropClick">
       <div class="modal__header">Установить скин и плащ</div>
       <div class="modal__body">
         <div class="modal__body-container">
           <div class="modal__upload">
             <div class="modal__upload-type">
-              <img src="@/assets/icons/skin.png" alt="skin">
+              <img src="../../../assets/icons/accountPage/skin.png" alt="skin">
               <span class="modal__upload-text">Скин</span>
             </div>
           </div>
@@ -15,7 +15,7 @@
         <div class="modal__body-container">
           <div class="modal__upload">
             <div class="modal__upload-type">
-              <img src="@/assets/icons/cape.png" alt="cape">
+              <img src="../../../assets/icons/accountPage/cape.png" alt="cape">
               <span class="modal__upload-text">Плащ</span>
             </div>
           </div>

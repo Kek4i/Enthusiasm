@@ -14,7 +14,7 @@
         <label for="refLink" class="label">Ваша персональная ссылка</label>
         <div class="input-icon-container">
           <div class="input input-disabled">{{ referralLink }}</div>
-          <img src="@/assets/icons/file-multiple.svg" class="icon" alt="copy" @click="copyReferralLink">
+          <img src="../../../assets/icons/accountPage/file-multiple.svg" class="icon" alt="copy" @click="copyReferralLink">
         </div>
       </div>
     </div>

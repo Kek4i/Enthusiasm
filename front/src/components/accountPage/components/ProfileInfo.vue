@@ -105,8 +105,8 @@ h2 {
 
 <script setup>
 import InfoBlock from './InfoBlock.vue';
-import entcoinsIcon from '@/assets/icons/entcoins.svg';
-import coinsIcon from '@/assets/icons/coins.svg';
+import entcoinsIcon from '@/assets/icons/accountPage/entcoins.svg';
+import coinsIcon from '@/assets/icons/accountPage/coins.svg';
 
 const props = defineProps({
   entcoins: {

@@ -77,7 +77,7 @@ const router = createRouter({
     {
       path: '/other/admins',
       name: 'admins',
-      component: () => import('../components/other/admins/OtherPage.vue')
+      component: () => import('../components/other/admins/AdminPage.vue')
     },
     {
       path: '/account',

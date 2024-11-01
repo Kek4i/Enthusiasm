@@ -12,7 +12,7 @@
               width="24"
               height="24"
               decoding="async"
-              src="@/assets/icons/chevron-down.svg"
+              src="../../../assets/icons/common/chevron-down.svg"
               :class="{ 'rotate': isDropdownOpen }"
           />
         </div>

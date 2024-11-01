@@ -2,7 +2,7 @@
   <header class="header" :class="{ 'header-mif': isHighlightLink('/servers/mif') }">
     <nav class="nav" :class="{ 'nav-mif': isHighlightLink('/servers/mif') }">
       <router-link class="nav__logo" to="/">
-        <img alt="logo" src="../../assets/icons/logo.png">
+        <img alt="logo" src="../../assets/icons/common/logo.png">
       </router-link>
 
       <div class="burger" @click="toggleMenu" :class="{ 'burger--blue': isHighlightLink('/servers/mif') }">

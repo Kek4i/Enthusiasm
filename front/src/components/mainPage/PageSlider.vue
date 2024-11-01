@@ -17,10 +17,10 @@
         <div class="slide-image">
           <img :src="slide.image" :alt="slide.title" />
           <button class="slider-navigation__button slider-navigation__button--prev" @click="prevSlide">
-            <img src="@/assets/icons/arrow.png" alt="Предыдущий слайд" />
+            <img src="../../assets/icons/common/arrow.png" alt="Предыдущий слайд" />
           </button>
           <button class="slider-navigation__button slider-navigation__button--next" @click="nextSlide">
-            <img src="@/assets/icons/arrow.png" alt="Следующий слайд" />
+            <img src="../../assets/icons/common/arrow.png" alt="Следующий слайд" />
           </button>
         </div>
         <div class="slide-buttons-mobile" v-if="isMobile">
@@ -238,22 +238,22 @@ const slides = ref([
   {
     title: 'HARDTECH',
     description: 'Сервер с постепенным техническим развитием. Начни с бронзовых механизмов, изучай новые технологии и дойди до термоядерного синтеза!',
-    image: 'src/assets/icons/hardtech.webp',
+    image: 'src/assets/icons/mainPage/hardtech.webp',
   },
   {
     title: 'TERRAFIRMACREATE',
     description: 'Сервер, предлагающий уникальный геймплей, где реалистичная выживаемость и сложные механизмы сочетаются с автоматизацией процессов.',
-    image: 'src/assets/icons/terrafirmacreate.webp',
+    image: 'src/assets/icons/mainPage/terrafirmacreate.webp',
   },
   {
     title: 'HITECH',
     description: 'Сервер новейших технологий и возможностей. Оригинальные разработки, новые моды, крафты, квесты и уникальная генерация мира ждёт тебя!',
-    image: 'src/assets/icons/hitech.webp',
+    image: 'src/assets/icons/mainPage/hitech.webp',
   },
   {
     title: 'IND:UPGRADE',
     description: 'Уникальный сервер на базе мода Industrial Upgrade, предлагающий огромное количество технологий и постепенную прогрессию улучшения производства.',
-    image: 'src/assets/icons/apgrade.png',
+    image: 'src/assets/icons/mainPage/apgrade.png',
   },
 ]);
 

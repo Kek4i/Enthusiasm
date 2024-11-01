@@ -3,7 +3,7 @@
     <div class="dropdown-select" @click="toggleDropdown">
       <span>{{ selectedOption }}</span>
       <div class="dropdown-arrow-wrapper">
-        <img src="@/assets/icons/chevron-down.svg" alt="arrow" :class="{'rotate': isDropdownOpen}" class="dropdown-arrow" />
+        <img src="../../../assets/icons/common/chevron-down.svg" alt="arrow" :class="{'rotate': isDropdownOpen}" class="dropdown-arrow" />
       </div>
     </div>
     <div v-if="isDropdownOpen" class="dropdown-list">

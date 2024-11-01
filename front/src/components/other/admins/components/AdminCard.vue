@@ -87,8 +87,8 @@
 <script setup>
 
 import { defineProps } from 'vue';
-import discordCreateImage from '@/assets/icons/discord.png'
-import telegramCreateImage from '@/assets/icons/telegram.png'
+import discordCreateImage from '@/assets/icons/footer/discord.png'
+import telegramCreateImage from '@/assets/icons/footer/telegram.png'
 
 const props = defineProps({
   nick: {

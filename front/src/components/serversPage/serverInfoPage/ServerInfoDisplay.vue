@@ -4,7 +4,7 @@
       <div class="server-info__header">
         <div class="server-info__title-container">
           <router-link to="/servers">
-            <img src="@/assets/icons/arrow.png" alt="Изменить сервер" />
+            <img src="../../../assets/icons/common/arrow.png" alt="Изменить сервер" />
           </router-link>
           <h1 class="server-info__title">{{ currentServerData.title }}</h1>
         </div>

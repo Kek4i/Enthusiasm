@@ -11,7 +11,7 @@
           <div class="rule-title-container">
             <div class="rule-title">{{ block.title }}</div>
             <div>
-              <img src="../../../assets/icons/chevron-down.svg" :class="{ 'rotated-icon': block.open }" class="toggle-icon">
+              <img src="../../../assets/icons/common/chevron-down.svg" :class="{ 'rotated-icon': block.open }" class="toggle-icon">
             </div>
           </div>
         </div>

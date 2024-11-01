@@ -1,7 +1,7 @@
 <template>
   <div class="fa-block-container">
     <div class="fa-block" @click="$emit('open-modal')">
-      <img alt="Telegram" src="@/assets/icons/Tg_default.svg">
+      <img alt="Telegram" src="../../../assets/icons/securityPage/Tg_default.svg">
       <span class="fa-name">Telegram</span>
     </div>
   </div>

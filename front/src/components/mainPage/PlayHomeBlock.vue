@@ -7,11 +7,11 @@
     <div class="card-container">
       <div class="info-card play-card">
         <span class="card-title">3 простых шага, чтобы начать играть</span>
-        <router-link to="/play" class="action-button start-button" style="width: 120px; height: 20px;">НАЧАТЬ ИГРАТЬ</router-link>
+        <router-link to="/play" class="action-button start-button" style="width: 200px;">НАЧАТЬ ИГРАТЬ</router-link>
       </div>
       <div class="info-card download-card">
         <span class="card-title">Скачай лаунчер</span>
-        <router-link to="/play" class="action-button download-button" style="width: 120px; height: 20px;">СКАЧАТЬ</router-link>
+        <router-link to="/play" class="action-button download-button" style="width: 120px;">СКАЧАТЬ</router-link>
       </div>
     </div>
   </div>
@@ -84,12 +84,12 @@
 }
 
 .play-card {
-  background-image: url('@/assets/icons/play_bg.png');
+  background-image: url('@/assets/icons/mainPage/play_bg.png');
   background-repeat: no-repeat;
 }
 
 .download-card {
-  background-image: url('@/assets/icons/download_bg.png');
+  background-image: url('@/assets/icons/mainPage/download_bg.png');
   background-repeat: no-repeat;
 }
 
