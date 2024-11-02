@@ -103,6 +103,11 @@ const router = createRouter({
       path: '/account/cart',
       name: 'cart',
       component: () => import('../components/cartPage/CartPage.vue')
+    },
+    {
+      path: '/account/votetop',
+      name: 'votetop',
+      component: () => import('../components/votetopPage/VotetopPage.vue')
     }
   ]
 })
