@@ -247,7 +247,7 @@ const posts = ref([
   {
     id: 6,
     title: 'Ind:Upgrade',
-    link: '/servers/indupgrade',
+    link: '/servers/industrialupgrade',
     imageSrc: indUpgradeCreateImage,
     imageAlt: 'Ind:Upgrade',
     description: `

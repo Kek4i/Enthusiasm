@@ -33,7 +33,10 @@
           <div
               v-for="(mod, index) in currentServerData.mods"
               :key="mod.name"
-              class="tooltip-container server-info__mod"
+              class="server-info__mod"
+          >
+          <span
+              class="tooltip-container"
               @mouseover="setCurrentMod(mod, index)"
               @mouseleave="clearCurrentMod"
           >
@@ -41,6 +44,7 @@
             <span v-if="hoveredModIndex === index" class="tooltip-text">
               {{ mod.description }}
             </span>
+          </span>
           </div>
         </div>
       </div>
@@ -289,12 +293,18 @@ h1, h2, p {
     font-size: 17px;
   }
 
+  .server-info__item-info {
+    font-size: 50px;
+  }
+}
+
+@media (max-width: 630px) {
   .server-info__mods {
     grid-template-columns: repeat(1, 1fr);
   }
 
-  .server-info__item-info {
-    font-size: 50px;
+  .tooltip-text {
+    max-width: 180px;
   }
 }
 

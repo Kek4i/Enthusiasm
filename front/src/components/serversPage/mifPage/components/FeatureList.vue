@@ -52,16 +52,14 @@ h4 {
   max-width: 1140px;
   padding-right: 15px;
   padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto;
+  margin-inline: auto;
   width: 100%;
 }
 
 .row {
   display: flex;
   flex-wrap: wrap;
-  margin-right: -15px;
-  margin-left: -15px;
+  margin-inline: auto;
 }
 
 .col-md-12 {
@@ -76,7 +74,7 @@ h4 {
   padding-bottom: 2rem;
   padding-top: 2rem;
   backdrop-filter: blur(15px);
-  box-shadow: 0 0px 1px rgba(108, 108, 108, 0.421);
+  box-shadow: 0 0 1px rgba(108, 108, 108, 0.421);
 }
 
 .align-items-center {
@@ -119,6 +117,17 @@ h4 {
 .text {
   color: white;
   margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+  .col-md-6 {
+    flex: none;
+    max-width: 100%;
+  }
+
+  .about-server {
+    margin-bottom: 5rem;
+  }
 }
 
 </style>

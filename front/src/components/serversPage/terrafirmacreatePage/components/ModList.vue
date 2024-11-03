@@ -31,16 +31,14 @@ h2 {
   max-width: 1140px;
   padding-right: 15px;
   padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto;
+  margin-inline: auto;
 }
 
 .row {
   display: flex;
   flex-wrap: wrap;
   margin-top: 20px;
-  margin-right: -15px;
-  margin-left: -15px;
+  margin-inline: auto;
 }
 
 .col-md-12 {
@@ -130,6 +128,14 @@ h2 {
   margin-left: 20px;
   height: 24px;
 }
+
+@media (max-width: 768px) {
+  .col-md-6 {
+    max-width: 100%;
+    flex: none;
+  }
+}
+
 </style>
 
 <script setup>

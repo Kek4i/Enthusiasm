@@ -37,16 +37,14 @@ h1 {
   max-width: 1140px;
   padding-right: 15px;
   padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto;
+  margin-inline: auto;
   width: 100%;
 }
 
 .row {
   display: flex;
   flex-wrap: wrap;
-  margin-right: -15px;
-  margin-left: -15px;
+  margin-inline: auto;
 }
 
 .col-md-12 {
@@ -62,7 +60,7 @@ h1 {
   color: white;
   font-size: 1.5rem;
   top: 5rem;
-  box-shadow: 0 0px 1px rgba(108, 108, 108, 0.421);
+  box-shadow: 0 0 1px rgba(108, 108, 108, 0.421);
   text-transform: uppercase;
   text-align: center;
   background-color: hsla(0, 0%, 100%, .05);
@@ -88,6 +86,12 @@ h1 {
   z-index: -1;
   opacity: 1;
   transform: translateX(-40%) translateY(50%);
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
 }
 
 </style>

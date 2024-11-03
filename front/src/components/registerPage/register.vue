@@ -307,6 +307,12 @@
   background: linear-gradient(90deg, #ff626d, #ffc171);
 }
 
+@media (max-width: 768px) {
+  .registration-page {
+    padding: 35px 20px;
+  }
+}
+
 </style>
 
 <script setup>

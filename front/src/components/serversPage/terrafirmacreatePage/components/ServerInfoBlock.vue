@@ -51,18 +51,15 @@ h4 {
   max-width: 1140px;
   padding-right: 15px;
   padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto;
+  margin-inline: auto;
 }
 
 .row {
   display: flex;
   flex-wrap: wrap;
   margin-top: 20px;
-  margin-right: -15px;
-  margin-left: -15px;
+  margin-inline: auto;
 }
-
 
 .title {
   background: -webkit-linear-gradient(left, #FF5F6D, #FFC371);
@@ -78,7 +75,7 @@ h4 {
   padding-bottom: 2rem;
   padding-top: 2rem;
   backdrop-filter: blur(2px);
-  box-shadow: 0 0px 1px rgba(108, 108, 108, 0.421);
+  box-shadow: 0 0 1px rgba(108, 108, 108, 0.421);
   box-sizing: border-box
 }
 
@@ -128,6 +125,13 @@ h4 {
 .img-fluid {
   max-width: 100%;
   height: auto;
+}
+
+@media (max-width: 768px) {
+  .col-md-6 {
+    flex: none;
+    max-width: 100%;
+  }
 }
 
 </style>

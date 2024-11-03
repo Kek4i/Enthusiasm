@@ -50,16 +50,14 @@ h4 {
   max-width: 1140px;
   padding-right: 15px;
   padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto;
+  margin-inline: auto;
   width: 100%;
 }
 
 .row {
   display: flex;
   flex-wrap: wrap;
-  margin-right: -15px;
-  margin-left: -15px;
+  margin-inline: auto;
 }
 
 .col-md-12 {
@@ -160,6 +158,17 @@ h4 {
 .dark-aqua-hover:hover {
   box-shadow: rgba(5, 105, 107, 0.8) 0px 10px 50px -5px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .about-server {
+    margin-bottom: 5rem;
+  }
+
+  .col-md-4 {
+    max-width: 100%;
+    flex: none;
+  }
 }
 
 </style>

@@ -89,6 +89,24 @@ h1 {
   font-size: 1.5rem;
 }
 
+@media (max-width: 768px) {
+  h1 {
+    font-size: 3.5rem;
+  }
+
+  .anonce {
+    font-size: 1.2rem;
+  }
+
+  .col-md-4 {
+    max-width: 38.3333%;
+  }
+
+  .offset-md-4 {
+    margin-left: 32.333333%;
+  }
+}
+
 </style>
 
 <script setup>

@@ -7,7 +7,7 @@
       <div class="col-md-12 d-flex justify-content-center align-items-start">
         <h4>Наша команда провела огромную работу в процессе создания данного сервера.</h4>
       </div>
-      <div class="col-md-12 d-flex justify-content-center align-items-center flex-wrap">
+      <div class="col-md-12 d-flex d-flex-block justify-content-center align-items-center flex-wrap">
         <div class="player-profile text-center" v-for="(member, index) in teamMembers" :key="index">
           <img :src="member.imgSrc" class="player-head img-fluid">
           <h5 class="title">{{ member.name }}</h5>
@@ -20,7 +20,9 @@
         <h2 class="title">Мы уже ждем тебя на сервере!</h2>
       </div>
       <div class="col-md-12 d-flex justify-content-center align-items-start">
-        <button class="btn menu my-2 my-sm-0 main-button">Начать играть</button>
+        <router-link to="/register">
+          <button class="btn menu my-2 my-sm-0 main-button">Начать играть</button>
+        </router-link>
       </div>
     </div>
   </div>
@@ -49,16 +51,14 @@ h4 {
   max-width: 1140px;
   padding-right: 15px;
   padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto;
+  margin-inline: auto;
 }
 
 .row {
   display: flex;
   flex-wrap: wrap;
   margin-top: 20px;
-  margin-right: -15px;
-  margin-left: -15px;
+  margin-inline: auto;
 }
 
 .col-md-12 {
@@ -172,6 +172,12 @@ h4 {
 .main-button:not(:hover) {
   transform: scale(1);
   box-shadow: none;
+}
+
+@media (max-width: 768px) {
+  .d-flex-block {
+    display: block;
+  }
 }
 
 </style>

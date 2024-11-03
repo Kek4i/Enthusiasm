@@ -48,16 +48,14 @@ h3 {
   max-width: 1140px;
   padding-right: 15px;
   padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto;
+  margin-inline: auto;
   width: 100%;
 }
 
 .row {
   display: flex;
   flex-wrap: wrap;
-  margin-right: -15px;
-  margin-left: -15px;
+  margin-inline: auto;
 }
 
 .col-md-12 {
@@ -190,6 +188,16 @@ h3 {
   position: relative;
 }
 
+@media (max-width: 768px) {
+  .about-server {
+    margin-bottom: 5rem;
+  }
+
+  .col-md-4 {
+    flex: none;
+    max-width: 100%;
+  }
+}
 
 </style>
 

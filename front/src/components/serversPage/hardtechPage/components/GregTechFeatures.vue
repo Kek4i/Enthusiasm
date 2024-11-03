@@ -54,16 +54,14 @@ h4 {
   max-width: 1140px;
   padding-right: 15px;
   padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto;
+  margin-inline: auto;
   width: 100%;
 }
 
 .row {
   display: flex;
   flex-wrap: wrap;
-  margin-right: -15px;
-  margin-left: -15px;
+  margin-inline: auto;
 }
 
 .col-md-12 {
@@ -124,6 +122,21 @@ h4 {
 .text {
   color: white;
   margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+  .about-server {
+    margin-bottom: 5rem;
+  }
+
+  .col-md-6 {
+    flex: none;
+    max-width: 100%;
+  }
+
+  .about-row {
+    margin-top: 0;
+  }
 }
 
 </style>
